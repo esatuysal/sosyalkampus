@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "sayi": "250+",
+      "etiket": "Üye"
+    },
+    {
+      "sayi": "40+",
+      "etiket": "Etkinlik"
+    },
+    {
+      "sayi": "12",
+      "etiket": "Proje"
+    },
+    {
+      "sayi": "5",
+      "etiket": "Komisyon"
+    }
+  ]
+}

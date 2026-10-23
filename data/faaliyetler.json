@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "ikon": "🎤",
+      "baslik": "Söyleşi ve Seminerler",
+      "aciklama": "Sektör ve akademi konuklarıyla kariyer buluşmaları."
+    },
+    {
+      "ikon": "💙",
+      "baslik": "Sosyal Sorumluluk",
+      "aciklama": "Gönüllülük ve yardım kampanyaları."
+    },
+    {
+      "ikon": "🎉",
+      "baslik": "Kampüs Şenlikleri",
+      "aciklama": "Tanışma, turnuva ve kültür etkinlikleri."
+    },
+    {
+      "ikon": "💡",
+      "baslik": "Eğitim Atölyeleri",
+      "aciklama": "Yazılım, tasarım ve kişisel gelişim atölyeleri."
+    }
+  ]
+}
