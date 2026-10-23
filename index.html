@@ -457,7 +457,7 @@ function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){retur
 function img(p){return String(p||'').replace(/^\//,'')}
 function put(sel,list,fn){var el=document.querySelector(sel);if(el&&Array.isArray(list))el.innerHTML=list.map(fn).join('')}
 put('.sb',get('istatistikler'),function(o){return '<div><b>'+esc(o.sayi)+'</b><span>'+esc(o.etiket)+'</span></div>'});
-put('#duyurular .grid',get('duyurular'),function(o){return '<a class="n" href="'+esc(o.link||'#')+'"><div class="im"></div><div class="t"><time>'+esc(o.tarih)+'</time><h3>'+esc(o.baslik)+'</h3></div></a>'});
+put('#duyurular .grid',get('duyurular'),function(o){return '<a class="n" href="'+esc(o.link||'#')+'"><div class="im"'+(o.gorsel?' style="background:url(&#39;'+esc(img(o.gorsel))+'&#39;) center/cover no-repeat"':'')+'></div><div class="t"><time>'+esc(o.tarih)+'</time><h3>'+esc(o.baslik)+'</h3></div></a>'});
 put('#faaliyetler .grid',get('faaliyetler'),function(o){return '<div class="card"><div class="ic">'+esc(o.ikon)+'</div><h3>'+esc(o.baslik)+'</h3><p>'+esc(o.aciklama)+'</p></div>'});
 put('#gal',get('galeri'),function(o){return '<button type="button" data-cap="'+esc(o.baslik)+'"><img src="'+esc(img(o.gorsel))+'" alt="'+esc(o.baslik)+'" loading="lazy"><span>'+esc(o.baslik)+'</span></button>'});
 })();
