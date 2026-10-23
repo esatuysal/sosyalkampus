@@ -395,7 +395,7 @@ document.querySelectorAll('.gal button').forEach(function(b){b.addEventListener(
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();lbc()}});
 document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();document.getElementById('nav').classList.remove('open');open()})});
 var seen=false;try{seen=sessionStorage.getItem('sk_popup')}catch(e){}
-if(!seen){setTimeout(open,3700);try{sessionStorage.setItem('sk_popup','1')}catch(e){}}
+if(!seen){setTimeout(open,matchMedia('(prefers-reduced-motion:reduce)').matches?500:2900);try{sessionStorage.setItem('sk_popup','1')}catch(e){}}
 document.querySelectorAll('[data-form]').forEach(function(f){
 f.addEventListener('submit',function(e){
 e.preventDefault();
