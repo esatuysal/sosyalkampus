@@ -78,11 +78,16 @@ input:focus,select:focus,textarea:focus{border-color:var(--bright)}
 .info .ic{margin:0;flex:none;width:44px;height:44px;font-size:19px}
 .info b{display:block;font-size:14px;color:var(--mut);font-weight:600}
 .info a:hover{color:var(--bright)}
+.info a,.info div{overflow-wrap:anywhere;min-width:0}
+.contact>*{min-width:0}
 footer{background:var(--navy);color:#a9b9e6;padding:48px 0 34px;font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
 footer .brand{color:#fff}
 footer a:hover{color:#fff}
 .ic svg{display:block}
+.lg{display:flex;align-items:center;gap:16px;min-width:0;flex:1}
+.uw{display:flex;align-items:center;padding-left:16px;border-left:1.5px solid var(--line)}
+.uw img{height:30px;width:auto;display:block}
 .top{background:var(--navy);color:#c3d1f7;font-size:13px}
 .top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
 .top a{display:flex;align-items:center;gap:10px;font-weight:600}
@@ -131,7 +136,8 @@ nav a.join{margin:6px 0 0;text-align:center}
 section{padding:70px 0}}
 @media(max-width:860px){
 .top .wrap>span{display:none}.top .wrap{padding-top:6px;padding-bottom:6px}
-header .wrap{height:62px}.brand img{width:40px;height:40px}.brand{font-size:16px}
+header .wrap{height:62px}
+.lg{gap:8px}.uw{padding-left:8px}.uw img{height:17px}.brand{font-size:15px;white-space:nowrap}.brand img{width:36px;height:36px}.brand small{font-size:11px}.brand img{width:40px;height:40px}.brand{font-size:16px}
 nav{top:62px}
 .hero .wrap{padding:34px 20px 70px;gap:0}
 .hero .logo{display:none}
@@ -160,16 +166,14 @@ footer{padding:26px 0 22px}
 footer .wrap{flex-direction:column;align-items:flex-start;gap:12px}
 .fl{height:64px}
 }
+@media(max-width:370px){.uw img{height:14px}.brand{font-size:14px}.brand small{display:none}.brand img{width:32px;height:32px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 
-<div class="top"><div class="wrap">
-<a href="https://www.iuc.edu.tr/tr" target="_blank" rel="noopener"><img class="uni-logo" src="iuc-logo.png" alt="" onerror="this.remove()">İstanbul Üniversitesi-Cerrahpaşa</a>
-<span>Avcılar Yerleşkesi · 34320 Avcılar / İstanbul</span></div></div>
 <header><div class="wrap">
-<a class="brand" href="#"><img src="logo.png" alt="Sosyal Kampüs logosu"><span>Sosyal Kampüs<small>Öğrenci Kulübü</small></span></a>
+<div class="lg"><a class="brand" href="#"><img src="logo.png" alt="Sosyal Kampüs logosu"><span>Sosyal Kampüs<small>Öğrenci Kulübü</small></span></a><a class="uw" href="https://www.iuc.edu.tr/tr" target="_blank" rel="noopener" aria-label="İstanbul Üniversitesi-Cerrahpaşa"><img src="iuc-wide-logo.png" alt="İstanbul University Cerrahpaşa"></a></div>
 <button class="menu" aria-label="Menüyü aç" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
 <nav id="nav"><ul>
 <li><a href="#hakkimizda">Hakkımızda</a></li>
@@ -179,11 +183,14 @@ footer .wrap{flex-direction:column;align-items:flex-start;gap:12px}
 <li><a href="#iletisim">İletişim</a></li>
 <li><a class="join" href="#uyelik" data-open>Üye Ol</a></li>
 </ul></nav></div></header>
+<div class="top"><div class="wrap">
+<a href="https://www.iuc.edu.tr/tr" target="_blank" rel="noopener">İstanbul Üniversitesi-Cerrahpaşa</a>
+<span>Avcılar Yerleşkesi · 34320 Avcılar / İstanbul</span></div></div>
 
 <main>
 <div class="hero"><div class="wrap">
 <div>
-<span class="pill">İstanbul Üniversitesi-Cerrahpaşa · Avcılar Yerleşkesi</span>
+<span class="pill">Avcılar Yerleşkesi · Öğrenci Kulübü</span>
 <h1>Kampüsü birlikte yaşatıyoruz.</h1>
 <p>Sosyal Kampüs, İstanbul Üniversitesi-Cerrahpaşa öğrencilerini etkinlik, söyleşi ve dayanışma projeleriyle bir araya getiren resmi öğrenci kulübüdür.</p>
 <button class="btn p" data-open>Kulübe katıl</button><a class="btn o" href="#faaliyetler">Faaliyetleri gör</a>
