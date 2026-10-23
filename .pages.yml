@@ -16,6 +16,7 @@ content:
         fields:
           - { name: tarih, label: Tarih (ör. 01 Kasım 2026), type: string }
           - { name: baslik, label: Başlık, type: string }
+          - { name: gorsel, label: Fotoğraf (isteğe bağlı), type: image }
           - { name: link, label: Bağlantı (isteğe bağlı), type: string }
 
   - name: galeri
