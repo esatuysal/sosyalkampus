@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sosyal Kampüs | İstanbul Üniversitesi-Cerrahpaşa Öğrenci Kulübü</title>
 <meta name="theme-color" content="#000d4d">
 <meta property="og:title" content="Sosyal Kampüs | İÜC Öğrenci Kulübü">
@@ -273,11 +273,21 @@ footer .brand{font-size:21px;align-items:center}footer .brand img{width:54px;hei
 .acl li b{color:var(--bright)}
 .acl li small{margin-left:auto;text-align:right;font-size:11px;font-weight:500;color:var(--mut)}
 .acl li.on,.acl li:hover{background:var(--sky)}
-.info a{display:inline-block;font-weight:800;font-size:16px;letter-spacing:.01em;color:#1b3f9c;text-shadow:0 1px 0 #fff,0 -1px 0 rgba(0,13,77,.38),1px 2px 3px rgba(10,60,160,.28);transition:text-shadow .25s,transform .25s,color .25s}
-.info a:hover{color:var(--blue);transform:translateY(-1px);text-shadow:0 1px 0 #fff,0 -1px 0 rgba(0,13,77,.45),2px 4px 6px rgba(10,60,160,.35)}
+.info a{display:inline-block;font-weight:700;font-size:16px;letter-spacing:.01em;color:var(--blue);transition:color .2s}
+.info a:hover{color:var(--bright)}
 .info a.addr{line-height:1.5}
-.info a .dir{display:block;margin-top:6px;font-size:13px;font-weight:800;color:var(--blue)}
-@media(prefers-color-scheme:dark){.info a{color:#d6e4ff;text-shadow:0 -1px 0 rgba(0,0,0,.85),0 1px 0 rgba(130,170,255,.4),1px 3px 5px rgba(0,0,0,.55)}.info a:hover{color:#fff}.info a .dir{color:var(--bright)}}
+@media(prefers-color-scheme:dark){.info a{color:#9cc0ff}.info a:hover{color:#fff}}
+/* v6 */
+html{background:#11263e}
+
+.sbar{position:relative;background:#11263e;color:#c9d6f5;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 16px calc(22px + env(safe-area-inset-bottom,0px));font-size:13px;font-weight:500}
+.sbar img{width:28px;height:28px;border-radius:8px;object-fit:cover;flex:none}
+
+.ew{position:relative}
+.ew input{padding-right:112px}
+.ew .gm{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:1px solid var(--line);background:var(--sky);color:var(--blue);border-radius:9px;padding:6px 10px;font:inherit;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
+.ew .gm:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.ew .gm[hidden]{display:none}
 @media(max-width:860px){
 .ov{align-items:flex-start;padding:14px 12px 0}
 .modal{max-height:calc(100vh - 28px);max-height:calc(100svh - 28px);padding:0 20px 18px}
@@ -417,22 +427,21 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <ul class="info"><li><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div><div><b>Bizi Instagramdan Takip Et!! 👀</b><a href="https://instagram.com/iucsosyalkampus" target="_blank" rel="noopener">@iucsosyalkampus</a></div></li>
 <li><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 8 8 6 8-6"/></svg></div><div><b>E-posta</b><a href="mailto:iucsosyalkampus@gmail.com">iucsosyalkampus@gmail.com</a></div></li>
 <li><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div><div><b>Kurucu / Başkan</b><a href="https://instagram.com/turanberat__" target="_blank" rel="noopener">@turanberat__</a></div></li>
-<li><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><b>Adres</b><a class="addr" id="addr" href="https://www.google.com/maps/dir/?api=1&destination=%C4%B0stanbul%20%C3%9Cniversitesi-Cerrahpa%C5%9Fa%20Avc%C4%B1lar%20Yerle%C5%9Fkesi%2C%20Avc%C4%B1lar%2C%20%C4%B0stanbul&travelmode=driving" target="_blank" rel="noopener" aria-label="Yol tarifi al">İstanbul Üniversitesi-Cerrahpaşa<br>Avcılar Yerleşkesi 34320<br>Avcılar / İstanbul<span class="dir">📍 Yol tarifi al ➜</span></a></div></li></ul></div></div></div></section>
+<li><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><b>Adres</b><a class="addr" id="addr" href="https://www.google.com/maps/dir/?api=1&destination=%C4%B0stanbul%20%C3%9Cniversitesi-Cerrahpa%C5%9Fa%20Avc%C4%B1lar%20Yerle%C5%9Fkesi%2C%20Avc%C4%B1lar%2C%20%C4%B0stanbul&travelmode=driving" target="_blank" rel="noopener" aria-label="Adresi haritada aç">İstanbul Üniversitesi-Cerrahpaşa<br>Avcılar Yerleşkesi 34320<br>Avcılar / İstanbul</a></div></li></ul></div></div></div></section>
 </main>
 
 <footer><div class="wrap fc">
 <img class="fl rv" src="iuc-footer-logo.png" alt="İstanbul University Cerrahpaşa" loading="lazy">
-<a class="brand rv" href="#"><img src="logo.png" alt="Sosyal Kampüs logosu"><span>Sosyal Kampüs</span></a>
-<span class="cp rv">© 2026 Sosyal Kampüs Öğrenci Kulübü</span></div></footer>
+</div></footer>
 
-</div><div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotoğraf"><button class="x" id="lbx" aria-label="Kapat">✕</button><img alt=""><p></p></div>
+</div><div class="sbar"><img src="logo.png" alt="Sosyal Kampüs logosu"><span>© 2026 Sosyal Kampüs Öğrenci Kulübü</span></div><div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotoğraf"><button class="x" id="lbx" aria-label="Kapat">✕</button><img alt=""><p></p></div>
 
 <div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="mt">
 <div class="modal">
 <button class="x" id="x" aria-label="Kapat">✕</button><div class="mt"><h2 id="mt">Sosyal Kampüs'e katıl</h2></div>
 <p class="sub">Üyelik formunu doldur, kulüp ekibi seninle iletişime geçsin.</p>
 <form data-form data-subject="Sosyal Kampüs - Yeni üyelik başvurusu">
-<div class="row"><label>Ad Soyad<input name="Ad Soyad" required autocomplete="name"></label><label>Telefon<input name="Telefon" type="tel" required autocomplete="tel"></label></div>
+<div class="row"><label>Ad Soyad<input name="Ad Soyad" required autocomplete="name"></label><label>Telefon<input name="Telefon" type="tel" inputmode="tel" required autocomplete="tel" placeholder="+90 (___) ___ __ __" maxlength="19"></label></div>
 <label>E-posta<input name="E-posta" type="email" required autocomplete="email"></label>
 <div class="row"><label class="ac">Fakülte / Bölüm<input name="Bölüm" id="bl" required autocomplete="off" role="combobox" aria-expanded="false" aria-controls="bll" aria-autocomplete="list"><ul class="acl" id="bll" role="listbox" hidden></ul></label>
 <label>Sınıf<select name="Sınıf" required><option value="">Seç</option><option>Hazırlık</option><option>1. sınıf</option><option>2. sınıf</option><option>3. sınıf</option><option>4. sınıf</option><option>Yüksek lisans</option></select></label></div>
@@ -540,5 +549,29 @@ else if(e.key==='Escape'&&!u.hidden){e.stopPropagation();hide()}});
 </script>
 <script>
 (function(){var a=document.getElementById('addr');if(a&&/iPhone|iPad|iPod/.test(navigator.userAgent))a.href='https://maps.apple.com/?daddr='+encodeURIComponent('İstanbul Üniversitesi-Cerrahpaşa Avcılar Yerleşkesi, Avcılar, İstanbul')+'&dirflg=d'})();
+</script>
+<script>
+(function(){
+/* Telefon maskesi: +90 (___) ___ __ __ */
+function fmt(d){var o='+90 (';if(!d.length)return o;o+=d.slice(0,3);if(d.length>3)o+=') '+d.slice(3,6);if(d.length>6)o+=' '+d.slice(6,8);if(d.length>8)o+=' '+d.slice(8,10);return o}
+function digs(v){if(v.indexOf('+90')===0)v=v.slice(3);var d=v.replace(/\D/g,'');if(d.length>10&&d.indexOf('90')===0)d=d.slice(2);if(d.charAt(0)==='0')d=d.slice(1);return d.slice(0,10)}
+document.querySelectorAll('input[type=tel]').forEach(function(i){
+var prev='';
+function chk(d){i.setCustomValidity(d.length===10?'':'Telefon numarasını +90 (5XX) XXX XX XX biçiminde tam gir.')}
+i.addEventListener('focus',function(){if(!i.value){i.value=fmt('');prev=''}setTimeout(function(){i.setSelectionRange(i.value.length,i.value.length)},0)});
+i.addEventListener('input',function(e){var d=digs(i.value);if(e.inputType&&e.inputType.indexOf('delete')===0&&d===prev&&d.length)d=d.slice(0,-1);prev=d;i.value=fmt(d);chk(d);try{i.setSelectionRange(i.value.length,i.value.length)}catch(x){}});
+i.addEventListener('blur',function(){if(!prev){i.value='';i.setCustomValidity('')}});
+if(i.required)chk('')
+});
+/* E-posta: @gmail.com butonu */
+document.querySelectorAll('input[type=email]').forEach(function(i){
+var w=document.createElement('div');w.className='ew';i.parentNode.insertBefore(w,i);w.appendChild(i);
+var b=document.createElement('button');b.type='button';b.className='gm';b.textContent='@gmail.com';b.setAttribute('aria-label','@gmail.com ekle');w.appendChild(b);
+function sync(){b.hidden=/@gmail\.com$/i.test(i.value.trim())}
+b.addEventListener('mousedown',function(e){e.preventDefault()});
+b.addEventListener('click',function(){var v=i.value.trim(),at=v.indexOf('@'),base=at>-1?v.slice(0,at):v;i.value=base+'@gmail.com';sync();i.focus()});
+i.addEventListener('input',sync);sync();
+});
+})();
 </script>
 </body></html>
