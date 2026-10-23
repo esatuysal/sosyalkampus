@@ -87,12 +87,21 @@ footer a:hover{color:#fff}
 .top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
 .top a{display:flex;align-items:center;gap:10px;font-weight:600}
 .top a:hover{color:#fff}
-.uni-logo{height:26px;width:auto}
-.gal{columns:3 260px;column-gap:18px}
-.gal button{display:block;width:100%;margin:0 0 18px;padding:0;border:0;border-radius:20px;overflow:hidden;position:relative;cursor:zoom-in;break-inside:avoid;background:var(--sky);box-shadow:var(--sh)}
-.gal img{display:block;width:100%;height:auto;transition:transform .5s}
-.gal button:hover img{transform:scale(1.04)}
-.gal span{position:absolute;left:0;right:0;bottom:0;padding:38px 16px 14px;color:#fff;font-size:14px;font-weight:600;text-align:left;background:linear-gradient(transparent,rgba(0,10,50,.85))}
+.uni-logo{height:30px;width:30px}
+.fl{height:84px;width:auto;border-radius:10px}
+.car{position:relative}
+.gal{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 2px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.gal::-webkit-scrollbar{display:none}
+.gal button{flex:0 0 min(84%,400px);aspect-ratio:4/5;scroll-snap-align:center;padding:0;border:0;border-radius:24px;overflow:hidden;position:relative;cursor:zoom-in;background:var(--sky);box-shadow:var(--sh)}
+.gal img{display:block;width:100%;height:100%;object-fit:cover}
+.gal span{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 16px;color:#fff;font-size:15px;font-weight:600;text-align:left;background:linear-gradient(transparent,rgba(0,10,50,.85))}
+.arr{position:absolute;top:calc(50% - 30px);width:46px;height:46px;border-radius:50%;border:0;background:var(--card);color:var(--ink);font-size:22px;cursor:pointer;box-shadow:var(--sh);z-index:2}
+.arr:hover{background:var(--blue);color:#fff}
+.arr.l{left:-10px}.arr.r{right:-10px}
+.dots{display:flex;justify-content:center;gap:7px;margin-top:4px}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:.2s}
+.dots i.on{background:var(--bright);width:20px;border-radius:5px}
+@media(max-width:860px){.arr{display:none}}
 .lb{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;background:rgba(0,6,30,.92);padding:20px;flex-direction:column;gap:12px}
 .lb.show{display:flex}
 .lb img{max-width:100%;max-height:82vh;border-radius:14px}
@@ -120,6 +129,37 @@ nav.open{display:block}
 nav ul{flex-direction:column;align-items:stretch;padding:12px 24px}
 nav a.join{margin:6px 0 0;text-align:center}
 section{padding:70px 0}}
+@media(max-width:860px){
+.top .wrap>span{display:none}.top .wrap{padding-top:6px;padding-bottom:6px}
+header .wrap{height:62px}.brand img{width:40px;height:40px}.brand{font-size:16px}
+nav{top:62px}
+.hero .wrap{padding:34px 20px 70px;gap:0}
+.hero .logo{display:none}
+.pill{font-size:12px;margin-bottom:14px;padding:6px 12px}
+.hero h1{font-size:34px;margin-bottom:12px}
+.hero p{font-size:16px;margin-bottom:20px}
+.btn{padding:13px 22px;margin:0 8px 0 0}
+.stats{margin-top:-40px}
+.stats .wrap>div{grid-template-columns:repeat(4,1fr);padding:16px 4px;gap:0;border-radius:18px}
+.stats b{font-size:22px}.stats span{font-size:11px}
+section{padding:38px 0}
+h2{font-size:25px}.sub{font-size:14px;margin-bottom:18px}
+.snap{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;scrollbar-width:none;padding:2px 2px 8px;margin:0 -20px;padding-left:20px;padding-right:20px}
+.snap::-webkit-scrollbar{display:none}
+.snap>*{flex:0 0 78%;scroll-snap-align:start}
+.card{padding:20px;border-radius:18px}.card h3{font-size:17px}.card p{font-size:14px}
+.ic{width:42px;height:42px;margin-bottom:12px}
+.two{grid-template-columns:1fr 1fr;gap:12px}
+.two .card{padding:16px}.two .card p{display:none}.two .ic{margin-bottom:10px}.two .card h3{margin:0}
+.n .im{height:70px}.n .t{padding:14px 16px 16px}
+.gal button{flex-basis:80%;aspect-ratio:1/1;border-radius:20px}
+.msgbox{display:none}
+.box{padding:22px;border-radius:20px}.box h3{margin-bottom:14px;font-size:18px}
+.info{gap:14px}
+footer{padding:26px 0 22px}
+footer .wrap{flex-direction:column;align-items:flex-start;gap:12px}
+.fl{height:64px}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -157,14 +197,14 @@ section{padding:70px 0}}
 
 <section id="hakkimizda"><div class="wrap">
 <h2>Hakkımızda</h2><p class="sub">Öğrenciler tarafından kurulan, öğrenciler için çalışan bir topluluk.</p>
-<div class="grid">
+<div class="grid snap">
 <div class="card"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><h3>Misyon</h3><p>Öğrencilerin sosyal, kültürel ve akademik gelişimine katkı sağlayan etkinlikler düzenlemek.</p></div>
 <div class="card"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Vizyon</h3><p>Üniversite hayatını herkes için daha katılımcı ve bağlı bir deneyime dönüştürmek.</p></div>
 <div class="card"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.8 0 4.5 1.9 4.5 4.5"/></svg></div><h3>Değerler</h3><p>Eşitlik, saygı, gönüllülük ve üretkenlik.</p></div></div></div></section>
 
 <section id="faaliyetler" class="alt"><div class="wrap">
 <h2>Faaliyetlerimiz</h2><p class="sub">Dönem boyunca yürüttüğümüz başlıca çalışmalar.</p>
-<div class="grid">
+<div class="grid two">
 <div class="card"><div class="ic">🎤</div><h3>Söyleşi ve Seminerler</h3><p>Sektör ve akademi konuklarıyla kariyer buluşmaları.</p></div>
 <div class="card"><div class="ic">💙</div><h3>Sosyal Sorumluluk</h3><p>Gönüllülük ve yardım kampanyaları.</p></div>
 <div class="card"><div class="ic">🎉</div><h3>Kampüs Şenlikleri</h3><p>Tanışma, turnuva ve kültür etkinlikleri.</p></div>
@@ -172,11 +212,11 @@ section{padding:70px 0}}
 
 <section id="galeri"><div class="wrap">
 <h2>Etkinlik galerisi</h2><p class="sub">Kampüste birlikte yaşadığımız anlardan kareler.</p>
-<div class="gal"><button type="button" data-src="img/etkinlik6.jpg" data-cap="Sosyal Kampüs standı"><img src="img/etkinlik6.jpg" alt="Sosyal Kampüs standı" loading="lazy"><span>Sosyal Kampüs standı</span></button><button type="button" data-src="img/etkinlik2.jpg" data-cap="Kampüs İçin İftar Vakti"><img src="img/etkinlik2.jpg" alt="Kampüs İçin İftar Vakti" loading="lazy"><span>Kampüs İçin İftar Vakti</span></button><button type="button" data-src="img/etkinlik1.jpg" data-cap="İftar sofrasında buluşma"><img src="img/etkinlik1.jpg" alt="İftar sofrasında buluşma" loading="lazy"><span>İftar sofrasında buluşma</span></button><button type="button" data-src="img/etkinlik5.jpg" data-cap="Akşam kampüste iftar hazırlığı"><img src="img/etkinlik5.jpg" alt="Akşam kampüste iftar hazırlığı" loading="lazy"><span>Akşam kampüste iftar hazırlığı</span></button><button type="button" data-src="img/etkinlik3.jpg" data-cap="Öğrencilerle sohbet"><img src="img/etkinlik3.jpg" alt="Öğrencilerle sohbet" loading="lazy"><span>Öğrencilerle sohbet</span></button><button type="button" data-src="img/etkinlik4.jpg" data-cap="Etkinlikten anılar"><img src="img/etkinlik4.jpg" alt="Etkinlikten anılar" loading="lazy"><span>Etkinlikten anılar</span></button></div></div></section>
+<div class="car"><button class="arr l" id="gp" aria-label="Önceki">‹</button><button class="arr r" id="gn" aria-label="Sonraki">›</button><div class="gal" id="gal"><button type="button" data-src="img/etkinlik6.jpg" data-cap="Sosyal Kampüs standı"><img src="img/etkinlik6.jpg" alt="Sosyal Kampüs standı" loading="lazy"><span>Sosyal Kampüs standı</span></button><button type="button" data-src="img/etkinlik2.jpg" data-cap="Kampüs İçin İftar Vakti"><img src="img/etkinlik2.jpg" alt="Kampüs İçin İftar Vakti" loading="lazy"><span>Kampüs İçin İftar Vakti</span></button><button type="button" data-src="img/etkinlik1.jpg" data-cap="İftar sofrasında buluşma"><img src="img/etkinlik1.jpg" alt="İftar sofrasında buluşma" loading="lazy"><span>İftar sofrasında buluşma</span></button><button type="button" data-src="img/etkinlik5.jpg" data-cap="Akşam kampüste iftar hazırlığı"><img src="img/etkinlik5.jpg" alt="Akşam kampüste iftar hazırlığı" loading="lazy"><span>Akşam kampüste iftar hazırlığı</span></button><button type="button" data-src="img/etkinlik3.jpg" data-cap="Öğrencilerle sohbet"><img src="img/etkinlik3.jpg" alt="Öğrencilerle sohbet" loading="lazy"><span>Öğrencilerle sohbet</span></button><button type="button" data-src="img/etkinlik4.jpg" data-cap="Etkinlikten anılar"><img src="img/etkinlik4.jpg" alt="Etkinlikten anılar" loading="lazy"><span>Etkinlikten anılar</span></button></div><div class="dots" id="dots"></div></div></div></section>
 
 <section id="duyurular" class="alt"><div class="wrap">
 <h2>Duyurular</h2><p class="sub">Güncel haberler ve etkinlik takvimi.</p>
-<div class="grid">
+<div class="grid snap">
 <a class="n" href="#"><div class="im"></div><div class="t"><time>01 Kasım 2026</time><h3>Dönem tanışma buluşması</h3></div></a>
 <a class="n" href="#"><div class="im"></div><div class="t"><time>10 Kasım 2026</time><h3>Kariyer söyleşisi kayıtları açıldı</h3></div></a>
 <a class="n" href="#"><div class="im"></div><div class="t"><time>20 Kasım 2026</time><h3>Gönüllülük projesi başlıyor</h3></div></a></div></div></section>
@@ -184,7 +224,7 @@ section{padding:70px 0}}
 <section id="iletisim"><div class="wrap">
 <h2>İletişim</h2><p class="sub">Soruların ve önerilerin için bize yaz.</p>
 <div class="contact">
-<div class="box"><h3>Mesaj gönder</h3>
+<div class="box msgbox"><h3>Mesaj gönder</h3>
 <form data-form data-subject="Sosyal Kampüs - İletişim mesajı">
 <div class="row"><label>Ad Soyad<input name="Ad Soyad" required></label><label>E-posta<input name="E-posta" type="email" required></label></div>
 <label>Mesajınız<textarea name="Mesaj" rows="5" required></textarea></label>
@@ -199,6 +239,7 @@ section{padding:70px 0}}
 </main>
 
 <footer><div class="wrap">
+<img class="fl" src="iuc-tr-logo.png" alt="İstanbul Üniversitesi-Cerrahpaşa" loading="lazy">
 <a class="brand" href="#"><img src="logo.png" alt="" style="width:40px;height:40px"><span>Sosyal Kampüs</span></a>
 <span>© 2026 Sosyal Kampüs Öğrenci Kulübü<br>İstanbul Üniversitesi-Cerrahpaşa, Avcılar Yerleşkesi</span>
 <span><a href="https://instagram.com/iucsosyalkampus" target="_blank" rel="noopener">Instagram</a> · <a href="mailto:iucsosyalkampus@gmail.com">E-posta</a></span>
@@ -227,6 +268,12 @@ function open(){ov.classList.add('show');document.body.style.overflow='hidden'}
 function close(){ov.classList.remove('show');document.body.style.overflow=''}
 document.getElementById('x').onclick=close;
 ov.addEventListener('click',function(e){if(e.target===ov)close()});
+var gal=document.getElementById('gal'),dots=document.getElementById('dots'),gb=gal.children;
+for(var i=0;i<gb.length;i++){dots.appendChild(document.createElement('i'))}
+function upd(){var w=gb[0].offsetWidth+16,k=Math.round(gal.scrollLeft/w);if(gal.scrollLeft+gal.clientWidth>=gal.scrollWidth-4)k=gb.length-1;for(var i=0;i<dots.children.length;i++)dots.children[i].className=i===k?'on':''}
+gal.addEventListener('scroll',upd);upd();
+document.getElementById('gp').onclick=function(){gal.scrollBy({left:-(gb[0].offsetWidth+16)})};
+document.getElementById('gn').onclick=function(){gal.scrollBy({left:gb[0].offsetWidth+16})};
 var lb=document.getElementById('lb');
 function lbc(){lb.classList.remove('show')}
 document.getElementById('lbx').onclick=lbc;lb.addEventListener('click',function(e){if(e.target===lb)lbc()});
