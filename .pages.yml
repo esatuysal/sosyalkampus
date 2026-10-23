@@ -1,0 +1,62 @@
+media:
+  input: uploads
+  output: /uploads
+
+content:
+  - name: duyurular
+    label: Duyurular
+    type: file
+    path: data/duyurular.json
+    format: json
+    fields:
+      - name: items
+        label: Duyurular
+        type: object
+        list: true
+        fields:
+          - { name: tarih, label: Tarih (ör. 01 Kasım 2026), type: string }
+          - { name: baslik, label: Başlık, type: string }
+          - { name: link, label: Bağlantı (isteğe bağlı), type: string }
+
+  - name: galeri
+    label: Galeri
+    type: file
+    path: data/galeri.json
+    format: json
+    fields:
+      - name: items
+        label: Fotoğraflar
+        type: object
+        list: true
+        fields:
+          - { name: gorsel, label: Fotoğraf, type: image }
+          - { name: baslik, label: Açıklama, type: string }
+
+  - name: faaliyetler
+    label: Faaliyetler
+    type: file
+    path: data/faaliyetler.json
+    format: json
+    fields:
+      - name: items
+        label: Faaliyetler
+        type: object
+        list: true
+        fields:
+          - { name: ikon, label: Emoji, type: string }
+          - { name: baslik, label: Başlık, type: string }
+          - { name: aciklama, label: Açıklama, type: text }
+
+  - name: istatistikler
+    label: İstatistikler
+    type: file
+    path: data/istatistikler.json
+    format: json
+    fields:
+      - name: items
+        label: Sayılar
+        type: object
+        list: true
+        fields:
+          - { name: sayi, label: Sayı (ör. 250+), type: string }
+          - { name: etiket, label: Etiket (ör. Üye), type: string }
