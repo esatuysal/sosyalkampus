@@ -1,24 +1,28 @@
 {
   "items": [
     {
-      "baslik": "Sosyal Kampüs standı"
+      "gorsel": "/uploads/foto.jpg",
+      "baslik": "Rektörümüz ile buluşma ve Proje Görüşmesi"
     },
     {
+      "gorsel": "/uploads/IMG_9419.jpg",
       "baslik": "Kampüs İçin İftar Vakti"
     },
     {
-      "baslik": "İftar sofrasında buluşma"
+      "gorsel": "/uploads/IMG_9416.jpg",
+      "baslik": "İftar etkinliğinden anılar"
     },
     {
-      "gorsel": "/uploads/galeri-4.jpg",
-      "baslik": "Akşam kampüste iftar hazırlığı"
+      "gorsel": "/uploads/IMG_0063-1.jpg",
+      "baslik": "Söz Gençlikte Programı"
     },
     {
-      "gorsel": "/uploads/galeri-6.jpg",
-      "baslik": "Etkinlikten anılar"
+      "gorsel": "/uploads/96df9d6a-66f8-4552-9567-05671e11ed06.jpg",
+      "baslik": "Kulübümüz adına birtakım görüşmeler"
     },
     {
-      "baslik": "Öğrencilerle sohbet"
+      "gorsel": "/uploads/f94f42b2-466b-4247-9207-2191cff53cf6 2.jpg",
+      "baslik": "👍🏻"
     }
   ]
 }
