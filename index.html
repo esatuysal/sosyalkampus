@@ -491,6 +491,9 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 .vd{margin-top:44px;height:116px;overflow:hidden;background:#000d4d}
 .vd video{display:block;width:100%;height:100%;object-fit:cover}
 @media(max-width:860px){.vd{margin-top:30px;height:90px}}
+.hero p.newc strong a{color:inherit;font-weight:inherit;text-decoration:none;cursor:pointer;transition:opacity .2s}
+.hero p.newc strong a:hover{opacity:.8}
+.hero p.newc{border-radius:22px}
 </style>
 </head>
 <body>
@@ -516,7 +519,7 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <div>
 <h1>Kampüsü birlikte yaşatıyoruz.</h1>
 <p class="hx" style="--hd:3">Sosyal Kampüs, İstanbul Üniversitesi-Cerrahpaşa öğrencilerini etkinlik, söyleşi ve dayanışma projeleriyle bir araya getiren resmi öğrenci kulübüdür.</p>
-<p class="hx newc" style="--hd:4"><i></i><span>Yeni bir kulüp olmamıza rağmen hızla büyüyoruz. <strong>Aramıza katıl!</strong></span></p>
+<p class="hx newc" style="--hd:4"><i></i><span>Yeni bir kulüp olmamıza rağmen hızla büyüyoruz.<br><strong><a href="#uyelik" data-open>Aramıza katıl!</a></strong></span></p>
 <button class="btn p hx" style="--hd:4" data-open>Kulübe katıl</button><a class="btn o hx" style="--hd:5" href="#galeri">Etkinlik galerisi</a>
 </div>
 <div class="logo"><img src="logo.png" alt="Sosyal Kampüs"></div>
@@ -596,7 +599,7 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <div class="modal tm">
 <button class="x" id="tx" aria-label="Kapat">✕</button><div class="mt"><h2 id="tvt">Kulüp ekibimiz</h2></div>
 <p class="sub">Sosyal Kampüs'ü birlikte yöneten yönetim ve denetleme kurulu.</p>
-<h3 class="tg">Yönetim Kurulu</h3><ul class="tl"><li class="lead"><div class="av" aria-hidden="true">BT</div><div><b>Berat TURAN</b><span>Kulüp Başkanı</span></div></li><li><div class="av" aria-hidden="true">AS</div><div><b>Abdullah SÖNMEZ</b><span>Başkan Yardımcısı</span></div></li><li><div class="av" aria-hidden="true">EU</div><div><b>Esat UYSAL</b><span>Organizasyon Komisyonu Başkanı</span></div></li><li><div class="av" aria-hidden="true">MA</div><div><b>Mahmut AYDIN</b><span>Sayman</span></div></li><li><div class="av" aria-hidden="true">HT</div><div><b>Hatice Ebrar TEKİNER</b><span>Yazman</span></div></li><li><div class="av" aria-hidden="true">TK</div><div><b>Taha KOÇ</b><span>Sponsorluk ve Dış İlişkiler Komisyon Başkanı</span></div></li></ul><h3 class="tg">Yönetim Kurulu Yedek Üyeleri</h3><ul class="tl"><li><div class="av" aria-hidden="true">MK</div><div><b>Melike KONUKLAR</b><span>Sosyal Medya ve İletişim Başkanı</span></div></li><li><div class="av" aria-hidden="true">SK</div><div><b>Sıla KAYA</b><span>Sosyal Sorumluluk Komisyon Başkanı</span></div></li><li><div class="av" aria-hidden="true">BÖ</div><div><b>Betül ÖZBEY</b><span>Öğrenci İşleri Başkanı</span></div></li></ul><h3 class="tg">Denetleme Kurulu</h3><ul class="tl"><li class="lead"><div class="av" aria-hidden="true">İE</div><div><b>İrem ERDEM</b><span>Denetleme Kurulu Başkanı</span></div></li><li><div class="av" aria-hidden="true">SB</div><div><b>Sıla BAŞÇI</b><span>Denetleme Kurulu Üyesi · Sosyal Medya Komisyon Üyesi</span></div></li><li><div class="av" aria-hidden="true">ZK</div><div><b>Zana KAYA</b><span>Denetleme Kurulu Üyesi · Sosyal Medya Komisyon Üyesi</span></div></li><li><div class="av" aria-hidden="true">İK</div><div><b>İrem KOÇAK</b><span>Denetleme Kurulu Yedek Üyesi · Sosyal Medya Komisyon Üyesi</span></div></li></ul>
+<h3 class="tg">Yönetim Kurulu</h3><ul class="tl"><li class="lead"><div class="av" aria-hidden="true">BT</div><div><b>Berat TURAN</b><span>Kulüp Başkanı</span></div></li><li><div class="av" aria-hidden="true">AS</div><div><b>Abdullah SÖNMEZ</b><span>Başkan Yardımcısı</span></div></li><li><div class="av" aria-hidden="true">EU</div><div><b>Esat UYSAL</b><span>Organizasyon Komisyonu Başkanı</span></div></li><li><div class="av" aria-hidden="true">MA</div><div><b>Mahmut AYDIN</b><span>Sayman</span></div></li><li><div class="av" aria-hidden="true">HT</div><div><b>Hatice Ebrar TEKİNER</b><span>Yazman</span></div></li><li><div class="av" aria-hidden="true">TK</div><div><b>Taha KOÇ</b><span>Sponsorluk ve Dış İlişkiler Komisyon Başkanı</span></div></li></ul><h3 class="tg">Yönetim Kurulu Yedek Üyeleri</h3><ul class="tl"><li><div class="av" aria-hidden="true">MK</div><div><b>Melike KONUKLAR</b><span>Sosyal Medya ve İletişim Başkanı</span></div></li><li><div class="av" aria-hidden="true">SK</div><div><b>Sıla KAYA</b><span>Sosyal Sorumluluk Komisyon Başkanı</span></div></li><li><div class="av" aria-hidden="true">BÖ</div><div><b>Betül ÖZBEY</b><span>Öğrenci İşleri Başkanı</span></div></li></ul><h3 class="tg">Denetleme Kurulu</h3><ul class="tl"><li class="lead"><div class="av" aria-hidden="true">İE</div><div><b>İrem ERDEM</b><span>Denetleme Kurulu Başkanı</span></div></li><li><div class="av" aria-hidden="true">SB</div><div><b>Sıla BAŞÇI</b><span>Denetleme Kurulu Üyesi<br>Sosyal Medya Komisyon Üyesi</span></div></li><li><div class="av" aria-hidden="true">ZK</div><div><b>Zana KAYA</b><span>Denetleme Kurulu Üyesi<br>Sosyal Medya Komisyon Üyesi</span></div></li><li><div class="av" aria-hidden="true">İK</div><div><b>İrem KOÇAK</b><span>Denetleme Kurulu Yedek Üyesi<br>Sosyal Medya Komisyon Üyesi</span></div></li></ul>
 </div></div>
 
 <div class="ov" id="dv" role="dialog" aria-modal="true" aria-labelledby="dvt">
