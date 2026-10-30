@@ -486,6 +486,28 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 .info a.pl.gml{white-space:nowrap;overflow-wrap:normal;word-break:normal}
 @media(max-width:480px){.info a.pl.gml{font-size:13.5px;padding:10px 15px;letter-spacing:-.01em}}
 @media(max-width:380px){.info a.pl.gml{font-size:12px;padding:10px 12px}}
+
+/* v12: galeri lightbox (açılma animasyonu + kaydırma) ve uygulama ikonları */
+.lb{background:rgba(0,6,30,.92);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);touch-action:pan-y;user-select:none;-webkit-user-select:none;gap:10px}
+.lb.show{animation:lbf .5s ease both}
+.lbs{position:relative;width:min(100%,1100px);display:flex;justify-content:center;align-items:center}
+.lb.show .lbs{animation:lbo 1.1s cubic-bezier(.16,1,.3,1) backwards}
+.lb img{display:block;max-width:100%;max-height:78vh;object-fit:contain;border-radius:14px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .3s;-webkit-user-drag:none;will-change:transform}
+.lb.show p,.lb.show .lbt{animation:lbc .8s cubic-bezier(.16,1,.3,1) .45s backwards}
+.lb p{text-align:center;margin:0}
+.lbt{font-size:13px;font-weight:700;color:#9fb4e8;letter-spacing:.04em}
+.lba{position:absolute;top:50%;margin-top:-26px;width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,.9);background:#fff;color:var(--navy);font-size:28px;line-height:1;cursor:pointer;z-index:5;display:grid;place-items:center;padding:0 0 4px;box-shadow:0 8px 22px -4px rgba(0,13,77,.6),0 0 0 5px rgba(255,255,255,.16);transition:transform .25s,background .25s,color .25s}
+.lba.l{left:22px}.lba.r{right:22px}
+.lba:hover{background:var(--bright);color:#fff;transform:scale(1.1)}
+@media(max-width:860px){.lba{display:none}}
+@keyframes lbf{from{background:rgba(0,6,30,0)}to{background:rgba(0,6,30,.92)}}
+@keyframes lbo{from{clip-path:inset(0 0 100% 0);transform:scale(.9)}to{clip-path:inset(-80px);transform:none}}
+@keyframes lbc{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.lb.show,.lb.show .lbs,.lb.show p,.lb.show .lbt{animation:none}}
+.info .ic{border-radius:12px}
+.info .ic.wi{background:#25d366;box-shadow:0 6px 16px -6px rgba(37,211,102,.7)}
+.info .ic.igl{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%);box-shadow:0 6px 16px -6px rgba(214,36,159,.65)}
+.info .ic.gml{background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 6px 16px -6px rgba(0,0,0,.4)}
 </style>
 </head>
 <body>
@@ -564,8 +586,8 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <button class="sbtn">Gönder</button><div class="msg" role="status"></div></form></div>
 <div class="rv box"><h3>İletişim bilgileri</h3>
 <ul class="info"><li class="wali"><div class="ic wi"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div><b>WhatsApp Topluluğu</b><a class="wa" href="https://chat.whatsapp.com/IAcBgPbp0uOHOSS5q2Y6tG?mode=gi_t" target="_blank" rel="noopener">Gruba katıl <span aria-hidden="true">→</span></a></div></li>
-<li><div class="ic ig"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div><div><b>Bizi Instagramdan Takip Et!! 👀</b><a class="pl ig" href="https://instagram.com/iucsosyalkampus" target="_blank" rel="noopener">@iucsosyalkampus</a></div></li>
-<li><div class="ic gml"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></div><div><b>E-posta</b><a class="pl gml" href="mailto:iucsosyalkampus@gmail.com">iucsosyalkampus@gmail.com</a></div></li>
+<li><div class="ic igl"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div><div><b>Bizi Instagramdan Takip Et!! 👀</b><a class="pl ig" href="https://instagram.com/iucsosyalkampus" target="_blank" rel="noopener">@iucsosyalkampus</a></div></li>
+<li><div class="ic gml"><svg viewBox="0 49.4 512 399.42" width="26" height="20" aria-hidden="true"><path fill="#4285f4" d="M34.91 448.818h81.454V251L0 163.727V413.91c0 19.287 15.622 34.91 34.91 34.91z"/><path fill="#34a853" d="M395.636 448.818h81.455c19.287 0 34.909-15.622 34.909-34.909V163.727L395.636 251z"/><path fill="#fbbc04" d="M395.636 99.727V251L512 163.727v-46.545c0-43.142-49.25-67.782-83.782-41.891z"/><path fill="#ea4335" d="M116.364 251V99.727L256 204.455 395.636 99.727V251L256 355.727z"/><path fill="#c5221f" d="M0 117.182v46.545L116.364 251V99.727L83.782 75.291C49.25 49.4 0 74.04 0 117.182z"/></svg></div><div><b>E-posta</b><a class="pl gml" href="mailto:iucsosyalkampus@gmail.com">iucsosyalkampus@gmail.com</a></div></li>
 <li><div class="ic ig"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div><div><b>Kurucu / Başkan</b><a class="pl ig" href="https://instagram.com/turanberat__" target="_blank" rel="noopener">@turanberat__</a></div></li>
 <li><div class="ic mp"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><b>Adres</b><a class="pl mp addr" id="addr" href="https://www.google.com/maps/dir/?api=1&destination=%C4%B0stanbul%20%C3%9Cniversitesi-Cerrahpa%C5%9Fa%20Avc%C4%B1lar%20Yerle%C5%9Fkesi%2C%20Avc%C4%B1lar%2C%20%C4%B0stanbul&travelmode=driving" target="_blank" rel="noopener" aria-label="Adresi haritada aç">İstanbul Üniversitesi-Cerrahpaşa<br>Avcılar Yerleşkesi 34320<br>Avcılar / İstanbul</a></div></li></ul></div></div></div></section>
 </main>
@@ -574,7 +596,7 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <img class="fl rv" src="iuc-footer-logo.png" alt="İstanbul University Cerrahpaşa" loading="lazy">
 </div></footer>
 
-</div><div class="sbar"><img src="logo.png" alt="Sosyal Kampüs logosu"><span>© 2026 Sosyal Kampüs Öğrenci Kulübü</span></div><div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotoğraf"><button class="x" id="lbx" aria-label="Kapat">✕</button><img alt=""><p></p></div>
+</div><div class="sbar"><img src="logo.png" alt="Sosyal Kampüs logosu"><span>© 2026 Sosyal Kampüs Öğrenci Kulübü</span></div><div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotoğraf"><button class="x" id="lbx" aria-label="Kapat">✕</button><button class="lba l" id="lbp" type="button" aria-label="Önceki fotoğraf">‹</button><button class="lba r" id="lbn" type="button" aria-label="Sonraki fotoğraf">›</button><div class="lbs" id="lbs"><img alt="" draggable="false"></div><p></p><span class="lbt" id="lbt"></span></div>
 
 <div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="mt">
 <div class="modal">
@@ -632,10 +654,27 @@ gal.addEventListener('scroll',upd);upd();
 document.getElementById('gp').onclick=function(){gal.scrollBy({left:-(gb[0].offsetWidth+16)})};
 document.getElementById('gn').onclick=function(){gal.scrollBy({left:gb[0].offsetWidth+16})};
 var lb=document.getElementById('lb');
-function lbc(){lb.classList.remove('show')}
-document.getElementById('lbx').onclick=lbc;lb.addEventListener('click',function(e){if(e.target===lb)lbc()});
-document.querySelectorAll('.gal button').forEach(function(b){b.addEventListener('click',function(){lb.querySelector('img').src=b.querySelector('img').src;lb.querySelector('img').alt=b.dataset.cap;lb.querySelector('p').textContent=b.dataset.cap;lb.classList.add('show')})});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();lbc()}});
+function lbc(){if(lb.classList.contains('show')){lb.classList.remove('show');document.body.style.overflow=''}}
+document.getElementById('lbx').onclick=lbc;
+/* Galeri lightbox: açılma animasyonu + sağa/sola kaydırma */
+var lbi=lb.querySelector('img'),lbp=lb.querySelector('p'),lbt=document.getElementById('lbt'),cur=0,busy=false,sx=0,dx=0,drag=false,moved=false,downT=null,pid=null;
+function items(){return [].slice.call(gal.children)}
+function fill(i){var it=items(),n=it.length;cur=(i+n)%n;var b=it[cur],im=b.querySelector('img');lbi.src=im.currentSrc||im.src;lbi.alt=b.dataset.cap||'';lbp.textContent=b.dataset.cap||'';lbt.textContent=(cur+1)+' / '+n;[cur+1,cur-1].forEach(function(k){var o=it[(k+n)%n].querySelector('img');if(o){var pi=new Image();pi.src=o.currentSrc||o.src}})}
+function slideIn(dir){lbi.style.transition='none';lbi.style.opacity='0';lbi.style.transform='translateX('+(dir*70)+'px) scale(.97)';void lbi.offsetWidth;lbi.style.transition='';lbi.style.opacity='';lbi.style.transform=''}
+function go(dir){if(busy||items().length<2)return;busy=true;lbi.style.transition='transform .22s ease-in,opacity .22s ease-in';lbi.style.opacity='0';lbi.style.transform='translateX('+(-dir*Math.min(innerWidth*.35,320))+'px) scale(.97)';setTimeout(function(){fill(cur+dir);slideIn(dir);setTimeout(function(){busy=false},300)},200)}
+function snap(){lbi.style.transition='';lbi.style.transform='';lbi.style.opacity=''}
+function lbo(i){fill(i);lbi.style.transition='';lbi.style.transform='';lbi.style.opacity='';lb.classList.remove('show');void lb.offsetWidth;lb.classList.add('show');document.body.style.overflow='hidden'}
+gal.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;lbo(items().indexOf(b))});
+document.getElementById('lbp').onclick=function(e){e.stopPropagation();go(-1)};
+document.getElementById('lbn').onclick=function(e){e.stopPropagation();go(1)};
+lb.addEventListener('pointerdown',function(e){if(e.target.closest('button'))return;downT=e.target;drag=true;moved=false;sx=e.clientX;dx=0;pid=e.pointerId;try{lb.setPointerCapture(pid)}catch(x){}});
+lb.addEventListener('pointermove',function(e){if(!drag||e.pointerId!==pid||busy)return;dx=e.clientX-sx;if(Math.abs(dx)>8)moved=true;if(moved){lbi.style.transition='none';lbi.style.transform='translateX('+dx+'px)';lbi.style.opacity=String(1-Math.min(.55,Math.abs(dx)/(innerWidth*.9)))}});
+function up(e){if(!drag||e.pointerId!==pid)return;drag=false;try{lb.releasePointerCapture(pid)}catch(x){}
+if(e.type==='pointercancel'){snap();return}
+if(moved){if(Math.abs(dx)>Math.min(70,innerWidth*.15))go(dx<0?1:-1);else snap()}
+else if(downT&&downT.tagName!=='IMG')lbc()}
+lb.addEventListener('pointerup',up);lb.addEventListener('pointercancel',up);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();lbc()}else if(lb.classList.contains('show')){if(e.key==='ArrowRight'){e.preventDefault();go(1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}}});
 document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();closeNav();open()})});
 setTimeout(open,matchMedia('(prefers-reduced-motion:reduce)').matches?500:3050);
 document.querySelectorAll('[data-form]').forEach(function(f){
