@@ -1,15 +1,12 @@
 {
   "items": [
     {
-      "gorsel": "/uploads/galeri-1.jpg",
       "baslik": "Sosyal Kampüs standı"
     },
     {
-      "gorsel": "/uploads/galeri-2.jpg",
       "baslik": "Kampüs İçin İftar Vakti"
     },
     {
-      "gorsel": "/uploads/galeri-3.jpg",
       "baslik": "İftar sofrasında buluşma"
     },
     {
@@ -17,12 +14,11 @@
       "baslik": "Akşam kampüste iftar hazırlığı"
     },
     {
-      "gorsel": "/uploads/galeri-5.jpg",
-      "baslik": "Öğrencilerle sohbet"
-    },
-    {
       "gorsel": "/uploads/galeri-6.jpg",
       "baslik": "Etkinlikten anılar"
+    },
+    {
+      "baslik": "Öğrencilerle sohbet"
     }
   ]
 }
