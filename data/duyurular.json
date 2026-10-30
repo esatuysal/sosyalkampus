@@ -2,18 +2,15 @@
   "items": [
     {
       "tarih": "01 Kasım 2026",
-      "baslik": "Dönem tanışma buluşması",
-      "gorsel": "/uploads/IMG_6880.jpeg"
+      "baslik": "Dönem tanışma buluşması"
     },
     {
       "tarih": "10 Kasım 2026",
-      "baslik": "Kariyer söyleşisi kayıtları açıldı",
-      "gorsel": "/uploads/Ekran Resmi 2026-10-17 21.56.13.png"
+      "baslik": "Kariyer söyleşisi kayıtları açıldı"
     },
     {
       "tarih": "20 Kasım 2026",
       "baslik": "Gönüllülük projesi başlıyor",
-      "gorsel": "/uploads/IMG_6882.jpeg",
       "link": "tog.com.tr"
     }
   ]
