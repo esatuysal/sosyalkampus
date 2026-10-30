@@ -353,6 +353,40 @@ nav li{opacity:0;transform:translateY(-10px);transition:opacity .3s,transform .3
 nav.open li{opacity:1;transform:none;transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
 nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transition-delay:.11s}nav.open li:nth-child(3){transition-delay:.16s}nav.open li:nth-child(4){transition-delay:.21s}nav.open li:nth-child(5){transition-delay:.26s}nav.open li:nth-child(6){transition-delay:.31s}
 }
+
+/* v7: hakkımızda, whatsapp, ekip */
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.mv .card{padding:34px}
+.mv .card h3{font-size:22px;margin-bottom:10px}
+.mv .lead{color:var(--ink);font-size:16.5px;font-weight:600;line-height:1.6;margin-bottom:16px}
+.pts{list-style:none;padding:0;display:grid;gap:11px}
+.pts li{position:relative;padding-left:26px;color:var(--mut);font-size:15px;line-height:1.6}
+.pts li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--bright));box-shadow:0 0 0 4px rgba(47,123,255,.15)}
+.vals{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 24px;box-shadow:var(--sh)}
+.vals span{font-weight:800;font-size:15px;margin-right:6px}
+.vals b{padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--blue);font-size:14px;font-weight:700;border:1px solid var(--line)}
+@media(prefers-color-scheme:dark){.vals b{color:#9cc0ff}}
+@media(max-width:860px){.mv{grid-template-columns:1fr}.mv .card{padding:22px}.mv .lead{font-size:15.5px}}
+.info .ic.wi{background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 6px 16px -6px rgba(18,140,126,.7)}
+.info a.wa{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:10px 20px;border-radius:999px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-weight:700;font-size:15px;box-shadow:0 10px 24px -8px rgba(18,140,126,.75);transition:transform .2s,box-shadow .2s}
+.info a.wa:hover{color:#fff;transform:translateY(-2px);box-shadow:0 14px 28px -8px rgba(18,140,126,.9)}
+.sb>div.kom{cursor:pointer;border-radius:16px;transition:transform .25s,background .25s}
+.sb>div.kom:hover{transform:translateY(-3px);background:var(--sky)}
+.sb>div.kom::after{content:"Ekibi gör ›";display:block;margin-top:3px;font-size:12px;font-weight:700;color:var(--bright)}
+@media(max-width:480px){.sb>div.kom::after{font-size:9.5px}}
+.modal.tm{max-width:640px}
+.tg{display:flex;align-items:center;gap:12px;margin:22px 0 12px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.tg::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+@media(prefers-color-scheme:dark){.tg{color:#9cc0ff}}
+.tl{list-style:none;padding:0;display:grid;gap:10px}
+.tl li{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:color-mix(in srgb,var(--card) 82%,transparent);transition:transform .25s,border-color .25s,box-shadow .25s}
+.tl li:hover{transform:translateX(5px);border-color:#2f7bff66;box-shadow:var(--sh)}
+.tl .av{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:15px;letter-spacing:.02em;color:#fff;background:linear-gradient(135deg,var(--blue),var(--bright));box-shadow:0 6px 16px -6px rgba(10,79,196,.65)}
+.tl li.lead .av{background:linear-gradient(135deg,#f2b705,#ffd54a);color:#3a2a00;box-shadow:0 6px 16px -6px rgba(242,183,5,.7)}
+.tl li.lead{border-color:rgba(242,183,5,.5)}
+.tl b{display:block;font-size:16px;line-height:1.25;color:var(--ink)}
+.tl span{display:block;margin-top:2px;font-size:13px;line-height:1.4;color:var(--mut)}
+@media(max-width:480px){.tl li{padding:10px 12px;gap:12px}.tl .av{width:40px;height:40px;font-size:13px}.tl b{font-size:15px}}
 </style>
 </head>
 <body>
@@ -378,7 +412,7 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <div>
 <h1>Kampüsü birlikte yaşatıyoruz.</h1>
 <p class="hx" style="--hd:3">Sosyal Kampüs, İstanbul Üniversitesi-Cerrahpaşa öğrencilerini etkinlik, söyleşi ve dayanışma projeleriyle bir araya getiren resmi öğrenci kulübüdür.</p>
-<button class="btn p hx" style="--hd:4" data-open>Kulübe katıl</button><a class="btn o hx" style="--hd:5" href="#faaliyetler">Faaliyetleri gör</a>
+<button class="btn p hx" style="--hd:4" data-open>Kulübe katıl</button><a class="btn o hx" style="--hd:5" href="#galeri">Etkinlik galerisi</a>
 </div>
 <div class="logo"><img src="logo.png" alt="Sosyal Kampüs"></div>
 </div></div>
@@ -391,10 +425,14 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 
 <section id="hakkimizda"><div class="wrap">
 <h2 class="rv">Hakkımızda</h2><p class="sub rv">Öğrenciler tarafından kurulan, öğrenciler için çalışan bir topluluk.</p>
-<div class="stg grid snap">
-<div class="card"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><h3>Misyon</h3><p>Öğrencilerin sosyal, kültürel ve akademik gelişimine katkı sağlayan etkinlikler düzenlemek.</p></div>
-<div class="card"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Vizyon</h3><p>Üniversite hayatını herkes için daha katılımcı ve bağlı bir deneyime dönüştürmek.</p></div>
-<div class="card"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.8 0 4.5 1.9 4.5 4.5"/></svg></div><h3>Değerler</h3><p>Eşitlik, saygı, gönüllülük ve üretkenlik.</p></div></div></div></section>
+<div class="stg mv">
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
+<ul class="pts"><li>Öğrencileri fikir geliştirme, organizasyon yönetimi ve birlikte üretme süreçlerine aktif olarak dahil ediyoruz.</li><li>Herkesin bireysel potansiyelini ortaya çıkarabileceği bir ortam sunuyoruz.</li><li>Farklı ilgi alanlarına hitap eden, sürekli gelişen ve öğrenci geri bildirimleriyle şekillenen bir etkinlik kültürü oluşturuyoruz.</li></ul></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
+<ul class="pts"><li>Her öğrencinin kendine yer bulabildiği, fikirlerini özgürce ifade edip hayata geçirebildiği bir platform oluşturuyoruz.</li><li>Kampüs yaşamına kalıcı değer katan bir kulüp olmayı amaçlıyoruz.</li><li>Sürdürülebilir etkinlik anlayışıyla her dönem gelişen, kendini yenileyen ve kurumsallaşan bir yapı kuruyoruz.</li></ul></div>
+</div>
+<div class="vals rv"><span>Değerlerimiz</span><b>Eşitlik</b><b>Saygı</b><b>Gönüllülük</b><b>Üretkenlik</b></div>
+</div></section>
 
 <section id="duyurular" class="alt"><div class="wrap">
 <h2 class="rv">Duyurular</h2><p class="sub rv">Güncel haberler ve etkinlik takvimi.</p>
@@ -424,7 +462,8 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <label>Mesajınız<textarea name="Mesaj" rows="5" required></textarea></label>
 <button class="sbtn">Gönder</button><div class="msg" role="status"></div></form></div>
 <div class="rv box"><h3>İletişim bilgileri</h3>
-<ul class="info"><li><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div><div><b>Bizi Instagramdan Takip Et!! 👀</b><a href="https://instagram.com/iucsosyalkampus" target="_blank" rel="noopener">@iucsosyalkampus</a></div></li>
+<ul class="info"><li class="wali"><div class="ic wi"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div><div><b>WhatsApp Topluluğu</b><a class="wa" href="https://chat.whatsapp.com/IAcBgPbp0uOHOSS5q2Y6tG?mode=gi_t" target="_blank" rel="noopener">Gruba katıl <span aria-hidden="true">→</span></a></div></li>
+<li><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div><div><b>Bizi Instagramdan Takip Et!! 👀</b><a href="https://instagram.com/iucsosyalkampus" target="_blank" rel="noopener">@iucsosyalkampus</a></div></li>
 <li><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 8 8 6 8-6"/></svg></div><div><b>E-posta</b><a href="mailto:iucsosyalkampus@gmail.com">iucsosyalkampus@gmail.com</a></div></li>
 <li><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div><div><b>Kurucu / Başkan</b><a href="https://instagram.com/turanberat__" target="_blank" rel="noopener">@turanberat__</a></div></li>
 <li><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><b>Adres</b><a class="addr" id="addr" href="https://www.google.com/maps/dir/?api=1&destination=%C4%B0stanbul%20%C3%9Cniversitesi-Cerrahpa%C5%9Fa%20Avc%C4%B1lar%20Yerle%C5%9Fkesi%2C%20Avc%C4%B1lar%2C%20%C4%B0stanbul&travelmode=driving" target="_blank" rel="noopener" aria-label="Adresi haritada aç">İstanbul Üniversitesi-Cerrahpaşa<br>Avcılar Yerleşkesi 34320<br>Avcılar / İstanbul</a></div></li></ul></div></div></div></section>
@@ -448,6 +487,13 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <label>Neden katılmak istiyorsun? (isteğe bağlı)<textarea name="Not" rows="2"></textarea></label>
 <button class="sbtn">Başvuruyu gönder</button><div class="msg" role="status"></div>
 </form></div></div>
+
+<div class="ov" id="tv" role="dialog" aria-modal="true" aria-labelledby="tvt">
+<div class="modal tm">
+<button class="x" id="tx" aria-label="Kapat">✕</button><div class="mt"><h2 id="tvt">Kulüp ekibimiz</h2></div>
+<p class="sub">Sosyal Kampüs'ü birlikte yöneten yönetim ve denetleme kurulu.</p>
+<h3 class="tg">Yönetim Kurulu</h3><ul class="tl"><li class="lead"><div class="av" aria-hidden="true">BT</div><div><b>Berat TURAN</b><span>Kulüp Başkanı</span></div></li><li><div class="av" aria-hidden="true">AS</div><div><b>Abdullah SÖNMEZ</b><span>Başkan Yardımcısı</span></div></li><li><div class="av" aria-hidden="true">MA</div><div><b>Mahmut AYDIN</b><span>Sayman</span></div></li><li><div class="av" aria-hidden="true">HT</div><div><b>Hatice Ebrar TEKİNER</b><span>Yazman</span></div></li><li><div class="av" aria-hidden="true">EU</div><div><b>Esat UYSAL</b><span>Organizasyon Komisyonu Başkanı</span></div></li><li><div class="av" aria-hidden="true">TK</div><div><b>Taha KOÇ</b><span>Sponsorluk ve Dış İlişkiler Komisyon Başkanı</span></div></li></ul><h3 class="tg">Yönetim Kurulu Yedek Üyeleri</h3><ul class="tl"><li><div class="av" aria-hidden="true">MK</div><div><b>Melike KONUKLAR</b><span>Sosyal Medya ve İletişim Başkanı</span></div></li><li><div class="av" aria-hidden="true">SK</div><div><b>Sıla KAYA</b><span>Sosyal Sorumluluk Komisyon Başkanı</span></div></li><li><div class="av" aria-hidden="true">BÖ</div><div><b>Betül ÖZBEY</b><span>Öğrenci İşleri Başkanı</span></div></li></ul><h3 class="tg">Denetleme Kurulu</h3><ul class="tl"><li class="lead"><div class="av" aria-hidden="true">İE</div><div><b>İrem ERDEM</b><span>Denetleme Kurulu Başkanı</span></div></li><li><div class="av" aria-hidden="true">SB</div><div><b>Sıla BAŞÇI</b><span>Denetleme Kurulu Üyesi · Sosyal Medya Komisyon Üyesi</span></div></li><li><div class="av" aria-hidden="true">ZK</div><div><b>Zana KAYA</b><span>Denetleme Kurulu Üyesi · Sosyal Medya Komisyon Üyesi</span></div></li><li><div class="av" aria-hidden="true">İK</div><div><b>İrem KOÇAK</b><span>Denetleme Kurulu Yedek Üyesi · Sosyal Medya Komisyon Üyesi</span></div></li></ul>
+</div></div>
 
 <script>
 /* Pages CMS: data/*.json dosyalarındaki içerik sayfaya basılır. Okunamazsa aşağıdaki sabit içerik kalır. */
@@ -584,6 +630,22 @@ function sync(){b.hidden=/@gmail\.com$/i.test(i.value.trim())}
 b.addEventListener('mousedown',function(e){e.preventDefault()});
 b.addEventListener('click',function(){var v=i.value.trim(),at=v.indexOf('@'),base=at>-1?v.slice(0,at):v;i.value=base+'@gmail.com';sync();i.focus()});
 i.addEventListener('input',sync);sync();
+});
+})();
+</script>
+<script>
+(function(){
+var tv=document.getElementById('tv'),sb=document.querySelector('.sb');
+function tOpen(){tv.classList.add('show');document.body.style.overflow='hidden';tv.querySelector('.modal').scrollTop=0}
+function tClose(){tv.classList.remove('show');document.body.style.overflow=''}
+document.getElementById('tx').onclick=tClose;
+tv.addEventListener('click',function(e){if(e.target===tv)tClose()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')tClose()});
+if(sb)[].forEach.call(sb.children,function(c){
+if(!/komisyon/i.test(c.textContent))return;
+c.classList.add('kom');c.tabIndex=0;c.setAttribute('role','button');c.setAttribute('aria-label','Kulüp ekibini göster');
+c.addEventListener('click',tOpen);
+c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tOpen()}})
 });
 })();
 </script>
