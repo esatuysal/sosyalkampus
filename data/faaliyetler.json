@@ -1,9 +1,9 @@
 {
   "items": [
     {
-      "ikon": "🎤",
-      "baslik": "Söyleşi ve Seminerler",
-      "aciklama": "Sektör ve akademi konuklarıyla kariyer buluşmaları."
+      "ikon": "🌟",
+      "baslik": "Konuk & Network Etkinlikleri",
+      "aciklama": "Sektör liderleri, tanınmış isimler ve içerik üreticileriyle ilham verici buluşmalar."
     },
     {
       "ikon": "🤍",
@@ -13,12 +13,12 @@
     {
       "ikon": "🎉",
       "baslik": "Kampüs Şenlikleri",
-      "aciklama": "Tanışma, turnuva ve kültür etkinlikleri."
+      "aciklama": "Tanışma, turnuva ve eğlence etkinlikleri."
     },
     {
-      "ikon": "💡",
-      "baslik": "Eğitim Atölyeleri",
-      "aciklama": "Yazılım, tasarım ve kişisel gelişim atölyeleri."
+      "ikon": "🏛️",
+      "baslik": "Kültür & Sektör Gezileri",
+      "aciklama": "Şehir içi, şehir dışı kültür turları ve şirket/kurum ziyaretleri."
     }
   ]
 }
