@@ -446,6 +446,46 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 .info a.pl.gml:hover{box-shadow:0 14px 28px -8px rgba(234,67,53,.9)}
 .info a.pl.mp:hover{box-shadow:0 14px 28px -8px rgba(26,115,232,.9)}
 .info a.pl.addr{display:inline-block;border-radius:18px;padding:12px 20px;line-height:1.5;font-size:14.5px}
+
+/* v11: duyuru modalı, faaliyetler, kartlar */
+.n{cursor:pointer;text-align:left}
+.n .mo{display:block;margin-top:10px;font-size:13px;font-weight:700;color:var(--bright)}
+.modal.dm{max-width:760px;padding:0}
+.dm img{display:block;width:100%;height:auto;background:var(--sky);border-radius:22px 22px 0 0}
+.dm img[hidden]{display:none}
+.dm .db{padding:26px 30px 32px}
+.dm.noimg .db,.noimg .modal.dm .db{padding-top:64px}
+.dm time{display:block;font-size:13px;font-weight:700;color:var(--bright);margin-bottom:6px}
+.dm time[hidden],.dm .dd[hidden]{display:none}
+.dm h2{font-size:26px;line-height:1.25;margin:0 0 12px}
+.dm .dd{white-space:pre-line;color:var(--mut);font-size:16px;line-height:1.7;margin:0}
+.dm .da{margin-top:22px}.dm .da:empty{display:none}
+.dm .da .btn{margin:0}
+.ov.noimg .dm .db{padding-top:64px}
+@media(max-width:480px){.dm .db{padding:20px 20px 26px}.ov.noimg .dm .db{padding-top:60px}.dm h2{font-size:22px}.dm .dd{font-size:15px}}
+#faaliyetler .grid.two{counter-reset:fa;grid-template-columns:repeat(2,1fr);gap:18px}
+#faaliyetler .card{counter-increment:fa;display:grid;grid-template-columns:58px 1fr;column-gap:18px;align-items:start;padding:26px 28px;border-radius:22px}
+#faaliyetler .card::after{content:"0" counter(fa);position:absolute;right:20px;top:10px;font-size:56px;font-weight:900;line-height:1;color:var(--blue);opacity:.08;pointer-events:none}
+@media(prefers-color-scheme:dark){#faaliyetler .card::after{color:#9cc0ff;opacity:.12}}
+#faaliyetler .card .ic{grid-row:1/3;width:58px;height:58px;margin:0;font-size:27px;border-radius:18px;box-shadow:0 10px 22px -10px rgba(10,79,196,.8);transition:transform .3s}
+#faaliyetler .card:hover .ic{transform:rotate(-6deg) scale(1.08)}
+#faaliyetler .card h3{margin:2px 40px 6px 0;font-size:19px;line-height:1.3}
+#faaliyetler .card p{display:block;margin:0;font-size:15px;line-height:1.65;color:var(--mut)}
+@media(max-width:860px){
+#faaliyetler .grid.two{grid-template-columns:1fr;gap:12px}
+#faaliyetler .card{grid-template-columns:48px 1fr;column-gap:14px;padding:18px 18px}
+#faaliyetler .card .ic{width:48px;height:48px;font-size:23px;border-radius:15px}
+#faaliyetler .card h3{font-size:17px;margin-right:34px}
+#faaliyetler .card p{display:block;font-size:14.5px}
+#faaliyetler .card::after{font-size:42px;right:14px;top:8px}
+}
+
+.hero p.newc{display:flex;width:fit-content;max-width:100%;align-items:center}
+.hero p.newc span{display:block;line-height:1.4}
+
+.info a.pl.gml{white-space:nowrap;overflow-wrap:normal;word-break:normal}
+@media(max-width:480px){.info a.pl.gml{font-size:13.5px;padding:10px 15px;letter-spacing:-.01em}}
+@media(max-width:380px){.info a.pl.gml{font-size:12px;padding:10px 12px}}
 </style>
 </head>
 <body>
@@ -471,7 +511,7 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <div>
 <h1>Kampüsü birlikte yaşatıyoruz.</h1>
 <p class="hx" style="--hd:3">Sosyal Kampüs, İstanbul Üniversitesi-Cerrahpaşa öğrencilerini etkinlik, söyleşi ve dayanışma projeleriyle bir araya getiren resmi öğrenci kulübüdür.</p>
-<p class="hx newc" style="--hd:4"><i></i>Yeni bir kulüp olmamıza rağmen hızla büyüyoruz. <strong>Aramıza katıl!</strong></p>
+<p class="hx newc" style="--hd:4"><i></i><span>Yeni bir kulüp olmamıza rağmen hızla büyüyoruz. <strong>Aramıza katıl!</strong></span></p>
 <button class="btn p hx" style="--hd:4" data-open>Kulübe katıl</button><a class="btn o hx" style="--hd:5" href="#galeri">Etkinlik galerisi</a>
 </div>
 <div class="logo"><img src="logo.png" alt="Sosyal Kampüs"></div>
@@ -498,9 +538,9 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <section id="duyurular" class="alt"><div class="wrap">
 <h2 class="rv">Duyurular</h2><p class="sub rv">Güncel haberler ve etkinlik takvimi.</p>
 <div class="stg grid snap">
-<a class="n" href="#"><div class="im"></div><div class="t"><time>01 Kasım 2026</time><h3>Dönem tanışma buluşması</h3></div></a>
-<a class="n" href="#"><div class="im"></div><div class="t"><time>10 Kasım 2026</time><h3>Kariyer söyleşisi kayıtları açıldı</h3></div></a>
-<a class="n" href="#"><div class="im"></div><div class="t"><time>20 Kasım 2026</time><h3>Gönüllülük projesi başlıyor</h3></div></a></div></div></section>
+<div class="n" role="button" tabindex="0" data-t="01 Kasım 2026" data-b="Dönem tanışma buluşması"><div class="im"></div><div class="t"><time>01 Kasım 2026</time><h3>Dönem tanışma buluşması</h3><span class="mo">Detayları gör ›</span></div></div>
+<div class="n" role="button" tabindex="0" data-t="10 Kasım 2026" data-b="Kariyer söyleşisi kayıtları açıldı"><div class="im"></div><div class="t"><time>10 Kasım 2026</time><h3>Kariyer söyleşisi kayıtları açıldı</h3><span class="mo">Detayları gör ›</span></div></div>
+<div class="n" role="button" tabindex="0" data-t="20 Kasım 2026" data-b="Gönüllülük projesi başlıyor"><div class="im"></div><div class="t"><time>20 Kasım 2026</time><h3>Gönüllülük projesi başlıyor</h3><span class="mo">Detayları gör ›</span></div></div></div></div></section>
 
 <section id="galeri"><div class="wrap">
 <h2 class="rv">Etkinlik galerisi</h2><p class="sub rv">Kampüste birlikte yaşadığımız anlardan kareler.</p>
@@ -556,6 +596,13 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <h3 class="tg">Yönetim Kurulu</h3><ul class="tl"><li class="lead"><div class="av" aria-hidden="true">BT</div><div><b>Berat TURAN</b><span>Kulüp Başkanı</span></div></li><li><div class="av" aria-hidden="true">AS</div><div><b>Abdullah SÖNMEZ</b><span>Başkan Yardımcısı</span></div></li><li><div class="av" aria-hidden="true">MA</div><div><b>Mahmut AYDIN</b><span>Sayman</span></div></li><li><div class="av" aria-hidden="true">HT</div><div><b>Hatice Ebrar TEKİNER</b><span>Yazman</span></div></li><li><div class="av" aria-hidden="true">EU</div><div><b>Esat UYSAL</b><span>Organizasyon Komisyonu Başkanı</span></div></li><li><div class="av" aria-hidden="true">TK</div><div><b>Taha KOÇ</b><span>Sponsorluk ve Dış İlişkiler Komisyon Başkanı</span></div></li></ul><h3 class="tg">Yönetim Kurulu Yedek Üyeleri</h3><ul class="tl"><li><div class="av" aria-hidden="true">MK</div><div><b>Melike KONUKLAR</b><span>Sosyal Medya ve İletişim Başkanı</span></div></li><li><div class="av" aria-hidden="true">SK</div><div><b>Sıla KAYA</b><span>Sosyal Sorumluluk Komisyon Başkanı</span></div></li><li><div class="av" aria-hidden="true">BÖ</div><div><b>Betül ÖZBEY</b><span>Öğrenci İşleri Başkanı</span></div></li></ul><h3 class="tg">Denetleme Kurulu</h3><ul class="tl"><li class="lead"><div class="av" aria-hidden="true">İE</div><div><b>İrem ERDEM</b><span>Denetleme Kurulu Başkanı</span></div></li><li><div class="av" aria-hidden="true">SB</div><div><b>Sıla BAŞÇI</b><span>Denetleme Kurulu Üyesi · Sosyal Medya Komisyon Üyesi</span></div></li><li><div class="av" aria-hidden="true">ZK</div><div><b>Zana KAYA</b><span>Denetleme Kurulu Üyesi · Sosyal Medya Komisyon Üyesi</span></div></li><li><div class="av" aria-hidden="true">İK</div><div><b>İrem KOÇAK</b><span>Denetleme Kurulu Yedek Üyesi · Sosyal Medya Komisyon Üyesi</span></div></li></ul>
 </div></div>
 
+<div class="ov" id="dv" role="dialog" aria-modal="true" aria-labelledby="dvt">
+<div class="modal dm">
+<button class="x" id="dvx" aria-label="Kapat">✕</button>
+<img id="dvi" alt="" hidden>
+<div class="db"><time id="dvd"></time><h2 id="dvt"></h2><p class="dd" id="dva"></p><div class="da" id="dvl"></div></div>
+</div></div>
+
 <script>
 /* Pages CMS: data/*.json dosyalarındaki içerik sayfaya basılır. Okunamazsa aşağıdaki sabit içerik kalır. */
 (function(){
@@ -564,7 +611,7 @@ function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){retur
 function img(p){return String(p||'').replace(/^\//,'')}
 function put(sel,list,fn){var el=document.querySelector(sel);if(el&&Array.isArray(list))el.innerHTML=list.map(fn).join('')}
 put('.sb',get('istatistikler'),function(o){return '<div><b>'+esc(o.sayi)+'</b><span>'+esc(o.etiket)+'</span></div>'});
-put('#duyurular .grid',get('duyurular'),function(o){return '<a class="n" href="'+esc(o.link||'#')+'"><div class="im"'+(o.gorsel?' style="background:url(&#39;'+esc(img(o.gorsel))+'&#39;) center/cover no-repeat"':'')+'></div><div class="t"><time>'+esc(o.tarih)+'</time><h3>'+esc(o.baslik)+'</h3></div></a>'});
+put('#duyurular .grid',get('duyurular'),function(o){return '<div class="n" role="button" tabindex="0" data-t="'+esc(o.tarih)+'" data-b="'+esc(o.baslik)+'" data-g="'+esc(o.gorsel?img(o.gorsel):'')+'" data-a="'+esc(o.aciklama||o.aciklamasi||o.metin||o.icerik||'')+'" data-l="'+esc(o.link||'')+'"><div class="im"'+(o.gorsel?' style="background:url(&#39;'+esc(img(o.gorsel))+'&#39;) center/cover no-repeat"':'')+'></div><div class="t"><time>'+esc(o.tarih)+'</time><h3>'+esc(o.baslik)+'</h3><span class="mo">Detayları gör ›</span></div></div>'});
 put('#faaliyetler .grid',get('faaliyetler'),function(o){return '<div class="card"><div class="ic">'+esc(o.ikon)+'</div><h3>'+esc(o.baslik)+'</h3><p>'+esc(o.aciklama)+'</p></div>'});
 put('#gal',get('galeri'),function(o){return '<button type="button" data-cap="'+esc(o.baslik)+'"><img src="'+esc(img(o.gorsel))+'" alt="'+esc(o.baslik)+'" loading="lazy"><span>'+esc(o.baslik)+'</span></button>'});
 })();
@@ -575,7 +622,7 @@ var ov=document.getElementById('ov');
 function closeNav(){var n=document.getElementById('nav'),m=document.getElementById('menu');n.classList.remove('open');if(m){m.classList.remove('on');m.setAttribute('aria-expanded','false')}}
 document.querySelectorAll('#nav a:not([data-open])').forEach(function(l){l.addEventListener('click',closeNav)});
 function open(){ov.classList.add('show');document.body.style.overflow='hidden';var m=ov.querySelector('.modal');if(m)m.scrollTop=0}
-function close(){ov.classList.remove('show');document.body.style.overflow=''}
+function close(){var w=ov.classList.contains('show');ov.classList.remove('show');document.body.style.overflow='';if(w)document.dispatchEvent(new Event('skclose'))}
 document.getElementById('x').onclick=close;
 ov.addEventListener('click',function(e){if(e.target===ov)close()});
 var gal=document.getElementById('gal'),dots=document.getElementById('dots'),gb=gal.children;
@@ -614,8 +661,13 @@ function go(){d.body.classList.add('go')}
 var mc=d.getElementById('mc');if(rm){sp.remove();go()}else{mc.classList.add('pre');setTimeout(function(){sp.style.setProperty('--z',Math.max(innerWidth,innerHeight)/110*1.7);sp.classList.add('out');setTimeout(function(){sp.classList.add('fade');mc.classList.add('in');go();setTimeout(function(){sp.style.pointerEvents='none';sp.style.display='none';sp.remove();mc.className='';mc.removeAttribute('class')},900)},1050)},2000)}
 var h=d.querySelector('.hero h1');if(h){var tx=h.textContent.trim();h.setAttribute('aria-label',tx);h.innerHTML=tx.split(/\s+/).map(function(w,i){return '<span class="w" aria-hidden="true"><span style="--i:'+i+'">'+w+'</span></span>'}).join(' ')}
 d.querySelectorAll('.stg').forEach(function(g){[].forEach.call(g.children,function(c,i){c.style.setProperty('--i',i)})});
-function count(el){el.querySelectorAll('b').forEach(function(b){var m=b.textContent.match(/(\d+)(\D*)/);if(!m)return;var n=+m[1],t0=performance.now();(function f(t){var k=Math.min(1,(t-t0)/1500),e=1-Math.pow(1-k,3);b.textContent=Math.round(n*e)+m[2];if(k<1)requestAnimationFrame(f)})(t0)})}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.classList.contains('sb')&&!rm)count(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+function prepC(){d.querySelectorAll('.sb b').forEach(function(b){var m=b.textContent.match(/(\d+)(\D*)/);if(!m)return;b.dataset.n=m[1];b.dataset.s=m[2];b.textContent='0'+m[2]})}
+var cSeen=false,cGo=false,cReady=false;
+function cTry(){if(cGo||!cSeen||!cReady)return;cGo=true;var bs=[].slice.call(d.querySelectorAll('.sb b')),t0=performance.now();(function f(t){var k=Math.min(1,Math.max(0,(t-t0)/3000)),e=.5-.5*Math.cos(Math.PI*k);bs.forEach(function(b){if(b.dataset.n!=null)b.textContent=Math.round(+b.dataset.n*e)+b.dataset.s});if(k<1)requestAnimationFrame(f)})(t0)}
+d.addEventListener('skclose',function(){cReady=true;cTry()});
+setTimeout(function(){var o=d.getElementById('ov');if(!o||!o.classList.contains('show')){cReady=true;cTry()}},7000);
+if(!rm)prepC();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.classList.contains('sb')&&!rm){cSeen=true;cTry()}}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
 d.querySelectorAll('.rv,.stg').forEach(function(e){io.observe(e)});
 var tk=false;function onS(){if(tk)return;tk=true;requestAnimationFrame(function(){var y=scrollY,H=de.scrollHeight-innerHeight;pr.style.transform='scaleX('+(H>0?y/H:0)+')';hd.classList.toggle('sc',y>30);de.style.setProperty('--sy',Math.min(y,700));fab.classList.toggle('show',y>520);tk=false})}
 addEventListener('scroll',onS,{passive:true});onS();
@@ -668,7 +720,7 @@ else if(e.key==='Escape'&&!u.hidden){e.stopPropagation();hide()}});
 })();
 </script>
 <script>
-(function(){var a=document.getElementById('addr');if(a&&/iPhone|iPad|iPod/.test(navigator.userAgent))a.href='https://maps.apple.com/?daddr='+encodeURIComponent('İstanbul Üniversitesi-Cerrahpaşa Avcılar Yerleşkesi, Avcılar, İstanbul')+'&dirflg=d'})();
+;
 </script>
 <script>
 (function(){
@@ -708,6 +760,39 @@ c.classList.add('kom');c.tabIndex=0;c.setAttribute('role','button');c.setAttribu
 c.addEventListener('click',tOpen);
 c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tOpen()}})
 });
+})();
+</script>
+<script>
+(function(){
+var d=document,UA=navigator.userAgent;
+var iOS=/iPhone|iPad|iPod/.test(UA)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1),AND=/Android/i.test(UA);
+function parse(u){var x;try{x=new URL(u,location.href)}catch(e){return null}
+var h=x.hostname,isG=/(^|\.)google\.[a-z.]+$/.test(h)&&/^\/maps/.test(x.pathname),isA=h==='maps.apple.com';
+if(!isG&&!isA)return null;
+var p=x.searchParams,dir=!!(p.get('destination')||p.get('daddr')||/\/dir\//.test(x.pathname)),q=p.get('destination')||p.get('daddr')||p.get('query')||p.get('q')||p.get('address');
+if(!q&&isG){var seg=x.pathname.split('/').filter(Boolean).slice(1);
+if(seg[0]&&/^(place|search|dir)$/.test(seg[0])){var r=seg.slice(1).filter(function(t){return t&&t[0]!=='@'&&!/^data=/.test(t)});if(r.length){try{q=decodeURIComponent(r[r.length-1].replace(/\+/g,' '))}catch(e){q=r[r.length-1]}}}
+var at=x.pathname.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);if(!q&&at)q=at[1]+','+at[2]}
+return q?{q:q,dir:dir}:null}
+function mapHref(u){var m=parse(u);if(!m)return u;var e=encodeURIComponent(m.q);
+if(iOS)return m.dir?'https://maps.apple.com/?daddr='+e+'&dirflg=d':'https://maps.apple.com/?q='+e;
+if(AND)return m.dir?'https://www.google.com/maps/dir/?api=1&destination='+e:'https://www.google.com/maps/search/?api=1&query='+e;
+return u}
+function fix(root){root.querySelectorAll('a[href]').forEach(function(a){var h=a.getAttribute('href'),r=mapHref(h);if(r!==h)a.setAttribute('href',r)})}
+fix(d);
+var dv=d.getElementById('dv'),g=d.querySelector('#duyurular .grid');
+function openA(c){var t=c.dataset.t||'',b=c.dataset.b||'',gr=c.dataset.g||'',a=c.dataset.a||'',l=(c.dataset.l||'').trim();
+var im=d.getElementById('dvi'),tm=d.getElementById('dvd'),ti=d.getElementById('dvt'),de=d.getElementById('dva'),ac=d.getElementById('dvl');
+if(gr){im.src=gr;im.alt=b;im.hidden=false;dv.classList.remove('noimg')}else{im.removeAttribute('src');im.hidden=true;dv.classList.add('noimg')}
+ti.textContent=b;tm.textContent=t;tm.hidden=!t;de.textContent=a;de.hidden=!a;ac.innerHTML='';
+if(l&&l!=='#'&&!/^\s*javascript:/i.test(l)){var an=d.createElement('a');an.className='btn p';an.target='_blank';an.rel='noopener';an.href=mapHref(l);an.textContent=parse(l)?'Konumu haritada aç  →':'Bağlantıya git  →';ac.appendChild(an)}
+dv.classList.add('show');d.body.style.overflow='hidden';dv.querySelector('.modal').scrollTop=0}
+function cl(){dv.classList.remove('show');d.body.style.overflow=''}
+if(g){g.addEventListener('click',function(e){var c=e.target.closest('.n');if(c)openA(c)});
+g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var c=e.target.closest('.n');if(c){e.preventDefault();openA(c)}}})}
+d.getElementById('dvx').onclick=cl;
+dv.addEventListener('click',function(e){if(e.target===dv)cl()});
+d.addEventListener('keydown',function(e){if(e.key==='Escape')cl()});
 })();
 </script>
 </body></html>
