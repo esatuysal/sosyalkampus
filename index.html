@@ -491,7 +491,7 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 .vd{margin-top:44px;height:116px;overflow:hidden;background:#000d4d}
 .vd video{display:block;width:100%;height:100%;object-fit:cover}
 @media(max-width:860px){.vd{margin-top:30px;height:90px}}
-.hero p.newc strong a{color:inherit;font-weight:inherit;text-decoration:none;cursor:pointer;transition:opacity .2s}
+.hero p.newc strong a,.hero p.newc strong a:hover,.hero p.newc strong a:focus,.hero p.newc strong a:visited{color:inherit;font-weight:inherit;text-decoration:none!important;border-bottom:0!important;cursor:pointer;transition:opacity .2s}
 .hero p.newc strong a:hover{opacity:.8}
 .hero p.newc{border-radius:22px}
 </style>
@@ -529,7 +529,7 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <div><b>190+</b><span>Üye</span></div><div><b>10+</b><span>Etkinlik</span></div>
 <div><b>4+</b><span>Proje</span></div><div><b>5</b><span>Komisyon</span></div></div></div></div>
 
-<div class="vd"><video data-src="video.mp4" muted loop playsinline preload="none" aria-label="Sosyal Kampüs tanıtım videosu"></video></div>
+<div class="vd"><video data-src="video.mp4" muted loop playsinline webkit-playsinline preload="none" aria-label="Sosyal Kampüs tanıtım videosu"></video></div>
 
 <section id="hakkimizda"><div class="wrap">
 <h2 class="rv">Hakkımızda</h2><p class="sub rv">Öğrenciler tarafından kurulan, öğrenciler için çalışan bir topluluk.</p>
@@ -823,7 +823,8 @@ d.addEventListener('keydown',function(e){if(e.key==='Escape')cl()});
 var c=navigator.connection||{};if(c.saveData)return;
 var ready=false,vis=false;
 function go(){if(!ready||!vis)return;var p=v.play();if(p&&p.catch)p.catch(function(){})}
-function init(){v.src=v.dataset.src;v.preload='auto';v.load();ready=true;go()}
+v.addEventListener('error',function(){console.warn('video.mp4 yüklenemedi / oynatılamadı',v.error);v.parentNode.style.display='none'});
+function init(){v.muted=true;v.src=v.dataset.src;v.preload='auto';v.load();ready=true;go()}
 if('IntersectionObserver' in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis)go();else if(ready)v.pause()},{threshold:.15}).observe(v)}else{vis=true}
 if(document.readyState==='complete')setTimeout(init,300);else window.addEventListener('load',function(){setTimeout(init,300)});
 })();
