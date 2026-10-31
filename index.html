@@ -495,28 +495,37 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 .hero p.newc strong a:hover{opacity:.8}
 .hero p.newc{border-radius:22px}
 
-/* misyon-vizyon flip */
-.flw{margin-top:30px;perspective:1600px}
-.flc{position:relative;display:grid;cursor:pointer;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.65,.05,.2,1);-webkit-tap-highlight-color:transparent;outline:0}
-.flc.fl{transform:rotateY(180deg)}
+/* misyon-vizyon flip v2 */
+.flw{margin-top:30px;perspective:1800px}
+.flc{--r:-9deg;--d:0deg;position:relative;display:grid;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;transform-style:preserve-3d;transform:rotateX(2.5deg) rotateY(calc(var(--r) + var(--d)));transition:transform 1.05s cubic-bezier(.65,.05,.2,1);-webkit-tap-highlight-color:transparent;outline:0}
+.flc.drag{transition:none;cursor:grabbing}
+@media(hover:hover){.flw:not(.on) .flc:hover{--r:-3deg}.flw.on .flc:hover{--r:177deg}}
+.flw.on .flc{--r:171deg}
 .flc:focus-visible .fcf{box-shadow:0 0 0 3px var(--bright),var(--sh)}
-.fcf{grid-area:1/1;position:relative;padding:38px 40px 64px;border-radius:26px;background:var(--card);border:1px solid var(--line);box-shadow:var(--sh);backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.fcf.back{transform:rotateY(180deg);background:linear-gradient(135deg,#000d4d,#001a6e 55%,#0a4fc4);border-color:rgba(255,255,255,.14);color:#fff}
-.fcf .ic{margin-bottom:14px}
-.fcf h3{font-size:24px;margin-bottom:10px}
-.fcf .lead{color:var(--ink);font-size:17px;font-weight:600;line-height:1.6;margin-bottom:16px}
-.fcf.back h3,.fcf.back .lead{color:#fff}
-.fcf.back .pts li{color:#c9d6f5}
-.fcf.back .pts li::before{background:#f2b705;box-shadow:0 0 0 4px rgba(242,183,5,.22)}
-.fcf.back .ic{background:rgba(255,255,255,.14);box-shadow:none}
-.flh{position:absolute;right:24px;bottom:20px;display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;font-size:13.5px;font-weight:700;color:var(--blue);background:var(--sky);border:1px solid var(--line);animation:flh 2.4s ease-in-out infinite}
-.flh i{font-style:normal;font-size:16px;display:inline-block;transition:transform .6s}
-.flc:hover .flh i{transform:rotate(180deg)}
-.fcf.back .flh{color:#fff;background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
-@keyframes flh{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-@media(prefers-color-scheme:dark){.flh{color:#9cc0ff}}
-@media(max-width:860px){.fcf{padding:24px 22px 64px;border-radius:22px}.fcf h3{font-size:21px}.fcf .lead{font-size:15.5px}}
-@media(prefers-reduced-motion:reduce){.flc{transition:none}.flh{animation:none}.flc.fl .front{visibility:hidden}.flc:not(.fl) .back{visibility:hidden}}
+.fcf{grid-area:1/1;position:relative;overflow:hidden;padding:44px 48px 46px;border-radius:30px;border:1px solid var(--line);background:linear-gradient(160deg,var(--card) 55%,var(--sky));box-shadow:0 30px 60px -28px rgba(10,40,120,.45),0 2px 0 rgba(255,255,255,.6) inset;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.fcf::before{content:"";position:absolute;right:-90px;top:-110px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(47,123,255,.2),transparent 68%);pointer-events:none}
+.fcf.front::after{content:"";position:absolute;left:0;top:34px;bottom:34px;width:4px;border-radius:0 4px 4px 0;background:linear-gradient(180deg,var(--bright),var(--gold))}
+.fcf.back{transform:rotateY(180deg);color:#fff;border-color:rgba(255,255,255,.16);background:radial-gradient(circle at 88% 0,rgba(47,123,255,.6),transparent 52%),linear-gradient(145deg,#000d4d,#001a6e 58%,#0a3fa8)}
+.fcf.back::before{inset:0;right:auto;top:auto;width:auto;height:auto;border-radius:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.6px);background-size:24px 24px;-webkit-mask-image:linear-gradient(to bottom left,#000,transparent 70%);mask-image:linear-gradient(to bottom left,#000,transparent 70%)}
+.fcf.back::after{content:"";position:absolute;right:0;top:34px;bottom:34px;width:4px;border-radius:4px 0 0 4px;background:linear-gradient(180deg,var(--gold),var(--bright))}
+.fcf>*{position:relative;z-index:1}
+.fh{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.fh .ic{margin:0;width:58px;height:58px;border-radius:18px;box-shadow:0 12px 24px -10px rgba(10,79,196,.85)}
+.fk{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);padding:7px 14px;border-radius:999px;background:var(--sky);border:1px solid var(--line)}
+.fcf.back .fh .ic{background:linear-gradient(135deg,#f2b705,#ffd54a);color:#3a2a00;box-shadow:0 12px 24px -10px rgba(242,183,5,.8)}
+.fcf.back .fk{color:var(--gold);background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22)}
+.fcf h3{font-size:30px;line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}
+.fcf.back h3{color:#fff}
+.fcf .lead{max-width:62ch;font-size:17.5px;font-weight:600;line-height:1.65;margin-bottom:22px;color:var(--ink)}
+.fcf.back .lead{color:#eaf0ff}
+.fcf .pts{counter-reset:pt;gap:0;max-width:70ch}
+.fcf .pts li{counter-increment:pt;padding:15px 0 15px 46px;border-top:1px solid var(--line);font-size:15.5px;line-height:1.65}
+.fcf .pts li:last-child{border-bottom:1px solid var(--line)}
+.fcf .pts li::before{content:counter(pt);left:0;top:15px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--bright),var(--blue));box-shadow:0 6px 14px -6px rgba(10,79,196,.8)}
+.fcf.back .pts li{color:#c9d6f5;border-color:rgba(255,255,255,.16)}
+.fcf.back .pts li::before{color:#3a2a00;background:linear-gradient(135deg,#f2b705,#ffd54a);box-shadow:0 6px 14px -6px rgba(242,183,5,.8)}
+@media(max-width:860px){.fcf{padding:26px 22px 30px;border-radius:24px}.fcf h3{font-size:24px}.fcf .lead{font-size:15.5px}.fcf .pts li{font-size:14.5px;padding-left:42px}.fh .ic{width:50px;height:50px;border-radius:16px}}
+@media(prefers-reduced-motion:reduce){.flc{transition:none}.flw.on .front{visibility:hidden}.flw:not(.on) .back{visibility:hidden}}
 </style>
 </head>
 <body>
@@ -555,9 +564,13 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <div class="vd"><video data-src="video.mp4" muted loop playsinline webkit-playsinline preload="none" aria-label="Sosyal Kampüs tanıtım videosu"></video></div>
 
 <section id="hakkimizda"><div class="wrap">
-<h2 class="rv">Hakkımızda</h2><div class="rv flw"><div class="flc" id="mvf" role="button" tabindex="0" aria-pressed="false" aria-label="Misyon ve vizyon kartı. Çevirmek için dokun"><div class="fcf front"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
-<ul class="pts"><li>Öğrencileri fikir geliştirme, organizasyon yönetimi ve birlikte üretme süreçlerine aktif olarak dahil ediyoruz.</li><li>Herkesin bireysel potansiyelini ortaya çıkarabileceği bir ortam sunuyoruz.</li><li>Farklı ilgi alanlarına hitap eden, sürekli gelişen ve öğrenci geri bildirimleriyle şekillenen bir etkinlik kültürü oluşturuyoruz.</li></ul><span class="flh">Vizyonumuza geç <i aria-hidden="true">↻</i></span></div><div class="fcf back"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
-<ul class="pts"><li>Her öğrencinin kendine yer bulabildiği, fikirlerini özgürce ifade edip hayata geçirebildiği bir platform oluşturuyoruz.</li><li>Kampüs yaşamına kalıcı değer katan bir kulüp olmayı amaçlıyoruz.</li><li>Sürdürülebilir etkinlik anlayışıyla her dönem gelişen, kendini yenileyen ve kurumsallaşan bir yapı kuruyoruz.</li></ul><span class="flh">Misyonumuza dön <i aria-hidden="true">↻</i></span></div></div></div></div></section>
+<h2 class="rv">Hakkımızda</h2><div class="rv flw">
+<div class="flc" id="mvf" role="button" tabindex="0" aria-pressed="false" aria-label="Misyon ve vizyon kartı. Çevirmek için dokun">
+<div class="fcf front"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><span class="fk">Misyon</span></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
+<ul class="pts"><li>Öğrencileri fikir geliştirme, organizasyon yönetimi ve birlikte üretme süreçlerine aktif olarak dahil ediyoruz.</li><li>Herkesin bireysel potansiyelini ortaya çıkarabileceği bir ortam sunuyoruz.</li><li>Farklı ilgi alanlarına hitap eden, sürekli gelişen ve öğrenci geri bildirimleriyle şekillenen bir etkinlik kültürü oluşturuyoruz.</li></ul></div>
+<div class="fcf back"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="fk">Vizyon</span></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
+<ul class="pts"><li>Her öğrencinin kendine yer bulabildiği, fikirlerini özgürce ifade edip hayata geçirebildiği bir platform oluşturuyoruz.</li><li>Kampüs yaşamına kalıcı değer katan bir kulüp olmayı amaçlıyoruz.</li><li>Sürdürülebilir etkinlik anlayışıyla her dönem gelişen, kendini yenileyen ve kurumsallaşan bir yapı kuruyoruz.</li></ul></div>
+</div></div></section>
 
 <section id="duyurular" class="alt"><div class="wrap">
 <h2 class="rv">Duyurular</h2><p class="sub rv">Güncel haberler ve etkinlik takvimi.</p>
@@ -850,12 +863,17 @@ if(document.readyState==='complete')setTimeout(init,300);else window.addEventLis
 </script>
 <script>
 (function(){var f=document.getElementById('mvf');if(!f)return;
-var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,user=false;
-function tog(){f.classList.toggle('fl');f.setAttribute('aria-pressed',f.classList.contains('fl'))}
-f.addEventListener('click',function(){user=true;tog()});
-f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();user=true;tog()}});
-if(!rm&&'IntersectionObserver' in window){var done=false;var io=new IntersectionObserver(function(es){if(!es[0].isIntersecting||done)return;done=true;io.disconnect();
-setTimeout(function(){if(!user)tog()},900);setTimeout(function(){if(!user&&f.classList.contains('fl'))tog()},4300)},{threshold:.6});io.observe(f)}
+var w=f.parentNode,sx=0,dx=0,down=false,moved=false,pid=null;
+function isOn(){return w.classList.contains('on')}
+function set(on){w.classList.toggle('on',on);f.setAttribute('aria-pressed',on)}
+f.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse'&&e.button!==0)return;down=true;moved=false;sx=e.clientX;dx=0;pid=e.pointerId});
+f.addEventListener('pointermove',function(e){if(!down)return;dx=e.clientX-sx;if(!moved&&Math.abs(dx)>8){moved=true;f.classList.add('drag');try{f.setPointerCapture(pid)}catch(_){}}
+if(moved)f.style.setProperty('--d',Math.max(-100,Math.min(100,dx*.45))+'deg')});
+function end(){if(!down)return;down=false;var was=moved;f.classList.remove('drag');f.style.setProperty('--d','0deg');
+if(was){if(Math.abs(dx)>50)set(!isOn())}else set(!isOn());moved=false}
+f.addEventListener('pointerup',end);f.addEventListener('pointercancel',function(){down=false;moved=false;f.classList.remove('drag');f.style.setProperty('--d','0deg')});
+f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();set(!isOn())}});
+f.addEventListener('dragstart',function(e){e.preventDefault()});
 })();
 </script>
 </body></html>
