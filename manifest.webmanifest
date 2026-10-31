@@ -1,0 +1,14 @@
+{
+  "name": "Sosyal Kampüs",
+  "short_name": "Sosyal Kampüs",
+  "description": "İstanbul Üniversitesi-Cerrahpaşa Sosyal Kampüs Öğrenci Kulübü",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000d4d",
+  "theme_color": "#000d4d",
+  "lang": "tr",
+  "icons": [
+    { "src": "logo.png", "sizes": "any", "type": "image/png", "purpose": "any" }
+  ]
+}
