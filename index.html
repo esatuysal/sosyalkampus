@@ -911,10 +911,14 @@ if(ios&&!sa){b.onclick=function(){m.textContent='iPhone\'da bildirim için önce
 else if(!('Notification' in window)){w.hidden=true}
 var sc=document.createElement('script');sc.src='https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';sc.defer=true;document.head.appendChild(sc);
 window.OneSignalDeferred=window.OneSignalDeferred||[];
-OneSignalDeferred.push(async function(O){await O.init({appId:APP_ID,serviceWorkerPath:'OneSignalSDKWorker.js'});
+var OS=null,err='';
 function ok(){m.textContent='';w.hidden=true}
-if(O.Notifications.permission&&O.User.PushSubscription.optedIn)ok();
-if(!(ios&&!sa))b.onclick=async function(){try{await O.Notifications.requestPermission();if(O.Notifications.permission){await O.User.PushSubscription.optIn();ok()}else m.textContent='Bildirim izni verilmedi. Tarayıcı ayarlarından izin verebilirsin.'}catch(e){m.textContent='Bildirim açılamadı, lütfen tekrar dene.'}}});
+if(!(ios&&!sa))b.onclick=async function(){
+if(!OS){m.textContent='Bildirim sistemi yüklenemedi'+(err?' ('+err+')':'. Reklam/içerik engelleyiciyi kapatıp sayfayı yenile.');return}
+try{await OS.Notifications.requestPermission();if(OS.Notifications.permission){await OS.User.PushSubscription.optIn();ok()}else m.textContent='Bildirim izni verilmedi. Tarayıcı ayarlarından izin verebilirsin.'}catch(e){m.textContent='Bildirim açılamadı: '+(e&&e.message||e)}};
+OneSignalDeferred.push(async function(O){try{var base=location.pathname.replace(/[^\/]*$/,'');
+await O.init({appId:APP_ID,serviceWorkerPath:base+'OneSignalSDKWorker.js',serviceWorkerParam:{scope:base}});OS=O;
+if(O.Notifications.permission&&O.User.PushSubscription.optedIn)ok()}catch(e){err=String(e&&e.message||e);console.error('OneSignal',e)}});
 })();
 </script>
 </body></html>
