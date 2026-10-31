@@ -502,11 +502,12 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 @media(hover:hover){.flw:not(.on) .flc:hover{--r:-3deg}.flw.on .flc:hover{--r:177deg}}
 .flw.on .flc{--r:171deg}
 .flc:focus-visible .fcf{box-shadow:0 0 0 3px var(--bright),var(--sh)}
-.fcf{grid-area:1/1;position:relative;overflow:hidden;padding:44px 48px 46px;border-radius:30px;border:1px solid var(--line);background:linear-gradient(160deg,var(--card) 55%,var(--sky));box-shadow:0 30px 60px -28px rgba(10,40,120,.45),0 2px 0 rgba(255,255,255,.6) inset;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.fcf::before{content:"";position:absolute;right:-90px;top:-110px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(47,123,255,.2),transparent 68%);pointer-events:none}
+.fcf{grid-area:1/1;position:relative;padding:44px 48px 46px;border-radius:30px;border:1px solid var(--line);background:radial-gradient(circle at 94% 0,rgba(47,123,255,.2),transparent 42%),linear-gradient(160deg,var(--card) 55%,var(--sky));box-shadow:0 30px 60px -28px rgba(10,40,120,.45),0 2px 0 rgba(255,255,255,.6) inset;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .fcf.front::after{content:"";position:absolute;left:0;top:34px;bottom:34px;width:4px;border-radius:0 4px 4px 0;background:linear-gradient(180deg,var(--bright),var(--gold))}
-.fcf.back{transform:rotateY(180deg);color:#fff;border-color:rgba(255,255,255,.16);background:radial-gradient(circle at 88% 0,rgba(47,123,255,.6),transparent 52%),linear-gradient(145deg,#000d4d,#001a6e 58%,#0a3fa8)}
-.fcf.back::before{inset:0;right:auto;top:auto;width:auto;height:auto;border-radius:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.6px);background-size:24px 24px;-webkit-mask-image:linear-gradient(to bottom left,#000,transparent 70%);mask-image:linear-gradient(to bottom left,#000,transparent 70%)}
+.fcf.front{transform:translateZ(1px)}
+.flc[data-f="b"] .fcf.front,.flc[data-f="f"] .fcf.back{visibility:hidden}
+.fcf.back{transform:rotateY(180deg) translateZ(1px);color:#fff;border-color:rgba(255,255,255,.16);background:radial-gradient(circle at 88% 0,rgba(47,123,255,.6),transparent 52%),linear-gradient(145deg,#000d4d,#001a6e 58%,#0a3fa8)}
+.fcf.back::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.6px);background-size:24px 24px;-webkit-mask-image:linear-gradient(to bottom left,#000,transparent 70%);mask-image:linear-gradient(to bottom left,#000,transparent 70%)}
 .fcf.back::after{content:"";position:absolute;right:0;top:34px;bottom:34px;width:4px;border-radius:4px 0 0 4px;background:linear-gradient(180deg,var(--gold),var(--bright))}
 .fcf>*{position:relative;z-index:1}
 .fh{display:flex;align-items:center;gap:14px;margin-bottom:18px}
@@ -565,7 +566,7 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 
 <section id="hakkimizda"><div class="wrap">
 <h2 class="rv">Hakkımızda</h2><div class="rv flw">
-<div class="flc" id="mvf" role="button" tabindex="0" aria-pressed="false" aria-label="Misyon ve vizyon kartı. Çevirmek için dokun">
+<div class="flc" id="mvf" data-f="f" role="button" tabindex="0" aria-pressed="false" aria-label="Misyon ve vizyon kartı. Çevirmek için dokun">
 <div class="fcf front"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><span class="fk">Misyon</span></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
 <ul class="pts"><li>Öğrencileri fikir geliştirme, organizasyon yönetimi ve birlikte üretme süreçlerine aktif olarak dahil ediyoruz.</li><li>Herkesin bireysel potansiyelini ortaya çıkarabileceği bir ortam sunuyoruz.</li><li>Farklı ilgi alanlarına hitap eden, sürekli gelişen ve öğrenci geri bildirimleriyle şekillenen bir etkinlik kültürü oluşturuyoruz.</li></ul></div>
 <div class="fcf back"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="fk">Vizyon</span></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
@@ -863,15 +864,18 @@ if(document.readyState==='complete')setTimeout(init,300);else window.addEventLis
 </script>
 <script>
 (function(){var f=document.getElementById('mvf');if(!f)return;
-var w=f.parentNode,sx=0,dx=0,down=false,moved=false,pid=null;
+var w=f.parentNode,sx=0,dx=0,down=false,moved=false,pid=null,tm=0;
 function isOn(){return w.classList.contains('on')}
-function set(on){w.classList.toggle('on',on);f.setAttribute('aria-pressed',on)}
+function face(a){return Math.cos(a*Math.PI/180)>0?'f':'b'}
+function set(on){w.classList.toggle('on',on);f.setAttribute('aria-pressed',on);clearTimeout(tm);tm=setTimeout(function(){f.dataset.f=on?'b':'f'},470)}
 f.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse'&&e.button!==0)return;down=true;moved=false;sx=e.clientX;dx=0;pid=e.pointerId});
-f.addEventListener('pointermove',function(e){if(!down)return;dx=e.clientX-sx;if(!moved&&Math.abs(dx)>8){moved=true;f.classList.add('drag');try{f.setPointerCapture(pid)}catch(_){}}
-if(moved)f.style.setProperty('--d',Math.max(-100,Math.min(100,dx*.45))+'deg')});
-function end(){if(!down)return;down=false;var was=moved;f.classList.remove('drag');f.style.setProperty('--d','0deg');
-if(was){if(Math.abs(dx)>50)set(!isOn())}else set(!isOn());moved=false}
-f.addEventListener('pointerup',end);f.addEventListener('pointercancel',function(){down=false;moved=false;f.classList.remove('drag');f.style.setProperty('--d','0deg')});
+f.addEventListener('pointermove',function(e){if(!down)return;dx=e.clientX-sx;if(!moved&&Math.abs(dx)>8){moved=true;clearTimeout(tm);f.classList.add('drag');try{f.setPointerCapture(pid)}catch(_){}}
+if(moved){var d=Math.max(-100,Math.min(100,dx*.45));f.style.setProperty('--d',d+'deg');f.dataset.f=face((isOn()?171:-9)+d)}});
+function reset(){f.classList.remove('drag');f.style.setProperty('--d','0deg')}
+function end(){if(!down)return;down=false;var was=moved;moved=false;reset();
+if(was){if(Math.abs(dx)>50)set(!isOn());else f.dataset.f=isOn()?'b':'f'}else set(!isOn())}
+f.addEventListener('pointerup',end);
+f.addEventListener('pointercancel',function(){down=false;moved=false;reset();f.dataset.f=isOn()?'b':'f'});
 f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();set(!isOn())}});
 f.addEventListener('dragstart',function(e){e.preventDefault()});
 })();
