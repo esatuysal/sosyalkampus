@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sosyal Kampüs | İstanbul Üniversitesi-Cerrahpaşa Öğrenci Kulübü</title>
 <meta name="theme-color" content="#000d4d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="logo.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Sosyal Kampüs">
 <meta property="og:title" content="Sosyal Kampüs | İÜC Öğrenci Kulübü">
 <meta property="og:description" content="Sosyal bir kampüs hayatı için Sosyal Kampüs.">
 <meta name="description" content="Sosyal Kampüs, İstanbul Üniversitesi-Cerrahpaşa Avcılar Yerleşkesi öğrenci kulübüdür.">
@@ -527,6 +532,11 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 .fcf.back .pts li::before{color:#3a2a00;background:linear-gradient(135deg,#f2b705,#ffd54a);box-shadow:0 6px 14px -6px rgba(242,183,5,.8)}
 @media(max-width:860px){.fcf{padding:26px 22px 30px;border-radius:24px}.fcf h3{font-size:24px}.fcf .lead{font-size:15.5px}.fcf .pts li{font-size:14.5px;padding-left:42px}.fh .ic{width:50px;height:50px;border-radius:16px}}
 @media(prefers-reduced-motion:reduce){.flc{transition:none}.flw.on .front{visibility:hidden}.flw:not(.on) .back{visibility:hidden}}
+.pushw{margin:-6px 0 22px}
+.pushb{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:14.5px;color:#fff;padding:11px 20px;border-radius:999px;background:linear-gradient(135deg,var(--bright),var(--blue));box-shadow:0 10px 22px -8px rgba(10,79,196,.8);transition:transform .2s}
+.pushb:hover{transform:translateY(-2px)}
+.pushb.ok{background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 10px 22px -8px rgba(18,140,126,.7);cursor:default}
+.pushm{margin-top:10px;font-size:14px;line-height:1.55;color:var(--mut);max-width:60ch}
 </style>
 </head>
 <body>
@@ -575,6 +585,7 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 
 <section id="duyurular" class="alt"><div class="wrap">
 <h2 class="rv">Duyurular</h2><p class="sub rv">Güncel haberler ve etkinlik takvimi.</p>
+<div class="pushw" id="pushw" hidden><button type="button" class="pushb" id="pushb"><span aria-hidden="true">🔔</span> Duyuru bildirimlerini aç</button><p class="pushm" id="pushm" role="status"></p></div>
 <div class="stg grid snap">
 <div class="n" role="button" tabindex="0" data-t="01 Kasım 2026" data-b="Dönem tanışma buluşması"><div class="im"></div><div class="t"><time>01 Kasım 2026</time><h3>Dönem tanışma buluşması</h3><span class="mo">Detayları gör ›</span></div></div>
 <div class="n" role="button" tabindex="0" data-t="10 Kasım 2026" data-b="Kariyer söyleşisi kayıtları açıldı"><div class="im"></div><div class="t"><time>10 Kasım 2026</time><h3>Kariyer söyleşisi kayıtları açıldı</h3><span class="mo">Detayları gör ›</span></div></div>
@@ -692,7 +703,7 @@ else if(downT&&downT.tagName!=='IMG')lbc()}
 lb.addEventListener('pointerup',up);lb.addEventListener('pointercancel',up);
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();lbc()}else if(lb.classList.contains('show')){if(e.key==='ArrowRight'){e.preventDefault();go(1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}}});
 document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();closeNav();open()})});
-setTimeout(open,matchMedia('(prefers-reduced-motion:reduce)').matches?500:3050);
+setTimeout(function(){var c=window.skTodayAnn&&window.skTodayAnn();if(c&&window.skOpenAnn)window.skOpenAnn(c);else open()},matchMedia('(prefers-reduced-motion:reduce)').matches?500:3050);
 document.querySelectorAll('[data-form]').forEach(function(f){
 f.addEventListener('submit',function(e){
 e.preventDefault();
@@ -843,7 +854,17 @@ if(gr){im.src=gr;im.alt=b;im.hidden=false;dv.classList.remove('noimg')}else{im.r
 ti.textContent=b;tm.textContent=t;tm.hidden=!t;de.textContent=a;de.hidden=!a;ac.innerHTML='';
 if(l&&l!=='#'&&!/^\s*javascript:/i.test(l)){var an=d.createElement('a');an.className='btn p';an.target='_blank';an.rel='noopener';an.href=mapHref(l);an.textContent=parse(l)?'Konumu haritada aç  →':'Bağlantıya git  →';ac.appendChild(an)}
 dv.classList.add('show');d.body.style.overflow='hidden';dv.querySelector('.modal').scrollTop=0}
-function cl(){dv.classList.remove('show');d.body.style.overflow=''}
+function cl(){var w=dv.classList.contains('show');dv.classList.remove('show');d.body.style.overflow='';if(w)d.dispatchEvent(new Event('skclose'))}
+var MO=['ocak','şubat','mart','nisan','mayıs','haziran','temmuz','ağustos','eylül','ekim','kasım','aralık'];
+function p2(n){return (n<10?'0':'')+n}
+function ymd(t){t=String(t||'').trim();var m;
+if(m=t.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))return m[1]+'-'+p2(+m[2])+'-'+p2(+m[3]);
+if(m=t.match(/^(\d{1,2})[.\/](\d{1,2})[.\/](\d{4})/))return m[3]+'-'+p2(+m[2])+'-'+p2(+m[1]);
+if(m=t.toLocaleLowerCase('tr').match(/^(\d{1,2})\s+([a-zçğıöşü]+)\s+(\d{4})/)){var i=MO.indexOf(m[2]);if(i>-1)return m[3]+'-'+p2(i+1)+'-'+p2(+m[1])}
+return ''}
+function today(){try{return new Date().toLocaleDateString('en-CA',{timeZone:'Europe/Istanbul'})}catch(e){var n=new Date();return n.getFullYear()+'-'+p2(n.getMonth()+1)+'-'+p2(n.getDate())}}
+window.skTodayAnn=function(){if(!g)return null;var td=today(),cs=g.querySelectorAll('.n');for(var i=0;i<cs.length;i++){if(ymd(cs[i].dataset.t)===td)return cs[i]}return null};
+window.skOpenAnn=openA;
 if(g){g.addEventListener('click',function(e){var c=e.target.closest('.n');if(c)openA(c)});
 g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var c=e.target.closest('.n');if(c){e.preventDefault();openA(c)}}})}
 d.getElementById('dvx').onclick=cl;
@@ -878,6 +899,22 @@ f.addEventListener('pointerup',end);
 f.addEventListener('pointercancel',function(){down=false;moved=false;reset();f.dataset.f=isOn()?'b':'f'});
 f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();set(!isOn())}});
 f.addEventListener('dragstart',function(e){e.preventDefault()});
+})();
+</script>
+<script>
+(function(){var APP_ID='';/* OneSignal App ID'ni buraya yaz */
+if(!APP_ID)return;
+var w=document.getElementById('pushw'),b=document.getElementById('pushb'),m=document.getElementById('pushm');
+var ios=/iPhone|iPad|iPod/.test(navigator.userAgent),sa=navigator.standalone||matchMedia('(display-mode: standalone)').matches;
+w.hidden=false;
+if(ios&&!sa){b.onclick=function(){m.textContent='iPhone\'da bildirim için önce Safari\'de Paylaş simgesine dokun, "Ana Ekrana Ekle"yi seç. Sonra ana ekrandaki Sosyal Kampüs simgesinden siteyi açıp bu butona tekrar bas.'};}
+else if(!('Notification' in window)){w.hidden=true}
+var sc=document.createElement('script');sc.src='https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';sc.defer=true;document.head.appendChild(sc);
+window.OneSignalDeferred=window.OneSignalDeferred||[];
+OneSignalDeferred.push(async function(O){await O.init({appId:APP_ID,serviceWorkerPath:'OneSignalSDKWorker.js'});
+function ok(){b.classList.add('ok');b.innerHTML='<span aria-hidden="true">✅</span> Bildirimler açık';m.textContent=''}
+if(O.Notifications.permission&&O.User.PushSubscription.optedIn)ok();
+if(!(ios&&!sa))b.onclick=async function(){try{await O.Notifications.requestPermission();if(O.Notifications.permission){await O.User.PushSubscription.optIn();ok()}else m.textContent='Bildirim izni verilmedi. Tarayıcı ayarlarından izin verebilirsin.'}catch(e){m.textContent='Bildirim açılamadı, lütfen tekrar dene.'}}});
 })();
 </script>
 </body></html>
