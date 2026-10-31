@@ -1,0 +1,69 @@
+name: Duyuru bildirimi
+
+on:
+  push:
+    paths:
+      - 'data/duyurular.json'
+
+jobs:
+  bildirim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Yeni duyuruları bul ve bildirim gönder
+        env:
+          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+          ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, urllib.request
+
+          def items(txt):
+              try:
+                  d = json.loads(txt)
+                  return d.get('items', []) if isinstance(d, dict) else d
+              except Exception:
+                  return None
+
+          cur = items(open('data/duyurular.json', encoding='utf-8').read()) or []
+          try:
+              prev = items(subprocess.check_output(['git', 'show', 'HEAD~1:data/duyurular.json'], text=True))
+          except Exception:
+              prev = None
+          if prev is None:
+              print('Önceki sürüm yok, bildirim gönderilmedi.')
+              raise SystemExit
+
+          key = lambda o: (str(o.get('baslik', '')).strip(), str(o.get('tarih', '')).strip())
+          old = {key(o) for o in prev}
+          yeni = [o for o in cur if key(o) not in old][:3]
+          if not yeni:
+              print('Yeni duyuru yok.')
+              raise SystemExit
+
+          domain = open('CNAME').read().strip() if os.path.exists('CNAME') else ''
+          site = ('https://' + domain) if domain else ''
+          for o in yeni:
+              baslik = str(o.get('baslik', 'Yeni duyuru')).strip()
+              govde = str(o.get('aciklama') or o.get('aciklamasi') or o.get('metin') or o.get('icerik') or o.get('tarih') or '').strip()[:140]
+              body = {
+                  'app_id': os.environ['ONESIGNAL_APP_ID'],
+                  'target_channel': 'push',
+                  'included_segments': ['Subscribed Users'],
+                  'headings': {'en': baslik, 'tr': baslik},
+                  'contents': {'en': govde or 'Yeni duyuru yayında', 'tr': govde or 'Yeni duyuru yayında'},
+              }
+              if site:
+                  body['url'] = site + '/#duyurular'
+              req = urllib.request.Request(
+                  'https://api.onesignal.com/notifications?c=push',
+                  data=json.dumps(body).encode('utf-8'),
+                  headers={'Content-Type': 'application/json; charset=utf-8',
+                           'Authorization': 'Key ' + os.environ['ONESIGNAL_API_KEY']},
+                  method='POST')
+              with urllib.request.urlopen(req) as r:
+                  print('Gönderildi:', baslik, r.status)
+          PY
