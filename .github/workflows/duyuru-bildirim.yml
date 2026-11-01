@@ -65,5 +65,5 @@ jobs:
                            'Authorization': 'Key ' + os.environ['ONESIGNAL_API_KEY']},
                   method='POST')
               with urllib.request.urlopen(req) as r:
-                  print('Gönderildi:', baslik, r.status)
+                  print('Gönderildi:', baslik, r.status, r.read().decode('utf-8'))
           PY
