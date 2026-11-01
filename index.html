@@ -531,6 +531,21 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 @media(max-width:860px){.fcf{padding:26px 22px 30px;border-radius:24px}.fcf h3{font-size:24px}.fcf .lead{font-size:15.5px}.fcf .pts li{font-size:14.5px;padding-left:42px}.fh .ic{width:50px;height:50px;border-radius:16px}}
 @media(prefers-reduced-motion:reduce){.flc{transition:none}.flw.on .front{visibility:hidden}.flw:not(.on) .back{visibility:hidden}}
 /* katlanmis kose + kivrimli ok */
+.flc{--fs:68px}
+.fold{position:absolute;top:-1px;right:-1px;width:var(--fs);height:var(--fs);z-index:3;pointer-events:none;transition:width .35s ease,height .35s ease}
+.fold::before{content:"";position:absolute;inset:0;background:var(--bg);clip-path:polygon(0 0,100% 0,100% 100%)}
+.fold svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(-2px 3px 3px rgba(10,30,90,.3))}
+.fold .ff{fill:url(#fgf)}
+.fold .fe{stroke:rgba(255,255,255,.85);stroke-width:1.2;fill:none}
+.fold .fa{fill:none;stroke:var(--blue);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;transform-origin:20px 48px;animation:fwig 2.4s ease-in-out infinite}
+.fcf.back .fold .ff{fill:url(#fgb)}
+.fcf.back .fold .fa{stroke:#ffd54a}
+.fcf.back .fold .fe{stroke:rgba(255,255,255,.4)}
+@keyframes fwig{0%,100%{transform:rotate(0)}50%{transform:rotate(-12deg)}}
+@media(prefers-reduced-motion:reduce){.fold .fa{animation:none}.fold{transition:none}}
+@media(hover:hover){.flc:hover{--fs:82px}}
+@media(max-width:860px){.flc{--fs:54px}}
+@media(prefers-color-scheme:dark){.fold svg{filter:drop-shadow(-2px 3px 3px rgba(0,0,0,.55))}}
 .pushw{margin:-6px 0 22px}
 .pushb{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:14.5px;color:#fff;padding:11px 20px;border-radius:999px;background:linear-gradient(135deg,var(--bright),var(--blue));box-shadow:0 10px 22px -8px rgba(10,79,196,.8);transition:transform .2s}
 .pushb:hover{transform:translateY(-2px)}
@@ -553,41 +568,6 @@ nav a.act{background:var(--sky);color:var(--blue)}
 .lb.flip.show .lbs{animation:none}
 @media(hover:none){.btn:active,.fab:active{transform:scale(.95)}.stg.in>.card:active,.stg.in>.n:active{transform:scale(.97);transition-delay:0s;transition-duration:.15s}.menu:active,nav a:active{transform:scale(.96)}}
 @media(prefers-reduced-motion:reduce){.hero h1 .w{opacity:1;transform:none;filter:none;animation:none!important}.orb,.mag{transition:none}}
-
-/* 10.000$ paketi: shader hero, perde efekti, kinetik basliklar */
-#aur{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.hero::before{display:none}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.hero>.wrap{position:relative;z-index:2;opacity:calc(1 - var(--p,0)*1.15);scale:calc(1 - var(--p,0)*.07);filter:blur(calc(var(--p,0)*7px))}
-main>.hero{position:sticky;top:0;z-index:0;margin-bottom:-34px}
-main>.hero~*{position:relative;z-index:2}
-:where(main>.hero~*){background-color:var(--bg)}
-main>.stats{border-top:34px solid transparent;border-bottom:34px solid transparent;border-radius:34px 34px 0 0;box-shadow:0 -26px 50px -28px rgba(0,8,50,.6)}
-main>section{margin-top:-34px;border-radius:34px 34px 0 0;box-shadow:0 -22px 46px -26px rgba(10,40,120,.28);padding-top:34px}
-.mk{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.16em;margin-bottom:-.16em}
-.mk>span{display:inline-block;transform:translateY(112%) rotate(5deg);transform-origin:0 100%;transition:transform 1s cubic-bezier(.2,.8,.2,1) calc(.1s + var(--k)*80ms)}
-h2.in .mk>span{transform:none}
-.gal button img{transform:translateX(var(--px,0px)) scale(1.2)}
-.cg{position:fixed;left:0;top:0;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:99;opacity:0;background:radial-gradient(circle,rgba(47,123,255,.2),rgba(242,183,5,.05) 45%,transparent 68%);transition:opacity .4s,scale .35s}
-.cg.on{opacity:1}.cg.h{scale:1.45}
-@media(prefers-reduced-motion:reduce){main>.hero{position:relative}.hero>.wrap{opacity:1;scale:1;filter:none}.mk>span{transform:none;transition:none}}
-
-/* 3D direk */
-.pole{position:absolute;z-index:3;width:18px;margin-left:-9px;pointer-events:none;opacity:0;transition:opacity 1.2s .5s;filter:drop-shadow(9px 7px 9px rgba(0,10,60,.34))}
-body.go .pole,body.hw .pole{opacity:1}
-.pole i{position:absolute;display:block}
-.pole .pb,.pole .pf{left:0;right:0;top:0;bottom:0;clip-path:inset(0 var(--cr,0px) 0 var(--cl,0px));border-radius:9px/3px}
-.pole .pb{background:linear-gradient(90deg,#050f3d 0%,#1f3f8f 14%,#5b8cf0 30%,#e8f1ff 42%,#fff 47%,#a9c4f5 56%,#3a63c2 76%,#0c2260 92%,#000d4d 100%)}
-.pole .pf{background:repeating-linear-gradient(180deg,transparent 0 150px,rgba(255,255,255,.28) 175px,transparent 235px);background-position:0 calc(var(--sy,0)*-.35px);mix-blend-mode:soft-light}
-.pole .pt{left:50%;top:-9px;width:58px;height:18px;margin-left:-29px;border-radius:9px;background:linear-gradient(180deg,#fff1b0,#f2b705 45%,#8a6500);box-shadow:0 6px 8px -3px rgba(0,0,0,.45),inset 0 -3px 4px rgba(0,0,0,.3);background-image:radial-gradient(circle at 9px 50%,#5a4000 0 2.5px,transparent 3px),radial-gradient(circle at calc(100% - 9px) 50%,#5a4000 0 2.5px,transparent 3px),linear-gradient(180deg,#fff1b0,#f2b705 45%,#8a6500)}
-.pole .pk{left:50%;bottom:-13px;width:28px;height:28px;margin-left:-14px;border-radius:50%;background:radial-gradient(circle at 34% 28%,#fff 0 7%,#ffe27a 20%,#f2b705 52%,#6e4e00 100%);box-shadow:0 8px 10px -4px rgba(0,0,0,.5)}
-.pole .ck{left:50%;width:36px;height:17px;margin-left:-18px;border-radius:8px;background:linear-gradient(90deg,#7a5a00,#f2b705 25%,#fff1b0 46%,#f2b705 62%,#7a5a00);box-shadow:0 5px 7px -2px rgba(0,0,0,.5),inset 0 -3px 4px rgba(0,0,0,.35),inset 0 2px 2px rgba(255,255,255,.75)}
-.pole .ck.a{top:calc(var(--ct,0px) - 8px)}.pole .ck.b{top:calc(var(--cb,0px) - 9px)}
-.pole.mob{width:12px;margin-left:-6px}
-.pole.mob .pb,.pole.mob .pf{-webkit-mask-image:linear-gradient(#000 calc(var(--ct) + 6px),transparent calc(var(--ct) + 6px),transparent calc(var(--cb) - 6px),#000 calc(var(--cb) - 6px));mask-image:linear-gradient(#000 calc(var(--ct) + 6px),transparent calc(var(--ct) + 6px),transparent calc(var(--cb) - 6px),#000 calc(var(--cb) - 6px))}
-.pole.mob .pt{width:44px;margin-left:-22px}.pole.mob .ck{width:28px;margin-left:-14px}.pole.mob .pk{width:24px;height:24px;margin-left:-12px}
-@media(min-width:861px){.fcf{display:grid;grid-template-columns:1fr 76px 1fr;align-content:start}.fcf>.fh,.fcf>h3,.fcf>.lead{grid-column:1}.fcf>.pts{grid-column:3;grid-row:1/span 4;align-self:start;margin-top:6px}}
-@media(prefers-reduced-motion:reduce){.pole{opacity:1;transition:none}}
 </style>
 </head>
 <body>
@@ -609,10 +589,10 @@ body.go .pole,body.hw .pole{opacity:1}
 <div class="top"><div class="wrap"><a href="https://www.iuc.edu.tr/tr" target="_blank" rel="noopener"><img class="uni-logo" src="iuc-logo.png" alt="">İstanbul Üniversitesi-Cerrahpaşa</a></div></div>
 
 <main>
-<div class="hero"><canvas id="aur" aria-hidden="true"></canvas><div class="wrap">
+<div class="hero"><canvas id="net" aria-hidden="true"></canvas><i class="orb o1"></i><i class="orb o2"></i><div class="wrap">
 <div>
 <h1>Kampüsü birlikte yaşatıyoruz.</h1>
-<p class="hx" style="--hd:3">İstanbul Üniversitesi-Cerrahpaşa öğrencileri tarafından kurulan, öğrenciler için çalışan resmi öğrenci kulübüyüz. Tanışmanın, üretmenin ve birlikte öğrenmenin kampüste karşılık bulduğu bir topluluk kuruyoruz: her fikre alan, her öğrenciye yer var.</p>
+<p class="hx" style="--hd:3">İstanbul Üniversitesi-Cerrahpaşa öğrencileri tarafından kurulan, öğrenciler için çalışan resmi öğrenci kulübüyüz.<br>Kampüste tanışmayı, üretmeyi ve paylaştıkça büyümeyi hedefleyen dinamik bir topluluğuz. Projeler geliştiriyor, etkinlikler düzenliyor ve takılıyoruz.</p>
 <p class="hx newc" style="--hd:4"><i></i><span>Yeni bir kulüp olmamıza rağmen hızla büyüyoruz.<br><strong><a href="#uyelik" data-open>Aramıza katıl!</a></strong></span></p>
 <button class="btn p hx" style="--hd:4" data-open>Kulübe katıl</button>
 </div>
@@ -628,9 +608,9 @@ body.go .pole,body.hw .pole{opacity:1}
 <section id="hakkimizda"><div class="wrap">
 <h2 class="rv">Hakkımızda</h2><div class="rv flw">
 <div class="flc" id="mvf" data-f="f" role="button" tabindex="0" aria-pressed="false" aria-label="Misyon ve vizyon kartı. Çevirmek için dokun">
-<div class="fcf front"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><span class="fk">Misyon</span></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
+<div class="fcf front"><span class="fold" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="fgf" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#cfe0ff"/><stop offset="1" stop-color="#ffffff"/></linearGradient></defs><path class="ff" d="M0 0L64 64H28A28 28 0 0 1 0 36Z"/><path class="fe" d="M0 0L64 64"/><g class="fa"><path d="M10 38C10 50 20 56 32 54"/><path d="M27 49.5L33 54L27.5 58.5"/></g></svg></span><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><span class="fk">Misyon</span></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
 <ul class="pts"><li>Öğrencileri fikir geliştirme, organizasyon yönetimi ve birlikte üretme süreçlerine aktif olarak dahil ediyoruz.</li><li>Herkesin bireysel potansiyelini ortaya çıkarabileceği bir ortam sunuyoruz.</li><li>Farklı ilgi alanlarına hitap eden, sürekli gelişen ve öğrenci geri bildirimleriyle şekillenen bir etkinlik kültürü oluşturuyoruz.</li></ul></div>
-<div class="fcf back"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="fk">Vizyon</span></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
+<div class="fcf back"><span class="fold" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="fgb" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#5b95ff"/></linearGradient></defs><path class="ff" d="M0 0L64 64H28A28 28 0 0 1 0 36Z"/><path class="fe" d="M0 0L64 64"/><g class="fa"><path d="M10 38C10 50 20 56 32 54"/><path d="M27 49.5L33 54L27.5 58.5"/></g></svg></span><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="fk">Vizyon</span></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
 <ul class="pts"><li>Her öğrencinin kendine yer bulabildiği, fikirlerini özgürce ifade edip hayata geçirebildiği bir platform oluşturuyoruz.</li><li>Kampüs yaşamına kalıcı değer katan bir kulüp olmayı amaçlıyoruz.</li><li>Sürdürülebilir etkinlik anlayışıyla her dönem gelişen, kendini yenileyen ve kurumsallaşan bir yapı kuruyoruz.</li></ul></div>
 </div>
 </div></section>
@@ -799,20 +779,48 @@ if(matchMedia('(hover:hover)').matches&&!rm)d.querySelectorAll('.card,.n').forEa
 (function(){
 var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,cv=document.getElementById('net');
 if(!rm&&matchMedia('(hover:hover)').matches)document.querySelectorAll('.btn,.fab').forEach(function(b){b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.transition='transform .15s';b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.22)+'px,'+((e.clientY-r.top-r.height/2)*.3)+'px)'});b.addEventListener('pointerleave',function(){b.style.transition='';b.style.transform=''})});
-if(!cv||rm)return;
-var x=cv.getContext('2d'),hero=cv.parentNode,W,H,P=[],mx=-999,my=-999,vis=true,sm=innerWidth<700,N=sm?34:72,L=sm?95:130,dpr=Math.min(2,devicePixelRatio||1);
-function rs(){W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
-rs();addEventListener('resize',rs);setTimeout(rs,2500);
-for(var i=0;i<N;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4});
-hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
-hero.addEventListener('pointerleave',function(){mx=my=-999});
-new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(hero);
-(function f(){requestAnimationFrame(f);if(!vis)return;x.clearRect(0,0,W,H);
-for(var i=0;i<N;i++){var a=P[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
-var dx=a.x-mx,dy=a.y-my,dd=dx*dx+dy*dy;if(dd<14000){a.x+=dx*.004;a.y+=dy*.004}
-x.fillStyle='rgba(255,255,255,.75)';x.beginPath();x.arc(a.x,a.y,1.7,0,6.3);x.fill();
-for(var j=i+1;j<N;j++){var b=P[j],ex=a.x-b.x,ey=a.y-b.y,d=ex*ex+ey*ey;if(d<L*L){x.strokeStyle='rgba(255,255,255,'+(.24*(1-Math.sqrt(d)/L))+')';x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
-if(dd<L*L*1.6){x.strokeStyle='rgba(242,183,5,'+(.55*(1-Math.sqrt(dd)/(L*1.26)))+')';x.beginPath();x.moveTo(a.x,a.y);x.lineTo(mx,my);x.stroke()}}})();
+if(!cv)return;
+var hero=cv.parentNode,gl=cv.getContext('webgl2',{alpha:true,premultipliedAlpha:true,antialias:false,powerPreference:'high-performance'});
+if(!gl)return;
+var VS='#version 300 es\nin vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+var FS='#version 300 es\nprecision highp float;uniform vec2 R,M,V;uniform float T,S,E;out vec4 o;\n'+
+'float h(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}\n'+
+'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*f*(f*(f*6.-15.)+10.);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}\n'+
+'float fbm(vec2 p){float a=.5,s=0.;mat2 m=mat2(1.6,1.2,-1.2,1.6);for(int i=0;i<5;i++){s+=a*n(p);p=m*p+7.1;a*=.5;}return s;}\n'+
+'float big(vec2 p,float t,float w,out float lit){vec2 q=vec2(fbm(p+vec2(0.,t)),fbm(p+vec2(5.2,1.3)-t*.7));vec2 r=vec2(fbm(p+w*q+vec2(1.7,9.2)+t*.5),fbm(p+w*q+vec2(8.3,2.8)-t*.4));vec2 pp=p+w*r;float f=fbm(pp);lit=f-fbm(pp+vec2(.05,.08));return f;}\n'+
+'float wisp(vec2 p,float t){vec2 q=vec2(fbm(p+vec2(0.,t)),fbm(p+vec2(3.1,7.7)-t));return fbm(p+2.4*q);}\n'+
+'void main(){vec2 u=gl_FragCoord.xy/R.y;float asp=R.x/R.y,x=u.x/asp,y=u.y,t=T*.05;\n'+
+'vec2 d=u-M;float wm=exp(-dot(d,d)*12.);\n'+
+'vec2 p=u*1.5+vec2(t*.25,-t*1.6+S*1.4)+vec2(-d.y,d.x)*wm*1.3+d*wm*.6+V*wm*4.;\n'+
+'float la;float fa=big(p,t,3.+S*1.6+E*.7,la);\n'+
+'vec2 p2=u*3.4+vec2(t*.9,-t*2.5+S*2.2)+vec2(-d.y,d.x)*wm*1.8;float fb=wisp(p2,t*1.3);\n'+
+'float dA=smoothstep(.34,.9,fa),dB=smoothstep(.42,.92,fb)*.5;float k=clamp(dA+dB*(1.-.5*dA),0.,1.);\n'+
+'float m=mix(.34,1.,smoothstep(.12,.85,x))*mix(.55,1.,smoothstep(.95,.05,y));k*=m*(1.+E*.12);\n'+
+'float l=clamp(la*8.5+.5,0.,1.);vec3 c=mix(vec3(.015,.06,.3),vec3(.36,.58,1.),l*.85+dA*.2);\n'+
+'c+=vec3(.55,.68,1.)*dB*.3;c+=vec3(1.,.72,.2)*pow(l,6.)*dA*.16;c=mix(c,vec3(.88,.94,1.),pow(clamp(fa*1.4-.5,0.,1.),3.)*.35);\n'+
+'float a=clamp(k*.9,0.,.92);a+=(h(gl_FragCoord.xy+fract(T))-.5)/200.;a=clamp(a,0.,1.);o=vec4(c*a,a);}';
+function sh(t,s){var o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS)){console.warn(gl.getShaderInfoLog(o));return null}return o}
+var vs=sh(gl.VERTEX_SHADER,VS),fs=sh(gl.FRAGMENT_SHADER,FS);if(!vs||!fs)return;
+var pg=gl.createProgram();gl.attachShader(pg,vs);gl.attachShader(pg,fs);gl.linkProgram(pg);if(!gl.getProgramParameter(pg,gl.LINK_STATUS))return;
+gl.useProgram(pg);var bf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,bf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+var al=gl.getAttribLocation(pg,'a');gl.enableVertexAttribArray(al);gl.vertexAttribPointer(al,2,gl.FLOAT,false,0,0);
+var U={};['R','M','V','T','S','E'].forEach(function(n){U[n]=gl.getUniformLocation(pg,n)});
+gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
+var W=1,H=1,vis=true,sm=innerWidth<700,T=28,S=0,en=0,vel=0,lastY=scrollY,last=0,Mx=-9,My=-9,tMx=-9,tMy=-9,Vx=0,Vy=0;
+function rs(){var w=hero.clientWidth,h=hero.clientHeight;if(!w||!h)return;W=w;H=h;var k=Math.min(1,Math.sqrt((sm?3.6e5:1.15e6)/(w*h)));cv.width=Math.round(w*k);cv.height=Math.round(h*k);gl.viewport(0,0,cv.width,cv.height);draw()}
+function draw(){gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.uniform2f(U.R,cv.width,cv.height);var sc=cv.height/H;gl.uniform2f(U.M,Mx/H,My/H);gl.uniform2f(U.V,Vx/H*3,Vy/H*3);gl.uniform1f(U.T,T);gl.uniform1f(U.S,S);gl.uniform1f(U.E,en);gl.drawArrays(gl.TRIANGLES,0,3)}
+cv.style.opacity=0;cv.style.transition='opacity 2.4s ease .6s';
+if('ResizeObserver'in window)new ResizeObserver(rs).observe(hero);else addEventListener('resize',rs);
+rs();requestAnimationFrame(function(){cv.style.opacity=1});
+if(rm)return;
+addEventListener('scroll',function(){var y=scrollY;vel+=Math.abs(y-lastY);lastY=y},{passive:true});
+hero.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=hero.getBoundingClientRect();tMx=e.clientX-r.left;tMy=H-(e.clientY-r.top);if(Mx<-5){Mx=tMx;My=tMy}},{passive:true});
+hero.addEventListener('pointerleave',function(){tMx=tMy=-9999});
+new IntersectionObserver(function(e){vis=e[0].isIntersecting;last=0}).observe(hero);
+(function f(ts){requestAnimationFrame(f);if(!vis||document.hidden)return;var dt=last?Math.min(.05,(ts-last)/1000):.016;last=ts;
+var tg=Math.min(1.5,vel/36);vel=0;en+=(tg-en)*(tg>en?.25:.03);S+=(Math.min(1,scrollY/(H*.95))-S)*.08;
+T+=dt*(1+en*3+S*.8);var px=Mx,py=My;if(tMx>-5000){Mx+=(tMx-Mx)*.08;My+=(tMy-My)*.08}else{Mx+=(-9999-Mx)*.02}
+Vx+=((Mx-px)-Vx)*.2;Vy+=((My-py)-Vy)*.2;draw()})(0);
 })();
 </script>
 <script>
@@ -981,7 +989,7 @@ T(function(){var h=d.querySelector('.hero h1');if(!h||rm)return;var t=h.textCont
 /* hero parallax + header golgesi + menu vurgusu */
 T(function(){var hero=d.querySelector('.hero'),wrap=hero&&hero.querySelector('.wrap'),o1=d.querySelector('.orb.o1'),o2=d.querySelector('.orb.o2'),hd=d.querySelector('header'),px=0,py=0,ox=0,oy=0,tk=0;
 function cl(v){return Math.max(-1,Math.min(1,v))}
-function frame(){tk=0;var y=scrollY;if(hd)hd.classList.toggle('sc',y>12);if(!hero||rm)return;var hh=hero.offsetHeight;hero.style.setProperty('--p',Math.min(1,y/hh).toFixed(3));if(y<hh){if(wrap)wrap.style.translate='0 '+(y*.14).toFixed(1)+'px';var a=px+ox,b=py+oy+y/hh*.6;if(o1)o1.style.translate=(a*-26).toFixed(1)+'px '+(b*-20).toFixed(1)+'px';if(o2)o2.style.translate=(a*34).toFixed(1)+'px '+(b*26).toFixed(1)+'px'}}
+function frame(){tk=0;var y=scrollY;if(hd)hd.classList.toggle('sc',y>12);if(!hero||rm)return;var hh=hero.offsetHeight;if(y<hh){if(wrap)wrap.style.translate='0 '+(y*.14).toFixed(1)+'px';var a=px+ox,b=py+oy+y/hh*.6;if(o1)o1.style.translate=(a*-26).toFixed(1)+'px '+(b*-20).toFixed(1)+'px';if(o2)o2.style.translate=(a*34).toFixed(1)+'px '+(b*26).toFixed(1)+'px'}}
 function req(){if(!tk)tk=requestAnimationFrame(frame)}
 addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
 if(hero&&hv)hero.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;req()});
@@ -996,66 +1004,13 @@ T(function(){var cur=null;function off(c){if(!c)return;c.classList.remove('sp-on
 d.addEventListener('pointermove',function(e){var c=e.target.closest&&e.target.closest('.stg>.card,.stg>.n');if(c!==cur){off(cur);cur=c}if(!c||!c.parentNode.classList.contains('in'))return;var sp=c.querySelector(':scope>.spot');if(!sp){sp=d.createElement('i');sp.className='spot';sp.setAttribute('aria-hidden','true');c.appendChild(sp)}var r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');c.classList.add('sp-on');if(e.pointerType==='mouse'&&!rm){c.style.transition='transform .12s ease-out';c.style.transitionDelay='0s';c.style.transform='perspective(900px) translateY(-4px) rotateX('+(-(y/r.height-.5)*7).toFixed(2)+'deg) rotateY('+((x/r.width-.5)*9).toFixed(2)+'deg)'}},{passive:true});
 ['pointerout','pointerup','pointercancel'].forEach(function(t){d.addEventListener(t,function(e){if(cur&&(t!=='pointerout'||!cur.contains(e.relatedTarget))){off(cur);cur=null}},{passive:true})})});
 /* galeri: ortadaki one cikar, yanlar geri cekilir */
-T(function(){var g=d.getElementById('gal');if(!g)return;var tk=0;function dep(){tk=0;var r=g.getBoundingClientRect(),c=r.left+r.width/2;[].forEach.call(g.children,function(b){var q=b.getBoundingClientRect(),k=Math.min(1,Math.abs(q.left+q.width/2-c)/(r.width*.62));b.style.setProperty('--s',(1-.09*k).toFixed(3));b.style.setProperty('--o',(1-.5*k).toFixed(3));b.style.setProperty('--px',((q.left+q.width/2-c)*-.07).toFixed(1)+'px')})}
+T(function(){var g=d.getElementById('gal');if(!g)return;var tk=0;function dep(){tk=0;var r=g.getBoundingClientRect(),c=r.left+r.width/2;[].forEach.call(g.children,function(b){var q=b.getBoundingClientRect(),k=Math.min(1,Math.abs(q.left+q.width/2-c)/(r.width*.62));b.style.setProperty('--s',(1-.09*k).toFixed(3));b.style.setProperty('--o',(1-.5*k).toFixed(3))})}
 function req(){if(!tk)tk=requestAnimationFrame(dep)}g.addEventListener('scroll',req,{passive:true});addEventListener('resize',req);addEventListener('load',req);g.addEventListener('load',req,true);req();
 /* fotograf kucuk resimden buyuyerek acilsin */
 var lb=d.getElementById('lb'),li=lb&&lb.querySelector('img');if(!lb||!li||rm)return;g.addEventListener('click',function(e){var b=e.target.closest('button'),im=b&&b.querySelector('img');if(!im)return;var tr=im.getBoundingClientRect();lb.classList.add('flip');function run(){var lr=li.getBoundingClientRect();if(!lr.width||!tr.width)return;var s=Math.max(tr.width/lr.width,tr.height/lr.height),ix=Math.max(0,(lr.width-tr.width/s)/2),iy=Math.max(0,(lr.height-tr.height/s)/2),dx=tr.left+tr.width/2-(lr.left+lr.width/2),dy=tr.top+tr.height/2-(lr.top+lr.height/2);li.animate([{transform:'translate('+dx+'px,'+dy+'px) scale('+s+')',clipPath:'inset('+iy+'px '+ix+'px round '+(24/s)+'px)'},{transform:'none',clipPath:'inset(0px round 14px)'}],{duration:620,easing:'cubic-bezier(.2,.8,.2,1)'})}
 requestAnimationFrame(function(){if(li.complete&&li.naturalWidth)run();else li.addEventListener('load',run,{once:true})})},true)});
 /* dokunma titresimi (Android) */
 T(function(){if(!navigator.vibrate)return;d.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.btn,.fab,.stg>.n,.stg>.card,.gal button,#mvf,nav a,.menu'))navigator.vibrate(7)},{passive:true})});
-})();
-</script>
-<script>
-(function(){var d=document,B=d.body,rm=matchMedia('(prefers-reduced-motion:reduce)').matches,hv=matchMedia('(hover:hover)').matches;
-function T(f){try{f()}catch(e){console.warn(e)}}
-/* hero: WebGL aurora (kaydirma + fare/dokunma ile akar) */
-T(function(){var c=d.getElementById('aur'),hero=d.querySelector('.hero');if(!c||!hero||rm)return;
-var g=c.getContext('webgl',{antialias:false,alpha:false,powerPreference:'low-power'});if(!g){c.style.display='none';return}
-var FS=['#ifdef GL_FRAGMENT_PRECISION_HIGH','precision highp float;','#else','precision mediump float;','#endif','uniform vec2 r;uniform vec2 m;uniform float t;uniform float s;',
-'float h(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}',
-'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}',
-'float fb(vec2 p){float a=.5,v=0.;for(int i=0;i<4;i++){v+=a*n(p);p=p*2.02+vec2(3.1,1.7);a*=.5;}return v;}',
-'void main(){vec2 uv=gl_FragCoord.xy/r;vec2 p=(gl_FragCoord.xy-.5*r)/r.y;p+=m*.12;float T=t*.06+s*.9;',
-'vec2 q=vec2(fb(p*1.5+T),fb(p*1.5+vec2(5.2,1.3)-T));',
-'float f=fb(p*1.7+3.2*q+vec2(T,-T*.6));',
-'vec3 c=mix(vec3(0.,.03,.2),vec3(.04,.31,.77),smoothstep(.15,.75,f));',
-'c=mix(c,vec3(.18,.48,1.),smoothstep(.55,.95,f)*.85);',
-'c+=vec3(.95,.72,.05)*pow(smoothstep(.6,.9,fb(p*2.3-q*2.+T*1.4)),3.)*.38;',
-'c*=1.-.9*dot(uv-.5,uv-.5);gl_FragColor=vec4(c,1.);}'].join('\n');
-function sh(t,src){var o=g.createShader(t);g.shaderSource(o,src);g.compileShader(o);return o}
-var pr=g.createProgram();g.attachShader(pr,sh(g.VERTEX_SHADER,'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}'));g.attachShader(pr,sh(g.FRAGMENT_SHADER,FS));g.linkProgram(pr);
-if(!g.getProgramParameter(pr,g.LINK_STATUS)){c.style.display='none';return}
-g.useProgram(pr);var bf=g.createBuffer();g.bindBuffer(g.ARRAY_BUFFER,bf);g.bufferData(g.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),g.STATIC_DRAW);var al=g.getAttribLocation(pr,'a');g.enableVertexAttribArray(al);g.vertexAttribPointer(al,2,g.FLOAT,false,0,0);
-var ur=g.getUniformLocation(pr,'r'),ut=g.getUniformLocation(pr,'t'),us=g.getUniformLocation(pr,'s'),um=g.getUniformLocation(pr,'m'),W=2,H=2,lw=0,mx=0,my=0,tx=0,ty=0,run=false,t0=performance.now();
-function rs(){if(innerWidth===lw&&W>2)return;lw=innerWidth;var k=Math.min(devicePixelRatio||1,1.5)*(innerWidth<700?.55:.75);W=c.width=Math.max(2,hero.clientWidth*k|0);H=c.height=Math.max(2,hero.clientHeight*k|0);g.viewport(0,0,W,H)}
-rs();addEventListener('resize',rs);
-hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();tx=(e.clientX-r.left)/r.width-.5;ty=.5-(e.clientY-r.top)/r.height},{passive:true});
-function loop(){if(run)return;run=true;(function f(t){var hh=hero.clientHeight;if(d.hidden||scrollY>hh*1.05){run=false;return}mx+=(tx-mx)*.05;my+=(ty-my)*.05;g.uniform2f(ur,W,H);g.uniform1f(ut,(t-t0)/1000);g.uniform1f(us,Math.min(1,scrollY/hh));g.uniform2f(um,mx,my);g.drawArrays(g.TRIANGLES,0,3);requestAnimationFrame(f)})(performance.now())}
-addEventListener('scroll',function(){if(!run)loop()},{passive:true});d.addEventListener('visibilitychange',loop);loop()});
-/* basliklar: kelime kelime maskeli acilis */
-T(function(){if(rm)return;d.querySelectorAll('main section h2').forEach(function(h){if(h.querySelector('.mk'))return;var t=h.textContent.trim().split(/\s+/);h.setAttribute('aria-label',t.join(' '));h.innerHTML=t.map(function(w,i){return'<span class="mk" aria-hidden="true"><span style="--k:'+i+'">'+w+'</span></span>'}).join(' ')})});
-/* kaydirma hizina bagli kayan seritler */
-T(function(){if(rm||!d.getAnimations)return;var a=null,ly=scrollY,v=0,run=false;function f(){v*=.92;v+=(scrollY-ly)*.06;ly=scrollY;if(!a||a.playState==='idle')a=d.getAnimations().find(function(x){return x.animationName==='mq'})||null;if(a)a.playbackRate=1+Math.min(8,Math.abs(v));if(Math.abs(v)>.02)requestAnimationFrame(f);else{run=false;if(a)a.playbackRate=1}}
-addEventListener('scroll',function(){if(!run){run=true;ly=scrollY;requestAnimationFrame(f)}},{passive:true})});
-/* masaustu: imleci izleyen isik */
-T(function(){if(!hv||rm)return;var g=d.createElement('div');g.className='cg';g.setAttribute('aria-hidden','true');B.appendChild(g);var x=0,y=0,tx=0,ty=0;
-d.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;tx=e.clientX;ty=e.clientY;g.classList.add('on');g.classList.toggle('h',!!(e.target.closest&&e.target.closest('a,button,.card,.n,#mvf')))},{passive:true});
-d.documentElement.addEventListener('pointerleave',function(){g.classList.remove('on')});
-(function f(){x+=(tx-x)*.14;y+=(ty-y)*.14;g.style.translate=(x-170).toFixed(1)+'px '+(y-170).toFixed(1)+'px';requestAnimationFrame(f)})()});
-})();
-</script>
-<script>
-(function(){var d=document,f=d.getElementById('mvf');if(!f)return;
-try{var pole=d.createElement('div');pole.className='pole';pole.setAttribute('aria-hidden','true');pole.innerHTML='<i class="pb"></i><i class="pf"></i><i class="pt"></i><i class="pk"></i><i class="ck a"></i><i class="ck b"></i>';d.body.appendChild(pole);
-var wr=f.parentNode,tk=0,mob=false;
-function place(){tk=0;var hk=d.getElementById('hakkimizda'),pw=d.getElementById('pushw'),ref=pw&&pw.offsetHeight?pw:d.querySelector('#duyurular .sub');if(!hk||!ref)return;var sy=scrollY,w=wr.getBoundingClientRect(),top=hk.getBoundingClientRect().top+sy+4,bot=ref.getBoundingClientRect().bottom+sy+22;mob=innerWidth<=860;pole.classList.toggle('mob',mob);var st=pole.style;st.top=top+'px';st.height=Math.max(0,bot-top)+'px';st.left=(w.left+w.width/2)+'px';st.setProperty('--ct',(w.top+sy-top)+'px');st.setProperty('--cb',(w.bottom+sy-top)+'px');st.setProperty('--sy',sy)}
-function req(){if(!tk)tk=requestAnimationFrame(place)}
-addEventListener('scroll',req,{passive:true});addEventListener('resize',req);addEventListener('load',req);if(d.fonts&&d.fonts.ready)d.fonts.ready.then(req);if(window.ResizeObserver)new ResizeObserver(req).observe(d.body);[400,1500,3500].forEach(function(t){setTimeout(req,t)});req();
-/* direk karti dondururken: yakin yarim kartin onunde kalir (gercek derinlik sirasi) */
-var until=0,run=false;function mat(){var m=getComputedStyle(f).transform,a;if(!m||m==='none')return[1,0];a=m.match(/matrix3d\(([^)]+)\)/);if(a){a=a[1].split(',');return[+a[0],+a[8]]}return[1,0]}
-function occ(){var m=mat(),h=mob?0:9*(1-Math.min(1,Math.abs(m[0])));pole.style.setProperty('--cl',(m[1]>0?h:0).toFixed(1)+'px');pole.style.setProperty('--cr',(m[1]<0?h:0).toFixed(1)+'px')}
-function kick(){until=performance.now()+1500;if(!run){run=true;(function fr(){occ();if(performance.now()<until)requestAnimationFrame(fr);else run=false})()}}
-['pointerdown','pointermove','pointerup','keydown','click'].forEach(function(e){f.addEventListener(e,kick,{passive:true})})}catch(e){console.warn(e)}
 })();
 </script>
 </body></html>
