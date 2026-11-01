@@ -379,7 +379,6 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 .sb>div.kom:hover{transform:translateY(-3px);background:var(--sky)}
 .sb>div.kom::after{content:"Ekibi gör ›";display:block;margin-top:3px;font-size:12px;font-weight:700;color:var(--bright)}
 @media(max-width:480px){.sb>div.kom::after{font-size:9.5px}}
-.modal.tm{max-width:640px}
 .tg{display:flex;align-items:center;gap:12px;margin:22px 0 12px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
 .tg::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
 @media(prefers-color-scheme:dark){.tg{color:#9cc0ff}}
@@ -568,6 +567,81 @@ nav a.act{background:var(--sky);color:var(--blue)}
 .lb.flip.show .lbs{animation:none}
 @media(hover:none){.btn:active,.fab:active{transform:scale(.95)}.stg.in>.card:active,.stg.in>.n:active{transform:scale(.97);transition-delay:0s;transition-duration:.15s}.menu:active,nav a:active{transform:scale(.96)}}
 @media(prefers-reduced-motion:reduce){.hero h1 .w{opacity:1;transform:none;filter:none;animation:none!important}.orb,.mag{transition:none}}
+
+/* v13: sinema modu */
+@property --c1{syntax:"<color>";inherits:true;initial-value:#2f7bff}
+@property --c2{syntax:"<color>";inherits:true;initial-value:#0a4fc4}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+:root{color-scheme:dark;--sky:#0b1536;--ink:#eef3ff;--mut:#9fb0d6;--line:rgba(160,190,255,.16);--bg:#060d26;--card:#0c1738;--sh:0 14px 44px -14px rgba(0,0,0,.65)}
+body{background:transparent}
+.info a{color:#9cc0ff}.info a:hover{color:#fff}.vals b,.tg{color:#9cc0ff}
+#faaliyetler .card::after{color:#9cc0ff;opacity:.12}
+.fold svg{filter:drop-shadow(-2px 3px 3px rgba(0,0,0,.55))}
+#fx{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#050b24;--c1:#2f7bff;--c2:#0a4fc4;transition:--c1 1.8s ease,--c2 1.8s ease;pointer-events:none}
+#fx i{position:absolute;width:70vmax;height:70vmax;border-radius:50%;opacity:.5;will-change:transform;animation:fxd 26s ease-in-out infinite alternate}
+#fx i:nth-child(1){left:-25vmax;top:-20vmax;background:radial-gradient(circle,var(--c1),transparent 62%)}
+#fx i:nth-child(2){right:-30vmax;top:25vh;background:radial-gradient(circle,var(--c2),transparent 62%);animation-duration:32s}
+#fx i:nth-child(3){left:15vw;bottom:-45vmax;background:radial-gradient(circle,var(--c1),transparent 62%);opacity:.32;animation-duration:38s}
+#fx::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse at 50% 35%,#000,transparent 75%);mask-image:radial-gradient(ellipse at 50% 35%,#000,transparent 75%)}
+@keyframes fxd{to{transform:translate3d(9vmax,7vmax,0) scale(1.18)}}
+main>section,main>section.alt{position:relative;overflow:clip;margin:0 clamp(8px,2vw,28px) clamp(14px,2vw,26px);border-radius:clamp(26px,4vw,52px);background:linear-gradient(180deg,rgba(18,34,96,.5),rgba(6,13,38,.72));border:1px solid rgba(160,190,255,.14);box-shadow:0 50px 120px -50px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.14);transform-origin:50% 60%;will-change:transform,opacity}
+main>section::before{content:"";position:absolute;left:10%;right:10%;top:0;height:1px;background:linear-gradient(90deg,transparent,#2f7bff,#f2b705,#2f7bff,transparent)}
+.hero{transform-origin:50% 100%;will-change:transform,opacity}
+.vd{margin-left:clamp(8px,2vw,28px);margin-right:clamp(8px,2vw,28px);margin-bottom:clamp(14px,2vw,26px);border-radius:clamp(22px,3.4vw,44px)}
+.hero .logo{position:relative;transform-style:preserve-3d;animation:fl2 7s ease-in-out infinite;transition:opacity 1.3s .9s,transform .18s ease-out}
+.hero .logo img{transform:translateZ(36px)}
+.hero .logo::before{content:"";position:absolute;inset:-4px;border-radius:36px;z-index:-1;transform:translateZ(-20px);background:conic-gradient(from var(--a),#2f7bff,#f2b705,#00c2ff,#6a4bff,#2f7bff);filter:blur(18px);opacity:.75;animation:sp2 7s linear infinite}
+@keyframes fl2{50%{translate:0 -12px}}
+@keyframes sp2{to{--a:360deg}}
+.card,.n,.box,.vals,.stats .wrap>div{background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border-color:rgba(160,190,255,.16)}
+@media(hover:hover){.card,.n,.box,.vals,.stats .wrap>div{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}}
+.stats .wrap>div{box-shadow:0 30px 80px -30px rgba(47,123,255,.6)}
+.stats b{background:linear-gradient(120deg,#9cc0ff,#fff 45%,#f2b705);-webkit-background-clip:text;background-clip:text;color:transparent}
+main section h2{font-size:clamp(36px,5.6vw,72px);letter-spacing:-.04em;line-height:1;margin-bottom:14px;text-shadow:0 0 40px rgba(47,123,255,.45)}
+.wd{display:inline-block;white-space:nowrap}
+.gal button{transform:perspective(1000px) rotateY(var(--r,0deg)) scale(var(--s,1));box-shadow:0 34px 60px -28px rgba(47,123,255,.6)}
+#cur{position:fixed;left:0;top:0;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;pointer-events:none;z-index:1;opacity:0;transition:opacity .5s;mix-blend-mode:screen;background:radial-gradient(circle,rgba(70,130,255,.2),rgba(242,183,5,.05) 45%,transparent 68%)}
+#dn{position:fixed;right:18px;top:50%;translate:0 -50%;z-index:60;display:none;flex-direction:column;gap:14px}
+@media(min-width:1100px){#dn{display:flex}}
+#dn a{position:relative;width:10px;height:10px;border-radius:99px;background:rgba(255,255,255,.28);transition:.45s cubic-bezier(.2,.8,.2,1)}
+#dn a::after{content:"";position:absolute;inset:-8px -10px}
+#dn a.on{height:32px;background:linear-gradient(var(--bright),var(--gold))}
+#dn a::before{content:attr(data-l);position:absolute;right:24px;top:50%;translate:8px -50%;padding:6px 13px;border-radius:99px;background:rgba(6,13,38,.9);border:1px solid var(--line);color:#fff;font-size:12px;font-weight:700;white-space:nowrap;opacity:0;pointer-events:none;transition:.3s}
+#dn a:hover::before{opacity:1;translate:0 -50%}
+@media(prefers-reduced-motion:no-preference){
+.ch{display:inline-block;opacity:0;transform:perspective(600px) rotateX(-95deg) translateY(.5em);transform-origin:50% 100%;transition:opacity .45s,transform .65s cubic-bezier(.2,1,.3,1);transition-delay:calc(var(--c)*26ms + .04s)}
+h2.in .ch{opacity:1;transform:none}
+.stg{perspective:1400px}
+.stg>*{transform:translate(-40px,70px) rotateX(38deg) rotateY(-14deg) scale(.88);transform-origin:50% 100%;transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform 1.1s cubic-bezier(.2,1,.3,1);transition-delay:calc(var(--i)*120ms)}
+.stg>:nth-child(even){transform:translate(40px,70px) rotateX(38deg) rotateY(14deg) scale(.88)}
+.stg.in>*,.stg.in>:nth-child(even){opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){.ch{opacity:1}.hero .logo,#fx i,.hero .logo::before{animation:none}}
+
+/* v14: misyon/vizyon premium kart + komisyon hover */
+.sb>div.kom:hover{background:rgba(64,115,225,.2);box-shadow:inset 0 0 0 1px rgba(150,185,255,.2)}
+.fcf{display:grid;grid-template-columns:190px 1fr;column-gap:46px;align-content:center;border:1px solid transparent;padding:46px 54px 50px}
+.fcf>h3,.fcf>.lead,.fcf>.pts{grid-column:2}
+.fcf .fh{grid-column:1;grid-row:1/4;flex-direction:column;align-items:flex-start;gap:20px;margin:0}
+.fcf .fh .ic{width:88px;height:88px;border-radius:50%}
+.fcf .fh .ic svg{width:40px;height:40px}
+.fcf.front .fh .ic{box-shadow:0 0 0 10px rgba(47,123,255,.13),0 0 0 22px rgba(47,123,255,.06),0 22px 44px -14px rgba(10,79,196,.95)}
+.fcf.back .fh .ic{box-shadow:0 0 0 10px rgba(242,183,5,.14),0 0 0 22px rgba(242,183,5,.06),0 22px 44px -14px rgba(242,183,5,.8)}
+.fcf.front{background:radial-gradient(circle at 10% 0,rgba(47,123,255,.3),transparent 46%) padding-box,linear-gradient(160deg,rgba(24,48,122,.62),rgba(8,16,50,.82)) padding-box,linear-gradient(135deg,rgba(156,192,255,.7),rgba(255,255,255,.05) 45%,rgba(47,123,255,.5)) border-box}
+.fcf.back{background:radial-gradient(circle at 90% 0,rgba(242,183,5,.24),transparent 46%) padding-box,linear-gradient(160deg,#0b1d5c,#050d33) padding-box,linear-gradient(135deg,rgba(242,183,5,.75),rgba(255,255,255,.05) 45%,rgba(156,192,255,.45)) border-box}
+.fcf .pts li,.fcf .pts li:last-child{border:0;padding:9px 0 9px 32px}
+.fcf .pts li::before,.fcf.back .pts li::before{left:6px;top:1.12em;width:9px;height:9px}
+.fcf .pts li::before{background:var(--bright);box-shadow:0 0 0 5px rgba(47,123,255,.2)}
+.fcf.back .pts li::before{background:var(--gold);box-shadow:0 0 0 5px rgba(242,183,5,.2)}
+.fcf.front::after,.fcf.back::after{content:"";position:absolute;left:auto;top:auto;right:24px;bottom:24px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12a9 9 0 1 1-3-6.7'/%3E%3Cpath d='M21 4v5h-5'/%3E%3C/svg%3E") center/22px no-repeat,rgba(255,255,255,.08);animation:fp 2.8s ease-out infinite;transition:background-color .3s}
+.fcf.back::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffd54a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12a9 9 0 1 1-3-6.7'/%3E%3Cpath d='M21 4v5h-5'/%3E%3C/svg%3E") center/22px no-repeat,rgba(255,255,255,.08)}
+@keyframes fp{0%{box-shadow:0 0 0 0 rgba(156,192,255,.45)}70%,100%{box-shadow:0 0 0 16px rgba(156,192,255,0)}}
+@media(max-width:860px){
+.fcf{grid-template-columns:1fr;padding:28px 22px 84px}
+.fcf>h3,.fcf>.lead,.fcf>.pts{grid-column:1}
+.fcf .fh{grid-column:1;grid-row:auto;flex-direction:row;align-items:center;margin-bottom:16px}
+.fcf .fh .ic{width:62px;height:62px}.fcf .fh .ic svg{width:28px;height:28px}
+.fcf.front::after,.fcf.back::after{right:18px;bottom:18px;width:44px;height:44px}}
 </style>
 </head>
 <body>
@@ -608,9 +682,9 @@ nav a.act{background:var(--sky);color:var(--blue)}
 <section id="hakkimizda"><div class="wrap">
 <h2 class="rv">Hakkımızda</h2><div class="rv flw">
 <div class="flc" id="mvf" data-f="f" role="button" tabindex="0" aria-pressed="false" aria-label="Misyon ve vizyon kartı. Çevirmek için dokun">
-<div class="fcf front"><span class="fold" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="fgf" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#cfe0ff"/><stop offset="1" stop-color="#ffffff"/></linearGradient></defs><path class="ff" d="M0 0L64 64H28A28 28 0 0 1 0 36Z"/><path class="fe" d="M0 0L64 64"/><g class="fa"><path d="M10 38C10 50 20 56 32 54"/><path d="M27 49.5L33 54L27.5 58.5"/></g></svg></span><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><span class="fk">Misyon</span></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
+<div class="fcf front"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><span class="fk">Misyon</span></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
 <ul class="pts"><li>Öğrencileri fikir geliştirme, organizasyon yönetimi ve birlikte üretme süreçlerine aktif olarak dahil ediyoruz.</li><li>Herkesin bireysel potansiyelini ortaya çıkarabileceği bir ortam sunuyoruz.</li><li>Farklı ilgi alanlarına hitap eden, sürekli gelişen ve öğrenci geri bildirimleriyle şekillenen bir etkinlik kültürü oluşturuyoruz.</li></ul></div>
-<div class="fcf back"><span class="fold" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="fgb" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#1f5fd6"/><stop offset="1" stop-color="#5b95ff"/></linearGradient></defs><path class="ff" d="M0 0L64 64H28A28 28 0 0 1 0 36Z"/><path class="fe" d="M0 0L64 64"/><g class="fa"><path d="M10 38C10 50 20 56 32 54"/><path d="M27 49.5L33 54L27.5 58.5"/></g></svg></span><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="fk">Vizyon</span></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
+<div class="fcf back"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="fk">Vizyon</span></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
 <ul class="pts"><li>Her öğrencinin kendine yer bulabildiği, fikirlerini özgürce ifade edip hayata geçirebildiği bir platform oluşturuyoruz.</li><li>Kampüs yaşamına kalıcı değer katan bir kulüp olmayı amaçlıyoruz.</li><li>Sürdürülebilir etkinlik anlayışıyla her dönem gelişen, kendini yenileyen ve kurumsallaşan bir yapı kuruyoruz.</li></ul></div>
 </div>
 </div></section>
@@ -1011,6 +1085,38 @@ var lb=d.getElementById('lb'),li=lb&&lb.querySelector('img');if(!lb||!li||rm)ret
 requestAnimationFrame(function(){if(li.complete&&li.naturalWidth)run();else li.addEventListener('load',run,{once:true})})},true)});
 /* dokunma titresimi (Android) */
 T(function(){if(!navigator.vibrate)return;d.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.btn,.fab,.stg>.n,.stg>.card,.gal button,#mvf,nav a,.menu'))navigator.vibrate(7)},{passive:true})});
+})();
+</script>
+<script>
+(function(){var d=document,rm=matchMedia('(prefers-reduced-motion:reduce)').matches,hv=matchMedia('(hover:hover)').matches,sm=innerWidth<860;
+function T(f){try{f()}catch(e){console.warn(e)}}
+function cl(v){return v<0?0:v>1?1:v}
+function ez(k){return 1-Math.pow(1-k,3)}
+var fx=d.createElement('div');fx.id='fx';fx.setAttribute('aria-hidden','true');fx.innerHTML='<i></i><i></i><i></i>';d.body.insertBefore(fx,d.body.firstChild);
+/* baslik harf harf 3D acilis */
+T(function(){d.querySelectorAll('main section h2').forEach(function(h){var t=h.textContent.trim(),i=0;h.setAttribute('aria-label',t);h.innerHTML=t.split(' ').map(function(w){return'<span class="wd" aria-hidden="true">'+[].map.call(w,function(c){return'<span class="ch" style="--c:'+(i++)+'">'+c+'</span>'}).join('')+'</span>'}).join(' ')})});
+/* sag kenar bolum cubugu */
+var dn=d.createElement('div');dn.id='dn';
+T(function(){d.querySelectorAll('nav a[href^="#"]:not([data-open])').forEach(function(a){var l=d.createElement('a'),h=a.getAttribute('href');l.href=h;l.dataset.l=a.textContent.trim();l.dataset.k=h.slice(1);l.setAttribute('aria-label',l.dataset.l);dn.appendChild(l)});d.body.appendChild(dn)});
+var S=[].slice.call(d.querySelectorAll('main>section')),H=d.querySelector('.hero'),act='',tk=0;
+var TH={hero:['#2f7bff','#0a4fc4'],hakkimizda:['#6a4bff','#2f7bff'],duyurular:['#f2b705','#ff6b3d'],galeri:['#00c2ff','#2f7bff'],faaliyetler:['#d6249f','#6a4bff'],iletisim:['#2f7bff','#f2b705']};
+function theme(id){var t=TH[id]||TH.hero;fx.style.setProperty('--c1',t[0]);fx.style.setProperty('--c2',t[1]);[].forEach.call(dn.children,function(a){a.classList.toggle('on',a.dataset.k===id)})}
+/* kaydirdikca bolumler one cikar, onceki geriye yatar */
+function fr(){tk=0;var vh=innerHeight,k=sm?.55:1,id='hero';
+S.forEach(function(s){var r=s.getBoundingClientRect(),e=ez(cl((vh-r.top)/(vh*.6))),x=cl((vh*.55-r.bottom)/(vh*.55));
+if(!rm){s.style.transform='perspective(1600px) translate3d(0,'+((1-e)*50*k).toFixed(1)+'px,'+(-x*120*k).toFixed(1)+'px) rotateX('+(((1-e)*14+x*7)*k).toFixed(2)+'deg) scale('+(.94+.06*e-.04*x).toFixed(3)+')';s.style.opacity=((.35+.65*e)*(1-.5*x)).toFixed(3)}
+if(r.top<vh*.5&&r.bottom>vh*.5)id=s.id});
+if(H&&!rm){var r=H.getBoundingClientRect(),x=cl(-r.top/(r.height*.9));H.style.transform='perspective(1600px) translate3d(0,0,'+(-x*140*k).toFixed(1)+'px) rotateX('+(x*8*k).toFixed(2)+'deg) scale('+(1-.05*x).toFixed(3)+')';H.style.opacity=(1-.55*x).toFixed(3)}
+if(id!==act){act=id;theme(id)}}
+function rq(){if(!tk)tk=requestAnimationFrame(fr)}
+addEventListener('scroll',rq,{passive:true});addEventListener('resize',function(){sm=innerWidth<860;rq()});addEventListener('load',rq);rq();
+/* galeri: yanlar icerden doner (coverflow) */
+T(function(){var g=d.getElementById('gal');if(!g||rm)return;var q=0;function rot(){q=0;var r=g.getBoundingClientRect(),c=r.left+r.width/2;[].forEach.call(g.children,function(b){var p=b.getBoundingClientRect(),o=Math.max(-1,Math.min(1,(p.left+p.width/2-c)/(r.width*.6)));b.style.setProperty('--r',(-o*30).toFixed(1)+'deg')})}
+function rr(){if(!q)q=requestAnimationFrame(rot)}g.addEventListener('scroll',rr,{passive:true});addEventListener('resize',rr);addEventListener('load',rr);rr()});
+/* hero logosu fareyle 3D egilir */
+T(function(){var l=d.querySelector('.hero .logo');if(!l||!hv||rm||!H)return;H.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=l.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)/innerWidth,y=(e.clientY-r.top-r.height/2)/innerHeight;l.style.transform='perspective(900px) rotateY('+(x*46).toFixed(1)+'deg) rotateX('+(-y*46).toFixed(1)+'deg)'},{passive:true});H.addEventListener('pointerleave',function(){l.style.transform=''})});
+/* imlec isigi */
+T(function(){if(!hv||rm)return;var c=d.createElement('div');c.id='cur';c.setAttribute('aria-hidden','true');d.body.appendChild(c);var tx=0,ty=0,x=0,y=0,on=0;addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;tx=e.clientX;ty=e.clientY;if(!on){on=1;x=tx;y=ty;c.style.opacity=1}},{passive:true});(function f(){x+=(tx-x)*.12;y+=(ty-y)*.12;c.style.translate=x.toFixed(1)+'px '+y.toFixed(1)+'px';requestAnimationFrame(f)})()});
 })();
 </script>
 </body></html>
