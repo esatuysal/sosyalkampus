@@ -746,7 +746,7 @@ d.append('_subject',f.dataset.subject);d.append('_captcha','false');d.append('_t
 b.disabled=true;m.className='msg';m.textContent='Gönderiliyor…';
 fetch('https://formsubmit.co/ajax/iucsosyalkampus@gmail.com',{method:'POST',headers:{Accept:'application/json'},body:d})
 .then(function(r){if(!r.ok)throw 0;return r.json()})
-.then(function(){if(mem){try{localStorage.setItem(LK,Date.now())}catch(x){}}m.className='msg ok';m.textContent='Teşekkürler! Kaydın bize ulaştı.';f.reset()})
+.then(function(j){if(!j||j.success==='false'||j.success===false)throw 0;if(mem){try{localStorage.setItem(LK,Date.now())}catch(x){}}m.className='msg ok';m.textContent='Teşekkürler! Kaydın bize ulaştı.';f.reset()})
 .catch(function(){m.className='msg err';m.textContent='Gönderilemedi. Lütfen iucsosyalkampus@gmail.com adresine yaz.'})
 .finally(function(){b.disabled=false})})});
 })();
