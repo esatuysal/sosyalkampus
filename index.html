@@ -37,15 +37,15 @@ nav a{display:block;padding:9px 15px;border-radius:999px;font-weight:600;font-si
 nav a:hover{background:var(--sky);color:var(--blue)}
 nav a.join{background:linear-gradient(135deg,var(--blue),var(--bright));color:#fff;margin-left:8px;box-shadow:0 6px 18px -4px rgba(10,79,196,.55)}
 .menu{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:8px 13px;font-size:18px;cursor:pointer}
-.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(900px 500px at 85% 20%,#2f7bff55,transparent 60%),radial-gradient(700px 500px at 0% 100%,#0a4fc455,transparent 60%),linear-gradient(160deg,#000d4d,#001a8a 55%,#0a4fc4)}
-.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.18) 1.5px,transparent 1.5px);background-size:26px 26px;mask-image:linear-gradient(90deg,transparent 40%,#000);-webkit-mask-image:linear-gradient(90deg,transparent 40%,#000)}
+.hero{position:relative;overflow:hidden;color:#fff;background:none}
+/* nokta ızgarası kaldırıldı */
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding:110px 24px 120px}
 .pill{display:inline-block;padding:7px 16px;border-radius:999px;background:#ffffff1c;border:1px solid #ffffff33;font-size:14px;font-weight:600;margin-bottom:22px}
 .hero h1{font-size:clamp(38px,5.6vw,66px);line-height:1.04;letter-spacing:-.025em;font-weight:800;margin-bottom:20px}
 .hero p{font-size:19px;color:#cfdcff;max-width:540px;margin-bottom:34px}
 .btn{display:inline-block;padding:15px 30px;border-radius:999px;font-weight:700;margin:0 12px 12px 0;border:0;cursor:pointer;font:inherit;font-weight:700;transition:transform .2s}
 .btn:hover{transform:translateY(-2px)}
-.btn.p{background:var(--gold);color:#1a1a1a;box-shadow:0 10px 30px -8px rgba(242,183,5,.6)}
+.btn.p{background:var(--gold);color:#1a1a1a;box-shadow:0 6px 16px -8px rgba(242,183,5,.5)}
 .btn.o{border:1.5px solid #ffffff88;color:#fff;background:#ffffff10}
 .hero .logo{justify-self:center;width:100%;max-width:400px;border-radius:32px;padding:10px;background:linear-gradient(145deg,#ffffff40,#ffffff08);border:1px solid #ffffff40;box-shadow:0 40px 80px -20px rgba(0,0,40,.7);animation:fl 7s ease-in-out infinite}
 .hero .logo img{width:100%;display:block;border-radius:24px}
@@ -198,7 +198,7 @@ footer .wrap{flex-direction:column;align-items:flex-start;gap:12px}
 .hero .wrap{transform:translateY(calc(var(--sy,0)*-.09px))}
 .orb{position:absolute;border-radius:50%;filter:blur(64px);pointer-events:none;animation:drift 12s ease-in-out infinite alternate}
 .o1{width:380px;height:380px;right:-90px;top:-70px;background:#2f7bff;opacity:.5}
-.o2{width:260px;height:260px;left:18%;bottom:-90px;background:var(--gold);opacity:.22;animation-duration:16s}
+.o2{width:120px;height:120px;left:14%;bottom:90px;background:var(--gold);opacity:.18;filter:blur(40px);animation-duration:16s}
 @keyframes drift{to{transform:translate3d(-50px,40px,0) scale(1.15)}}
 .rv{opacity:0;transform:translateY(34px) scale(.985);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -230,7 +230,7 @@ html{scroll-padding-top:72px}
 .spl img{animation-fill-mode:backwards;transition:transform 1.3s cubic-bezier(.7,0,.2,1),border-radius 1.3s}
 .spl.out img{transform:scale(var(--z,9));border-radius:0}
 .spl.out i{opacity:0;transition:opacity .2s}
-#net{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#net{position:fixed;left:0;top:0;width:100%;height:100vh;height:100lvh;z-index:-1;pointer-events:none}
 .btn.p{position:relative;overflow:hidden}
 .btn.p::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:gl 3.8s 3s infinite}
 @keyframes gl{0%,55%{left:-60%}100%{left:140%}}
@@ -586,7 +586,8 @@ body{background:transparent}
 #fx i:nth-child(3){left:15vw;bottom:-45vmax;background:radial-gradient(circle,var(--c1),transparent 62%);opacity:.32;animation-duration:38s}
 #fx::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse at 50% 35%,#000,transparent 75%);mask-image:radial-gradient(ellipse at 50% 35%,#000,transparent 75%)}
 @keyframes fxd{to{transform:translate3d(9vmax,7vmax,0) scale(1.18)}}
-main>section,main>section.alt{position:relative;overflow:clip;margin:0 clamp(8px,2vw,28px) clamp(14px,2vw,26px);border-radius:clamp(26px,4vw,52px);background:linear-gradient(180deg,rgba(18,34,96,.5),rgba(6,13,38,.72));border:1px solid rgba(160,190,255,.14);box-shadow:0 50px 120px -50px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.14);transform-origin:50% 60%;will-change:transform,opacity}
+main>section,main>section.alt{position:relative;overflow:clip;margin:0 clamp(8px,2vw,28px) clamp(14px,2vw,26px);border-radius:clamp(26px,4vw,52px);background:linear-gradient(180deg,#0e1d58,#060d26);border:1px solid rgba(160,190,255,.14);box-shadow:0 50px 120px -50px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.14);transform-origin:50% 60%;will-change:transform,opacity}
+main>section#hakkimizda{background:linear-gradient(180deg,#0e1d58,#060d26)}
 main>section::before{content:"";position:absolute;left:10%;right:10%;top:0;height:1px;background:linear-gradient(90deg,transparent,#2f7bff,#f2b705,#2f7bff,transparent)}
 .hero{transform-origin:50% 100%;will-change:transform,opacity}
 .vd{margin-left:clamp(8px,2vw,28px);margin-right:clamp(8px,2vw,28px);margin-bottom:clamp(14px,2vw,26px);border-radius:clamp(22px,3.4vw,44px)}
@@ -650,13 +651,28 @@ h2.in .ch{opacity:1;transform:none}
 .hero .logo::before{inset:-22%;border-radius:50%;background:conic-gradient(#2f7bff,#f2b705,#00c2ff,#6a4bff,#2f7bff);filter:blur(20px);opacity:.6;-webkit-mask-image:radial-gradient(circle,#000 52%,transparent 70%);mask-image:radial-gradient(circle,#000 52%,transparent 70%);animation:sp3 7s linear infinite}
 @keyframes sp3{from{transform:translateZ(-20px) rotate(0deg)}to{transform:translateZ(-20px) rotate(360deg)}}
 .card,.n,.box,.vals,.stats .wrap>div{background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03)),rgba(10,20,52,.62)}
+.stats .wrap>div{background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03)),#0a1434}
 @media(hover:hover){.card,.n,.box,.vals,.stats .wrap>div{backdrop-filter:none;-webkit-backdrop-filter:none}}
 #cur{mix-blend-mode:normal}
 header{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 main>section,main>section.alt{will-change:auto}
 @media(max-width:860px){#fx i:nth-child(3){display:none}}
+@media(max-width:860px){#fx{display:none}}
 body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .hero p.newc i{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.hero .logo::before{animation:none}}
+
+/* misyon (ön, altın) / vizyon (arka, mavi) renkleri yer değiştirdi */
+.fcf.front{background:radial-gradient(circle at 90% 0,rgba(242,183,5,.24),transparent 46%) padding-box,linear-gradient(160deg,#0b1d5c,#050d33) padding-box,linear-gradient(135deg,rgba(242,183,5,.75),rgba(255,255,255,.05) 45%,rgba(156,192,255,.45)) border-box}
+.fcf.back{background:radial-gradient(circle at 10% 0,rgba(47,123,255,.3),transparent 46%) padding-box,linear-gradient(160deg,rgba(24,48,122,.62),rgba(8,16,50,.82)) padding-box,linear-gradient(135deg,rgba(156,192,255,.7),rgba(255,255,255,.05) 45%,rgba(47,123,255,.5)) border-box}
+.fcf.front .fh .ic{background:linear-gradient(135deg,#f2b705,#ffd54a);color:#3a2a00;box-shadow:0 0 0 10px rgba(242,183,5,.14),0 0 0 22px rgba(242,183,5,.06),0 22px 44px -14px rgba(242,183,5,.8)}
+.fcf.back .fh .ic{background:linear-gradient(135deg,var(--blue),var(--bright));color:#fff;box-shadow:0 0 0 10px rgba(47,123,255,.13),0 0 0 22px rgba(47,123,255,.06),0 22px 44px -14px rgba(10,79,196,.95)}
+.fcf.front .fk{color:var(--gold);background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22)}
+.fcf.back .fk{color:#9cc0ff;background:var(--sky);border-color:var(--line)}
+.fcf.front .pts li::before{background:var(--gold);box-shadow:0 0 0 5px rgba(242,183,5,.2)}
+.fcf.back .pts li::before{background:var(--bright);box-shadow:0 0 0 5px rgba(47,123,255,.2)}
+.fcf.front .fold .ff{fill:url(#fgb)}.fcf.front .fold .fa{stroke:#ffd54a}.fcf.front .fold .fe{stroke:rgba(255,255,255,.4)}
+.fcf.back .fold .ff{fill:url(#fgf)}.fcf.back .fold .fa{stroke:var(--blue)}.fcf.back .fold .fe{stroke:rgba(255,255,255,.85)}
+
 
 /* v15: vizyon karti */
 .fcf.front::after,.fcf.back::after{content:none;display:none;animation:none}
@@ -690,8 +706,9 @@ body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .he
 </ul></nav></div></header>
 <div class="top"><div class="wrap"><a href="https://www.iuc.edu.tr/tr" target="_blank" rel="noopener"><img class="uni-logo" src="iuc-logo.png" alt="">İstanbul Üniversitesi-Cerrahpaşa</a></div></div>
 
+<canvas id="net" aria-hidden="true"></canvas>
 <main>
-<div class="hero"><canvas id="net" aria-hidden="true"></canvas><i class="orb o1"></i><i class="orb o2"></i><div class="wrap">
+<div class="hero"><i class="orb o1"></i><i class="orb o2"></i><div class="wrap">
 <div>
 <h1>Kampüsü birlikte yaşatıyoruz.</h1>
 <p class="hx" style="--hd:3">İstanbul Üniversitesi-Cerrahpaşa öğrencileri tarafından kurulan, öğrenciler için çalışan resmi öğrenci kulübüyüz.<br>Kampüste tanışmayı, üretmeyi ve paylaştıkça büyümeyi hedefleyen dinamik bir topluluğuz. Projeler geliştiriyor, etkinlikler düzenliyor ve takılıyoruz.</p>
@@ -710,9 +727,9 @@ body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .he
 <section id="hakkimizda"><div class="wrap">
 <h2 class="rv">Hakkımızda</h2><div class="rv flw"><div class="hnd" aria-hidden="true"><svg viewBox="0 0 68 76" width="56" height="63" fill="none" stroke-linejoin="round" stroke-linecap="round"><g stroke="#0a2a7a" stroke-width="5.4" opacity=".55"><path d="M24 22V9a5 5 0 0 1 10 0V28a4.5 4.5 0 0 1 9 0a4.5 4.5 0 0 1 9 0a4.5 4.5 0 0 1 9 0V44c0 8-4 13-8 17H27L10.5 41.5a4.5 4.5 0 0 1 7.5-4.8L24 42.5Z"/><path d="M43 29v10M52 29v10"/></g><g stroke="#fff" stroke-width="2.6"><path d="M24 22V9a5 5 0 0 1 10 0V28a4.5 4.5 0 0 1 9 0a4.5 4.5 0 0 1 9 0a4.5 4.5 0 0 1 9 0V44c0 8-4 13-8 17H27L10.5 41.5a4.5 4.5 0 0 1 7.5-4.8L24 42.5Z"/><path d="M43 29v10M52 29v10" stroke-width="2"/></g></svg></div>
 <div class="flc" id="mvf" data-f="f" role="button" tabindex="0" aria-pressed="false" aria-label="Misyon ve vizyon kartı. Çevirmek için dokun">
-<div class="fcf front"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><span class="fk">Misyon</span></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
+<div class="fcf front"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="fk">Misyon</span></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
 <ul class="pts"><li>Öğrencileri fikir geliştirme, organizasyon yönetimi ve birlikte üretme süreçlerine aktif olarak dahil ediyoruz.</li><li>Herkesin bireysel potansiyelini ortaya çıkarabileceği bir ortam sunuyoruz.</li><li>Farklı ilgi alanlarına hitap eden, sürekli gelişen ve öğrenci geri bildirimleriyle şekillenen bir etkinlik kültürü oluşturuyoruz.</li></ul></div>
-<div class="fcf back"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="fk">Vizyon</span></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
+<div class="fcf back"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><span class="fk">Vizyon</span></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
 <ul class="pts"><li>Her öğrencinin kendine yer bulabildiği, fikirlerini özgürce ifade edip hayata geçirebildiği bir platform oluşturuyoruz.</li><li>Kampüs yaşamına kalıcı değer katan bir kulüp olmayı amaçlıyoruz.</li><li>Sürdürülebilir etkinlik anlayışıyla her dönem gelişen, kendini yenileyen ve kurumsallaşan bir yapı kuruyoruz.</li></ul></div>
 </div>
 </div></section>
@@ -882,25 +899,30 @@ if(matchMedia('(hover:hover)').matches&&!rm)d.querySelectorAll('.card,.n').forEa
 var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,cv=document.getElementById('net');
 if(!rm&&matchMedia('(hover:hover)').matches)document.querySelectorAll('.btn,.fab').forEach(function(b){b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.transition='transform .15s';b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.22)+'px,'+((e.clientY-r.top-r.height/2)*.3)+'px)'});b.addEventListener('pointerleave',function(){b.style.transition='';b.style.transform=''})});
 if(!cv)return;
-var hero=cv.parentNode,gl=cv.getContext('webgl2',{alpha:true,premultipliedAlpha:true,antialias:false,powerPreference:'high-performance'});
+var hero=cv,gl=cv.getContext('webgl2',{alpha:true,premultipliedAlpha:true,antialias:false,powerPreference:'high-performance'});
 if(!gl)return;
 var VS='#version 300 es\nin vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
 var FS='#version 300 es\nprecision highp float;uniform vec2 R,M,V;uniform float T,S,E;out vec4 o;\n'+
 'float h(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}\n'+
 'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*f*(f*(f*6.-15.)+10.);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}\n'+
-'float fbm(vec2 p){float a=.5,s=0.;mat2 m=mat2(1.6,1.2,-1.2,1.6);for(int i=0;i<5;i++){s+=a*n(p);p=m*p+7.1;a*=.5;}return s;}\n'+
+'float fbm(vec2 p){float a=.5,s=0.;mat2 m=mat2(1.6,1.2,-1.2,1.6);for(int i=0;i<'+(innerWidth<700?3:5)+';i++){s+=a*n(p);p=m*p+7.1;a*=.5;}return s;}\n'+
 'float big(vec2 p,float t,float w,out float lit){vec2 q=vec2(fbm(p+vec2(0.,t)),fbm(p+vec2(5.2,1.3)-t*.7));vec2 r=vec2(fbm(p+w*q+vec2(1.7,9.2)+t*.5),fbm(p+w*q+vec2(8.3,2.8)-t*.4));vec2 pp=p+w*r;float f=fbm(pp);lit=f-fbm(pp+vec2(.05,.08));return f;}\n'+
 'float wisp(vec2 p,float t){vec2 q=vec2(fbm(p+vec2(0.,t)),fbm(p+vec2(3.1,7.7)-t));return fbm(p+2.4*q);}\n'+
-'void main(){vec2 u=gl_FragCoord.xy/R.y;float asp=R.x/R.y,x=u.x/asp,y=u.y,t=T*.05;\n'+
+'void main(){vec2 u=gl_FragCoord.xy/R.y;float asp=R.x/R.y,x=u.x/asp,y=u.y,t=T*.065;\n'+
 'vec2 d=u-M;float wm=exp(-dot(d,d)*12.);\n'+
 'vec2 p=u*1.5+vec2(t*.25,-t*1.6+S*1.4)+vec2(-d.y,d.x)*wm*1.3+d*wm*.6+V*wm*4.;\n'+
 'float la;float fa=big(p,t,3.+S*1.6+E*.7,la);\n'+
 'vec2 p2=u*3.4+vec2(t*.9,-t*2.5+S*2.2)+vec2(-d.y,d.x)*wm*1.8;float fb=wisp(p2,t*1.3);\n'+
-'float dA=smoothstep(.34,.9,fa),dB=smoothstep(.42,.92,fb)*.5;float k=clamp(dA+dB*(1.-.5*dA),0.,1.);\n'+
-'float m=mix(.34,1.,smoothstep(.12,.85,x))*mix(.55,1.,smoothstep(.95,.05,y));k*=m*(1.+E*.12);\n'+
-'float l=clamp(la*8.5+.5,0.,1.);vec3 c=mix(vec3(.015,.06,.3),vec3(.36,.58,1.),l*.85+dA*.2);\n'+
-'c+=vec3(.55,.68,1.)*dB*.3;c+=vec3(1.,.72,.2)*pow(l,6.)*dA*.16;c=mix(c,vec3(.88,.94,1.),pow(clamp(fa*1.4-.5,0.,1.),3.)*.35);\n'+
-'float a=clamp(k*.9,0.,.92);a+=(h(gl_FragCoord.xy+fract(T))-.5)/200.;a=clamp(a,0.,1.);o=vec4(c*a,a);}';
+'float dA=smoothstep(.22,.82,fa),dB=smoothstep(.35,.9,fb);float br=fbm(u*.7+vec2(t*.6,-t*.35));\n'+
+'float l=clamp(la*8.5+.5,0.,1.);\n'+
+'vec3 c=mix(vec3(0.,.006,.04),vec3(.012,.085,.44),smoothstep(.3,.72,fa));\n'+
+'c=mix(c,vec3(.08,.3,.9),dA*dA*.45+l*dA*.12+dB*dA*.08);\n'+
+'c*=(.7+.3*br)*mix(.55,1.,smoothstep(.05,.9,x));\n'+
+'vec2 sc=gl_FragCoord.xy/R;float ed=min(min(sc.x,1.-sc.x),min(sc.y,1.-sc.y));float eg=pow(1.-smoothstep(0.,.3,ed),2.);\n'+
+'float fl=smoothstep(.38,.78,fbm(vec2(sc.x*1.8+t*2.2,sc.y*1.8-t*1.4)+7.));\n'+
+'c+=vec3(.12,.42,1.)*eg*fl*.85+vec3(.5,.7,1.)*pow(eg,3.)*fl*.25;\n'+
+'c+=(h(gl_FragCoord.xy+fract(T))-.5)/110.;c=max(c,0.);\n'+
+'float a=clamp(.94+(h(gl_FragCoord.xy+fract(T*1.7))-.5)/200.,0.,1.);o=vec4(c*a,a);}';
 function sh(t,s){var o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS)){console.warn(gl.getShaderInfoLog(o));return null}return o}
 var vs=sh(gl.VERTEX_SHADER,VS),fs=sh(gl.FRAGMENT_SHADER,FS);if(!vs||!fs)return;
 var pg=gl.createProgram();gl.attachShader(pg,vs);gl.attachShader(pg,fs);gl.linkProgram(pg);if(!gl.getProgramParameter(pg,gl.LINK_STATUS))return;
@@ -909,18 +931,18 @@ var al=gl.getAttribLocation(pg,'a');gl.enableVertexAttribArray(al);gl.vertexAttr
 var U={};['R','M','V','T','S','E'].forEach(function(n){U[n]=gl.getUniformLocation(pg,n)});
 gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
 var W=1,H=1,vis=true,sm=innerWidth<700,T=28,S=0,en=0,vel=0,lastY=scrollY,last=0,Mx=-9,My=-9,tMx=-9,tMy=-9,Vx=0,Vy=0;
-function rs(){var w=hero.clientWidth,h=hero.clientHeight;if(!w||!h)return;W=w;H=h;var k=Math.min(1,Math.sqrt((sm?1.7e5:5.5e5)/(w*h)));cv.width=Math.round(w*k);cv.height=Math.round(h*k);gl.viewport(0,0,cv.width,cv.height);draw()}
+function rs(){var w=hero.clientWidth,h=hero.clientHeight;if(!w||!h)return;W=w;H=h;var k=Math.min(1,Math.sqrt((sm?8e4:4.2e5)/(w*h)));cv.width=Math.round(w*k);cv.height=Math.round(h*k);gl.viewport(0,0,cv.width,cv.height);draw()}
 function draw(){gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.uniform2f(U.R,cv.width,cv.height);var sc=cv.height/H;gl.uniform2f(U.M,Mx/H,My/H);gl.uniform2f(U.V,Vx/H*3,Vy/H*3);gl.uniform1f(U.T,T);gl.uniform1f(U.S,S);gl.uniform1f(U.E,en);gl.drawArrays(gl.TRIANGLES,0,3)}
 cv.style.opacity=0;cv.style.transition='opacity 2.4s ease .6s';
 if('ResizeObserver'in window)new ResizeObserver(rs).observe(hero);else addEventListener('resize',rs);
 rs();requestAnimationFrame(function(){cv.style.opacity=1});
 if(rm)return;
 addEventListener('scroll',function(){var y=scrollY;vel+=Math.abs(y-lastY);lastY=y},{passive:true});
-hero.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=hero.getBoundingClientRect();tMx=e.clientX-r.left;tMy=H-(e.clientY-r.top);if(Mx<-5){Mx=tMx;My=tMy}},{passive:true});
-hero.addEventListener('pointerleave',function(){tMx=tMy=-9999});
+addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=hero.getBoundingClientRect();tMx=e.clientX-r.left;tMy=H-(e.clientY-r.top);if(Mx<-5){Mx=tMx;My=tMy}},{passive:true});
+document.documentElement.addEventListener('pointerleave',function(){tMx=tMy=-9999});
 new IntersectionObserver(function(e){vis=e[0].isIntersecting;last=0}).observe(hero);
-(function f(ts){requestAnimationFrame(f);if(!vis||document.hidden)return;if(en<.04&&tMx<-5000&&last&&ts-last<30)return;var dt=last?Math.min(.05,(ts-last)/1000):.016;last=ts;
-var tg=Math.min(1.5,vel/36);vel=0;en+=(tg-en)*(tg>en?.25:.03);S+=(Math.min(1,scrollY/(H*.95))-S)*.08;
+(function f(ts){requestAnimationFrame(f);if(!vis||document.hidden||(sm&&last&&ts-last<33))return;if(en<.04&&tMx<-5000&&last&&ts-last<30)return;var dt=last?Math.min(.05,(ts-last)/1000):.016;last=ts;
+var tg=Math.min(1.5,vel/36);vel=0;en+=(tg-en)*(tg>en?.25:.03);S+=(Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight))-S)*.08;
 T+=dt*(1+en*3+S*.8);var px=Mx,py=My;if(tMx>-5000){Mx+=(tMx-Mx)*.08;My+=(tMy-My)*.08}else{Mx+=(-9999-Mx)*.02}
 Vx+=((Mx-px)-Vx)*.2;Vy+=((My-py)-Vy)*.2;draw()})(0);
 })();
