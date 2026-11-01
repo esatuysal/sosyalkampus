@@ -502,10 +502,8 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 
 /* misyon-vizyon flip v2 */
 .flw{margin-top:30px;perspective:1800px}
-.flc{--r:-9deg;--d:0deg;position:relative;display:grid;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;transform-style:preserve-3d;transform:rotateX(2.5deg) rotateY(calc(var(--r) + var(--d)));transition:transform 1.05s cubic-bezier(.65,.05,.2,1);-webkit-tap-highlight-color:transparent;outline:0}
+.flc{--h:0deg;--n:0;--d:0deg;position:relative;display:grid;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;transform-style:preserve-3d;transform:rotateY(calc(var(--h) + var(--n)*180deg + var(--d)));transition:transform 1.05s cubic-bezier(.65,.05,.2,1);-webkit-tap-highlight-color:transparent;outline:0}
 .flc.drag{transition:none;cursor:grabbing}
-@media(hover:hover){.flw:not(.on) .flc:hover{--r:-3deg}.flw.on .flc:hover{--r:177deg}}
-.flw.on .flc{--r:171deg}
 .flc:focus-visible .fcf{box-shadow:0 0 0 3px var(--bright),var(--sh)}
 .fcf{grid-area:1/1;position:relative;padding:44px 48px 46px;border-radius:30px;border:1px solid var(--line);background:radial-gradient(circle at 94% 0,rgba(47,123,255,.2),transparent 42%),linear-gradient(160deg,var(--card) 55%,var(--sky));box-shadow:0 30px 60px -28px rgba(10,40,120,.45),0 2px 0 rgba(255,255,255,.6) inset;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .fcf.front::after{content:"";position:absolute;left:0;top:34px;bottom:34px;width:4px;border-radius:0 4px 4px 0;background:linear-gradient(180deg,var(--bright),var(--gold))}
@@ -524,13 +522,20 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 .fcf.back h3{color:#fff}
 .fcf .lead{max-width:62ch;font-size:17.5px;font-weight:600;line-height:1.65;margin-bottom:22px;color:var(--ink)}
 .fcf.back .lead{color:#eaf0ff}
-.fcf .pts{counter-reset:pt;gap:0;max-width:70ch}
-.fcf .pts li{counter-increment:pt;padding:15px 0 15px 46px;border-top:1px solid var(--line);font-size:15.5px;line-height:1.65}
+.fcf .pts{gap:0;max-width:70ch}
+.fcf .pts li{padding:15px 0 15px 46px;border-top:1px solid var(--line);font-size:15.5px;line-height:1.65}
 .fcf .pts li:last-child{border-bottom:1px solid var(--line)}
-.fcf .pts li::before{content:counter(pt);left:0;top:15px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--bright),var(--blue));box-shadow:0 6px 14px -6px rgba(10,79,196,.8)}
+.fcf .pts li::before{content:"";left:0;top:15px;width:28px;height:28px;border-radius:50%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E") 55% 50%/14px 14px no-repeat,linear-gradient(135deg,var(--bright),var(--blue));box-shadow:0 6px 14px -6px rgba(10,79,196,.8)}
 .fcf.back .pts li{color:#c9d6f5;border-color:rgba(255,255,255,.16)}
-.fcf.back .pts li::before{color:#3a2a00;background:linear-gradient(135deg,#f2b705,#ffd54a);box-shadow:0 6px 14px -6px rgba(242,183,5,.8)}
+.fcf.back .pts li::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233a2a00' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E") 55% 50%/14px 14px no-repeat,linear-gradient(135deg,#f2b705,#ffd54a);box-shadow:0 6px 14px -6px rgba(242,183,5,.8)}
 @media(max-width:860px){.fcf{padding:26px 22px 30px;border-radius:24px}.fcf h3{font-size:24px}.fcf .lead{font-size:15.5px}.fcf .pts li{font-size:14.5px;padding-left:42px}.fh .ic{width:50px;height:50px;border-radius:16px}}
+.fhint{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:20px;font-size:13.5px;font-weight:700;letter-spacing:.02em;color:var(--blue);user-select:none;-webkit-user-select:none}
+.fhint svg{width:22px;height:22px;padding:4px;border-radius:50%;background:var(--sky);border:1px solid var(--line);animation:fhl 1.8s ease-in-out infinite}
+.fhint svg:last-child{animation-name:fhr}
+@keyframes fhl{0%,100%{transform:translateX(0)}50%{transform:translateX(-5px)}}
+@keyframes fhr{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@media(prefers-color-scheme:dark){.fhint{color:#9cc0ff}}
+@media(prefers-reduced-motion:reduce){.fhint svg{animation:none}}
 @media(prefers-reduced-motion:reduce){.flc{transition:none}.flw.on .front{visibility:hidden}.flw:not(.on) .back{visibility:hidden}}
 .pushw{margin:-6px 0 22px}
 .pushb{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:14.5px;color:#fff;padding:11px 20px;border-radius:999px;background:linear-gradient(135deg,var(--bright),var(--blue));box-shadow:0 10px 22px -8px rgba(10,79,196,.8);transition:transform .2s}
@@ -581,7 +586,8 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 <ul class="pts"><li>Öğrencileri fikir geliştirme, organizasyon yönetimi ve birlikte üretme süreçlerine aktif olarak dahil ediyoruz.</li><li>Herkesin bireysel potansiyelini ortaya çıkarabileceği bir ortam sunuyoruz.</li><li>Farklı ilgi alanlarına hitap eden, sürekli gelişen ve öğrenci geri bildirimleriyle şekillenen bir etkinlik kültürü oluşturuyoruz.</li></ul></div>
 <div class="fcf back"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><span class="fk">Vizyon</span></div><h3>Vizyonumuz</h3><p class="lead">Üniversitede sosyal etkileşimi artıran, aidiyet duygusunu güçlendiren ve etkinlik üretiminde yenilikçi yaklaşımlar benimseyen örnek bir topluluk olmayı hedefliyoruz.</p>
 <ul class="pts"><li>Her öğrencinin kendine yer bulabildiği, fikirlerini özgürce ifade edip hayata geçirebildiği bir platform oluşturuyoruz.</li><li>Kampüs yaşamına kalıcı değer katan bir kulüp olmayı amaçlıyoruz.</li><li>Sürdürülebilir etkinlik anlayışıyla her dönem gelişen, kendini yenileyen ve kurumsallaşan bir yapı kuruyoruz.</li></ul></div>
-</div></div></section>
+</div>
+<div class="fhint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg><span>Çevirmek için sürükle</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></div></div></section>
 
 <section id="duyurular" class="alt"><div class="wrap">
 <h2 class="rv">Duyurular</h2><p class="sub rv">Güncel haberler ve etkinlik takvimi.</p>
@@ -885,19 +891,19 @@ if(document.readyState==='complete')setTimeout(init,300);else window.addEventLis
 </script>
 <script>
 (function(){var f=document.getElementById('mvf');if(!f)return;
-var w=f.parentNode,sx=0,dx=0,down=false,moved=false,pid=null,tm=0;
-function isOn(){return w.classList.contains('on')}
-function face(a){return Math.cos(a*Math.PI/180)>0?'f':'b'}
-function set(on){w.classList.toggle('on',on);f.setAttribute('aria-pressed',on);clearTimeout(tm);tm=setTimeout(function(){f.dataset.f=on?'b':'f'},470)}
+var w=f.parentNode,n=0,sx=0,dx=0,down=false,moved=false,pid=null,tm=0;
+function odd(){return Math.abs(n)%2===1}
+function face(d){return Math.cos((180*n+d)*Math.PI/180)>0?'f':'b'}
+function flip(dir){n+=dir;w.classList.toggle('on',odd());f.setAttribute('aria-pressed',odd());f.style.setProperty('--n',n);clearTimeout(tm);tm=setTimeout(function(){f.dataset.f=odd()?'b':'f'},470)}
 f.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse'&&e.button!==0)return;down=true;moved=false;sx=e.clientX;dx=0;pid=e.pointerId});
 f.addEventListener('pointermove',function(e){if(!down)return;dx=e.clientX-sx;if(!moved&&Math.abs(dx)>8){moved=true;clearTimeout(tm);f.classList.add('drag');try{f.setPointerCapture(pid)}catch(_){}}
-if(moved){var d=Math.max(-100,Math.min(100,dx*.45));f.style.setProperty('--d',d+'deg');f.dataset.f=face((isOn()?171:-9)+d)}});
+if(moved){var d=Math.max(-120,Math.min(120,dx*.5));f.style.setProperty('--d',d+'deg');f.dataset.f=face(d)}});
 function reset(){f.classList.remove('drag');f.style.setProperty('--d','0deg')}
 function end(){if(!down)return;down=false;var was=moved;moved=false;reset();
-if(was){if(Math.abs(dx)>50)set(!isOn());else f.dataset.f=isOn()?'b':'f'}else set(!isOn())}
+if(was){if(Math.abs(dx)>50)flip(dx>0?1:-1);else f.dataset.f=odd()?'b':'f'}else flip(1)}
 f.addEventListener('pointerup',end);
-f.addEventListener('pointercancel',function(){down=false;moved=false;reset();f.dataset.f=isOn()?'b':'f'});
-f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();set(!isOn())}});
+f.addEventListener('pointercancel',function(){down=false;moved=false;reset();f.dataset.f=odd()?'b':'f'});
+f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();flip(e.key==='ArrowLeft'?-1:1)}});
 f.addEventListener('dragstart',function(e){e.preventDefault()});
 })();
 </script>
