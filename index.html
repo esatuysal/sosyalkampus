@@ -673,6 +673,26 @@ body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .he
 .fcf.front .fold .ff{fill:url(#fgb)}.fcf.front .fold .fa{stroke:#ffd54a}.fcf.front .fold .fe{stroke:rgba(255,255,255,.4)}
 .fcf.back .fold .ff{fill:url(#fgf)}.fcf.back .fold .fa{stroke:var(--blue)}.fcf.back .fold .fe{stroke:rgba(255,255,255,.85)}
 
+/* misyon/vizyon: hareketli mavi-altın sis (aramıza katılın gibi) + iki kartta da noktalar */
+.fcf{overflow:hidden}
+.flc .fcf.front::after,.flc .fcf.back::after{content:"";display:block;position:absolute;left:-30%;top:-30%;right:auto;bottom:auto;width:160%;height:160%;border:0;border-radius:0;z-index:-1;pointer-events:none;filter:blur(26px);opacity:.8;animation:mesh 14s ease-in-out infinite alternate;transition:none}
+.flc .fcf.front::after{background:radial-gradient(40% 40% at 22% 30%,rgba(242,183,5,.55),transparent 70%),radial-gradient(35% 45% at 80% 22%,rgba(47,123,255,.65),transparent 70%),radial-gradient(45% 40% at 60% 88%,rgba(0,194,255,.35),transparent 70%)}
+.flc .fcf.back::after{background:radial-gradient(40% 40% at 22% 30%,rgba(47,123,255,.7),transparent 70%),radial-gradient(35% 45% at 80% 22%,rgba(242,183,5,.5),transparent 70%),radial-gradient(45% 40% at 60% 88%,rgba(0,194,255,.4),transparent 70%);animation-duration:17s;animation-delay:-5s}
+.fcf.front::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.6px);background-size:24px 24px;-webkit-mask-image:linear-gradient(to bottom right,#000,transparent 70%);mask-image:linear-gradient(to bottom right,#000,transparent 70%)}
+.fcf.front::before,.fcf.back::before{z-index:0}
+@media(max-width:860px){.flc .fcf.front::after,.flc .fcf.back::after{filter:blur(16px)}}
+
+/* ikon halkası: suya taş atılmış gibi dalga */
+.fcf .fh .ic{position:relative;overflow:visible}
+.fcf.front .fh .ic{box-shadow:0 22px 44px -14px rgba(242,183,5,.8)}
+.fcf.back .fh .ic{box-shadow:0 22px 44px -14px rgba(10,79,196,.95)}
+.fcf .fh .ic::before,.fcf .fh .ic::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;border:2px solid var(--rc);box-shadow:0 0 14px var(--rc),inset 0 0 10px var(--rc);opacity:0;transform:scale(1);animation:rip 3.6s cubic-bezier(.2,.6,.3,1) infinite}
+.fcf .fh .ic::after{animation-delay:1.2s}
+.fcf .fh .ic{--rc:rgba(47,123,255,.8)}
+.fcf.front .fh .ic{--rc:rgba(242,183,5,.85)}
+@keyframes rip{0%{transform:scale(1);opacity:.85}70%{opacity:.18}100%{transform:scale(2.2);opacity:0}}
+@media(max-width:860px){@keyframes rip{0%{transform:scale(1);opacity:.85}70%{opacity:.18}100%{transform:scale(1.8);opacity:0}}}
+
 
 /* v15: vizyon karti */
 .fcf.front::after,.fcf.back::after{content:none;display:none;animation:none}
