@@ -6,6 +6,8 @@
 <title>Sosyal Kampüs | İstanbul Üniversitesi-Cerrahpaşa Öğrenci Kulübü</title>
 <meta name="theme-color" content="#000d4d">
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" as="image" href="logo.png">
+<script>(function(){var m=Math.floor(Date.now()/6e4),w=window.__skd={};['istatistikler','faaliyetler','duyurular','galeri'].forEach(function(n){try{fetch('data/'+n+'.json?v='+m).then(function(r){return r.ok?r.text():null}).then(function(t){if(t)w[n]=t}).catch(function(){})}catch(e){}})})();</script>
 <link rel="apple-touch-icon" href="logo.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -655,6 +657,19 @@ main>section,main>section.alt{will-change:auto}
 @media(max-width:860px){#fx i:nth-child(3){display:none}}
 body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .hero p.newc i{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.hero .logo::before{animation:none}}
+
+/* v15: vizyon karti */
+.fcf.front::after,.fcf.back::after{content:none;display:none;animation:none}
+@media(max-width:860px){.fcf{padding-bottom:30px}}
+.flw{position:relative}
+.hnd{position:absolute;right:16%;top:42%;width:56px;height:63px;z-index:6;pointer-events:none;opacity:0;--hx:calc(min(190px,40vw)*-1);filter:drop-shadow(0 8px 10px rgba(0,0,0,.45))}
+.hnd svg{display:block}
+.hnd::before{content:"";position:absolute;left:9px;top:-12px;width:30px;height:30px;border-radius:50%;border:2px solid rgba(156,192,255,.9);opacity:0}
+.hnd.go{animation:hnd 2.6s ease-in-out 2 both}
+.hnd.go::before{animation:hring 2.6s ease-out 2 both}
+@keyframes hnd{0%{opacity:0;transform:translate3d(36px,30px,0) scale(1)}14%{opacity:1;transform:translate3d(0,0,0) scale(1)}26%{opacity:1;transform:translate3d(0,0,0) scale(.88)}72%{opacity:1;transform:translate3d(var(--hx),0,0) scale(.88)}84%{opacity:1;transform:translate3d(var(--hx),0,0) scale(1)}100%{opacity:0;transform:translate3d(var(--hx),-14px,0) scale(1)}}
+@keyframes hring{0%,24%{opacity:0;transform:scale(.4)}28%{opacity:.9;transform:scale(.6)}46%,100%{opacity:0;transform:scale(1.5)}}
+@media(prefers-reduced-motion:reduce){.hnd{display:none}}
 </style>
 </head>
 <body>
@@ -663,7 +678,7 @@ body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .he
 <div id="mc">
 
 <header><div class="wrap">
-<div class="lg"><a class="brand" href="#"><img src="logo.png" alt="Sosyal Kampüs logosu"><span>Sosyal Kampüs<small>Öğrenci Kulübü</small></span></a><a class="uw" href="https://www.iuc.edu.tr/tr" target="_blank" rel="noopener" aria-label="İstanbul Üniversitesi-Cerrahpaşa"><img src="iuc-wide-logo.png" alt="İstanbul University Cerrahpaşa"></a></div>
+<div class="lg"><a class="brand" href="#"><img src="logo.png" alt="Sosyal Kampüs logosu" fetchpriority="high"><span>Sosyal Kampüs<small>Öğrenci Kulübü</small></span></a><a class="uw" href="https://www.iuc.edu.tr/tr" target="_blank" rel="noopener" aria-label="İstanbul Üniversitesi-Cerrahpaşa"><img src="iuc-wide-logo.png" alt="İstanbul University Cerrahpaşa"></a></div>
 <button class="menu" id="menu" aria-label="Menüyü aç" aria-expanded="false" onclick="var o=document.getElementById('nav').classList.toggle('open');this.classList.toggle('on',o);this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
 <nav id="nav"><ul>
 <li><a href="#hakkimizda">Hakkımızda</a></li>
@@ -693,7 +708,7 @@ body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .he
 <div class="vd"><video data-src="video.mp4" muted loop playsinline webkit-playsinline preload="none" aria-label="Sosyal Kampüs tanıtım videosu"></video></div>
 
 <section id="hakkimizda"><div class="wrap">
-<h2 class="rv">Hakkımızda</h2><div class="rv flw">
+<h2 class="rv">Hakkımızda</h2><div class="rv flw"><div class="hnd" aria-hidden="true"><svg viewBox="0 0 68 76" width="56" height="63" fill="none" stroke-linejoin="round" stroke-linecap="round"><g stroke="#0a2a7a" stroke-width="5.4" opacity=".55"><path d="M24 22V9a5 5 0 0 1 10 0V28a4.5 4.5 0 0 1 9 0a4.5 4.5 0 0 1 9 0a4.5 4.5 0 0 1 9 0V44c0 8-4 13-8 17H27L10.5 41.5a4.5 4.5 0 0 1 7.5-4.8L24 42.5Z"/><path d="M43 29v10M52 29v10"/></g><g stroke="#fff" stroke-width="2.6"><path d="M24 22V9a5 5 0 0 1 10 0V28a4.5 4.5 0 0 1 9 0a4.5 4.5 0 0 1 9 0a4.5 4.5 0 0 1 9 0V44c0 8-4 13-8 17H27L10.5 41.5a4.5 4.5 0 0 1 7.5-4.8L24 42.5Z"/><path d="M43 29v10M52 29v10" stroke-width="2"/></g></svg></div>
 <div class="flc" id="mvf" data-f="f" role="button" tabindex="0" aria-pressed="false" aria-label="Misyon ve vizyon kartı. Çevirmek için dokun">
 <div class="fcf front"><div class="fh"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div><span class="fk">Misyon</span></div><h3>Misyonumuz</h3><p class="lead">Üniversite öğrencilerinin sosyal yaşamını zenginleştiren, katılımı teşvik eden ve öğrenmeyi deneyimle buluşturan etkinlikler planlayıp hayata geçiriyoruz.</p>
 <ul class="pts"><li>Öğrencileri fikir geliştirme, organizasyon yönetimi ve birlikte üretme süreçlerine aktif olarak dahil ediyoruz.</li><li>Herkesin bireysel potansiyelini ortaya çıkarabileceği bir ortam sunuyoruz.</li><li>Farklı ilgi alanlarına hitap eden, sürekli gelişen ve öğrenci geri bildirimleriyle şekillenen bir etkinlik kültürü oluşturuyoruz.</li></ul></div>
@@ -712,7 +727,7 @@ body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .he
 
 <section id="galeri"><div class="wrap">
 <h2 class="rv">Etkinlik galerisi</h2><p class="sub rv">Kampüste birlikte yaşadığımız anlardan kareler.</p>
-<div class="car rv"><button class="arr l" id="gp" aria-label="Önceki">‹</button><button class="arr r" id="gn" aria-label="Sonraki">›</button><div class="gal" id="gal"><button type="button" data-cap="Sosyal Kampüs standı"><img src="uploads/galeri-1.jpg" alt="Sosyal Kampüs standı" loading="lazy" decoding="async"><span>Sosyal Kampüs standı</span></button><button type="button" data-cap="Kampüs İçin İftar Vakti"><img src="uploads/galeri-2.jpg" alt="Kampüs İçin İftar Vakti" loading="lazy" decoding="async"><span>Kampüs İçin İftar Vakti</span></button><button type="button" data-cap="İftar sofrasında buluşma"><img src="uploads/galeri-3.jpg" alt="İftar sofrasında buluşma" loading="lazy" decoding="async"><span>İftar sofrasında buluşma</span></button><button type="button" data-cap="Akşam kampüste iftar hazırlığı"><img src="uploads/galeri-4.jpg" alt="Akşam kampüste iftar hazırlığı" loading="lazy" decoding="async"><span>Akşam kampüste iftar hazırlığı</span></button><button type="button" data-cap="Öğrencilerle sohbet"><img src="uploads/galeri-5.jpg" alt="Öğrencilerle sohbet" loading="lazy" decoding="async"><span>Öğrencilerle sohbet</span></button><button type="button" data-cap="Etkinlikten anılar"><img src="uploads/galeri-6.jpg" alt="Etkinlikten anılar" loading="lazy" decoding="async"><span>Etkinlikten anılar</span></button></div><div class="dots" id="dots"></div></div></div></section>
+<div class="car rv"><button class="arr l" id="gp" aria-label="Önceki">‹</button><button class="arr r" id="gn" aria-label="Sonraki">›</button><div class="gal" id="gal"><button type="button" data-cap="Sosyal Kampüs standı"><img src="uploads/galeri-1.jpg" alt="Sosyal Kampüs standı" loading="eager" decoding="async"><span>Sosyal Kampüs standı</span></button><button type="button" data-cap="Kampüs İçin İftar Vakti"><img src="uploads/galeri-2.jpg" alt="Kampüs İçin İftar Vakti" loading="eager" decoding="async"><span>Kampüs İçin İftar Vakti</span></button><button type="button" data-cap="İftar sofrasında buluşma"><img src="uploads/galeri-3.jpg" alt="İftar sofrasında buluşma" loading="eager" decoding="async"><span>İftar sofrasında buluşma</span></button><button type="button" data-cap="Akşam kampüste iftar hazırlığı"><img src="uploads/galeri-4.jpg" alt="Akşam kampüste iftar hazırlığı" loading="lazy" decoding="async"><span>Akşam kampüste iftar hazırlığı</span></button><button type="button" data-cap="Öğrencilerle sohbet"><img src="uploads/galeri-5.jpg" alt="Öğrencilerle sohbet" loading="lazy" decoding="async"><span>Öğrencilerle sohbet</span></button><button type="button" data-cap="Etkinlikten anılar"><img src="uploads/galeri-6.jpg" alt="Etkinlikten anılar" loading="lazy" decoding="async"><span>Etkinlikten anılar</span></button></div><div class="dots" id="dots"></div></div></div></section>
 
 <section id="faaliyetler" class="alt"><div class="wrap">
 <h2 class="rv">Faaliyetlerimiz</h2><p class="sub rv">Dönem boyunca yürüttüğümüz ve yürüteceğimiz çalışmalar.</p>
@@ -742,7 +757,7 @@ body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .he
 <img class="fl rv" src="iuc-footer-logo.png" alt="İstanbul University Cerrahpaşa" loading="lazy" decoding="async">
 </div></footer>
 
-</div><div class="sbar"><img src="logo.png" alt="Sosyal Kampüs logosu"><span>© 2026 Sosyal Kampüs Öğrenci Kulübü</span></div><div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotoğraf"><button class="x" id="lbx" aria-label="Kapat">✕</button><button class="lba l" id="lbp" type="button" aria-label="Önceki fotoğraf">‹</button><button class="lba r" id="lbn" type="button" aria-label="Sonraki fotoğraf">›</button><div class="lbs" id="lbs"><img alt="" draggable="false"></div><p></p><span class="lbt" id="lbt"></span></div>
+</div><div class="sbar"><img src="logo.png" alt="Sosyal Kampüs logosu" fetchpriority="high"><span>© 2026 Sosyal Kampüs Öğrenci Kulübü</span></div><div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotoğraf"><button class="x" id="lbx" aria-label="Kapat">✕</button><button class="lba l" id="lbp" type="button" aria-label="Önceki fotoğraf">‹</button><button class="lba r" id="lbn" type="button" aria-label="Sonraki fotoğraf">›</button><div class="lbs" id="lbs"><img alt="" draggable="false"></div><p></p><span class="lbt" id="lbt"></span></div>
 
 <div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="mt">
 <div class="modal">
@@ -774,14 +789,14 @@ body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .he
 <script>
 /* Pages CMS: data/*.json dosyalarındaki içerik sayfaya basılır. Okunamazsa aşağıdaki sabit içerik kalır. */
 (function(){
-function get(n){try{var x=new XMLHttpRequest();x.open('GET','data/'+n+'.json?v='+Math.floor(Date.now()/60000),false);x.send();if(x.status===200||(x.status===0&&x.responseText))return JSON.parse(x.responseText).items}catch(e){}return null}
+function get(n){try{if(window.__skd&&window.__skd[n])return JSON.parse(window.__skd[n]).items}catch(e){}try{var x=new XMLHttpRequest();x.open('GET','data/'+n+'.json?v='+Math.floor(Date.now()/60000),false);x.send();if(x.status===200||(x.status===0&&x.responseText))return JSON.parse(x.responseText).items}catch(e){}return null}
 function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function img(p){return String(p||'').replace(/^\//,'')}
 function put(sel,list,fn){var el=document.querySelector(sel);if(el&&Array.isArray(list))el.innerHTML=list.map(fn).join('')}
 put('.sb',get('istatistikler'),function(o){return '<div><b>'+esc(o.sayi)+'</b><span>'+esc(o.etiket)+'</span></div>'});
 put('#faaliyetler .grid',get('faaliyetler'),function(o){return '<div class="card"><div class="ic">'+esc(o.ikon)+'</div><h3>'+esc(o.baslik)+'</h3><p>'+esc(o.aciklama)+'</p></div>'});
 put('#duyurular .grid',get('duyurular'),function(o){return '<div class="n" role="button" tabindex="0" data-t="'+esc(o.tarih)+'" data-b="'+esc(o.baslik)+'" data-g="'+esc(o.gorsel?img(o.gorsel):'')+'" data-a="'+esc(o.aciklama||o.aciklamasi||o.metin||o.icerik||'')+'" data-l="'+esc(o.link||'')+'"><div class="im"'+(o.gorsel?' style="background:url(&#39;'+esc(img(o.gorsel))+'&#39;) center/cover no-repeat"':'')+'></div><div class="t"><time>'+esc(o.tarih)+'</time><h3>'+esc(o.baslik)+'</h3><span class="mo">Detayları gör ›</span></div></div>'});
-put('#gal',get('galeri'),function(o){return '<button type="button" data-cap="'+esc(o.baslik)+'"><img src="'+esc(img(o.gorsel))+'" alt="'+esc(o.baslik)+'" loading="lazy" decoding="async"><span>'+esc(o.baslik)+'</span></button>'});
+put('#gal',get('galeri'),function(o,i){return '<button type="button" data-cap="'+esc(o.baslik)+'"><img src="'+esc(img(o.gorsel))+'" alt="'+esc(o.baslik)+'" loading="'+(i<3?'eager':'lazy')+'" decoding="async"><span>'+esc(o.baslik)+'</span></button>'});
 })();
 </script>
 <script>
@@ -1142,4 +1157,19 @@ T(function(){if(!hv||rm)return;var c=d.createElement('div');c.id='cur';c.setAttr
 })();
 </script>
 <script>(function(){var h=document.querySelector('.hero');if(!h||!('IntersectionObserver'in window))return;new IntersectionObserver(function(e){document.body.classList.toggle('hoff',!e[0].isIntersecting)}).observe(h)})();</script>
+<script>
+/* galeri: sayfa yuklenince kalan gorselleri arkada hazirla */
+window.addEventListener('load',function(){setTimeout(function(){document.querySelectorAll('#gal img[loading=lazy]').forEach(function(im){im.loading='eager'})},700)});
+/* vizyon karti: ilk gorundugunde el sagdan sola kaydirir, kart hafif doner */
+(function(){var f=document.getElementById('mvf'),h=document.querySelector('.hnd'),w=document.querySelector('.flw');
+if(!f||!h||!w||!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+var an=null,done=0;
+function stop(){done=1;if(an){an.cancel();an=null}h.classList.remove('go');h.style.display='none'}
+['pointerdown','keydown'].forEach(function(t){f.addEventListener(t,stop,{passive:true})});
+var io=new IntersectionObserver(function(es){if(done||!es[0].isIntersecting)return;io.disconnect();
+setTimeout(function(){if(done||f.dataset.f==='b')return;h.classList.add('go');
+if(f.animate){var e='ease-in-out';an=f.animate([{offset:0,transform:'rotateY(0deg)',easing:e},{offset:.26,transform:'rotateY(0deg)',easing:e},{offset:.72,transform:'rotateY(-17deg)',easing:e},{offset:.9,transform:'rotateY(0deg)'},{offset:1,transform:'rotateY(0deg)'}],{duration:2600,iterations:2});an.onfinish=function(){an=null}}
+},500)},{threshold:.6});
+io.observe(w)})();
+</script>
 </body></html>
