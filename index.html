@@ -642,6 +642,19 @@ h2.in .ch{opacity:1;transform:none}
 .fcf .fh{grid-column:1;grid-row:auto;flex-direction:row;align-items:center;margin-bottom:16px}
 .fcf .fh .ic{width:62px;height:62px}.fcf .fh .ic svg{width:28px;height:28px}
 .fcf.front::after,.fcf.back::after{right:18px;bottom:18px;width:44px;height:44px}}
+
+/* v14: performans + video ortalama */
+.vd{margin-top:clamp(26px,3.4vw,44px);margin-bottom:clamp(26px,3.4vw,44px);will-change:transform;contain:paint}
+.hero .logo::before{inset:-22%;border-radius:50%;background:conic-gradient(#2f7bff,#f2b705,#00c2ff,#6a4bff,#2f7bff);filter:blur(20px);opacity:.6;-webkit-mask-image:radial-gradient(circle,#000 52%,transparent 70%);mask-image:radial-gradient(circle,#000 52%,transparent 70%);animation:sp3 7s linear infinite}
+@keyframes sp3{from{transform:translateZ(-20px) rotate(0deg)}to{transform:translateZ(-20px) rotate(360deg)}}
+.card,.n,.box,.vals,.stats .wrap>div{background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03)),rgba(10,20,52,.62)}
+@media(hover:hover){.card,.n,.box,.vals,.stats .wrap>div{backdrop-filter:none;-webkit-backdrop-filter:none}}
+#cur{mix-blend-mode:normal}
+header{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+main>section,main>section.alt{will-change:auto}
+@media(max-width:860px){#fx i:nth-child(3){display:none}}
+body.hoff .hero .logo,body.hoff .hero .logo::before,body.hoff .orb,body.hoff .hero p.newc i{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.hero .logo::before{animation:none}}
 </style>
 </head>
 <body>
@@ -699,7 +712,7 @@ h2.in .ch{opacity:1;transform:none}
 
 <section id="galeri"><div class="wrap">
 <h2 class="rv">Etkinlik galerisi</h2><p class="sub rv">Kampüste birlikte yaşadığımız anlardan kareler.</p>
-<div class="car rv"><button class="arr l" id="gp" aria-label="Önceki">‹</button><button class="arr r" id="gn" aria-label="Sonraki">›</button><div class="gal" id="gal"><button type="button" data-cap="Sosyal Kampüs standı"><img src="uploads/galeri-1.jpg" alt="Sosyal Kampüs standı" loading="lazy"><span>Sosyal Kampüs standı</span></button><button type="button" data-cap="Kampüs İçin İftar Vakti"><img src="uploads/galeri-2.jpg" alt="Kampüs İçin İftar Vakti" loading="lazy"><span>Kampüs İçin İftar Vakti</span></button><button type="button" data-cap="İftar sofrasında buluşma"><img src="uploads/galeri-3.jpg" alt="İftar sofrasında buluşma" loading="lazy"><span>İftar sofrasında buluşma</span></button><button type="button" data-cap="Akşam kampüste iftar hazırlığı"><img src="uploads/galeri-4.jpg" alt="Akşam kampüste iftar hazırlığı" loading="lazy"><span>Akşam kampüste iftar hazırlığı</span></button><button type="button" data-cap="Öğrencilerle sohbet"><img src="uploads/galeri-5.jpg" alt="Öğrencilerle sohbet" loading="lazy"><span>Öğrencilerle sohbet</span></button><button type="button" data-cap="Etkinlikten anılar"><img src="uploads/galeri-6.jpg" alt="Etkinlikten anılar" loading="lazy"><span>Etkinlikten anılar</span></button></div><div class="dots" id="dots"></div></div></div></section>
+<div class="car rv"><button class="arr l" id="gp" aria-label="Önceki">‹</button><button class="arr r" id="gn" aria-label="Sonraki">›</button><div class="gal" id="gal"><button type="button" data-cap="Sosyal Kampüs standı"><img src="uploads/galeri-1.jpg" alt="Sosyal Kampüs standı" loading="lazy" decoding="async"><span>Sosyal Kampüs standı</span></button><button type="button" data-cap="Kampüs İçin İftar Vakti"><img src="uploads/galeri-2.jpg" alt="Kampüs İçin İftar Vakti" loading="lazy" decoding="async"><span>Kampüs İçin İftar Vakti</span></button><button type="button" data-cap="İftar sofrasında buluşma"><img src="uploads/galeri-3.jpg" alt="İftar sofrasında buluşma" loading="lazy" decoding="async"><span>İftar sofrasında buluşma</span></button><button type="button" data-cap="Akşam kampüste iftar hazırlığı"><img src="uploads/galeri-4.jpg" alt="Akşam kampüste iftar hazırlığı" loading="lazy" decoding="async"><span>Akşam kampüste iftar hazırlığı</span></button><button type="button" data-cap="Öğrencilerle sohbet"><img src="uploads/galeri-5.jpg" alt="Öğrencilerle sohbet" loading="lazy" decoding="async"><span>Öğrencilerle sohbet</span></button><button type="button" data-cap="Etkinlikten anılar"><img src="uploads/galeri-6.jpg" alt="Etkinlikten anılar" loading="lazy" decoding="async"><span>Etkinlikten anılar</span></button></div><div class="dots" id="dots"></div></div></div></section>
 
 <section id="faaliyetler" class="alt"><div class="wrap">
 <h2 class="rv">Faaliyetlerimiz</h2><p class="sub rv">Dönem boyunca yürüttüğümüz ve yürüteceğimiz çalışmalar.</p>
@@ -726,7 +739,7 @@ h2.in .ch{opacity:1;transform:none}
 </main>
 
 <footer><div class="wrap fc">
-<img class="fl rv" src="iuc-footer-logo.png" alt="İstanbul University Cerrahpaşa" loading="lazy">
+<img class="fl rv" src="iuc-footer-logo.png" alt="İstanbul University Cerrahpaşa" loading="lazy" decoding="async">
 </div></footer>
 
 </div><div class="sbar"><img src="logo.png" alt="Sosyal Kampüs logosu"><span>© 2026 Sosyal Kampüs Öğrenci Kulübü</span></div><div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotoğraf"><button class="x" id="lbx" aria-label="Kapat">✕</button><button class="lba l" id="lbp" type="button" aria-label="Önceki fotoğraf">‹</button><button class="lba r" id="lbn" type="button" aria-label="Sonraki fotoğraf">›</button><div class="lbs" id="lbs"><img alt="" draggable="false"></div><p></p><span class="lbt" id="lbt"></span></div>
@@ -768,7 +781,7 @@ function put(sel,list,fn){var el=document.querySelector(sel);if(el&&Array.isArra
 put('.sb',get('istatistikler'),function(o){return '<div><b>'+esc(o.sayi)+'</b><span>'+esc(o.etiket)+'</span></div>'});
 put('#faaliyetler .grid',get('faaliyetler'),function(o){return '<div class="card"><div class="ic">'+esc(o.ikon)+'</div><h3>'+esc(o.baslik)+'</h3><p>'+esc(o.aciklama)+'</p></div>'});
 put('#duyurular .grid',get('duyurular'),function(o){return '<div class="n" role="button" tabindex="0" data-t="'+esc(o.tarih)+'" data-b="'+esc(o.baslik)+'" data-g="'+esc(o.gorsel?img(o.gorsel):'')+'" data-a="'+esc(o.aciklama||o.aciklamasi||o.metin||o.icerik||'')+'" data-l="'+esc(o.link||'')+'"><div class="im"'+(o.gorsel?' style="background:url(&#39;'+esc(img(o.gorsel))+'&#39;) center/cover no-repeat"':'')+'></div><div class="t"><time>'+esc(o.tarih)+'</time><h3>'+esc(o.baslik)+'</h3><span class="mo">Detayları gör ›</span></div></div>'});
-put('#gal',get('galeri'),function(o){return '<button type="button" data-cap="'+esc(o.baslik)+'"><img src="'+esc(img(o.gorsel))+'" alt="'+esc(o.baslik)+'" loading="lazy"><span>'+esc(o.baslik)+'</span></button>'});
+put('#gal',get('galeri'),function(o){return '<button type="button" data-cap="'+esc(o.baslik)+'"><img src="'+esc(img(o.gorsel))+'" alt="'+esc(o.baslik)+'" loading="lazy" decoding="async"><span>'+esc(o.baslik)+'</span></button>'});
 })();
 </script>
 <script>
@@ -881,7 +894,7 @@ var al=gl.getAttribLocation(pg,'a');gl.enableVertexAttribArray(al);gl.vertexAttr
 var U={};['R','M','V','T','S','E'].forEach(function(n){U[n]=gl.getUniformLocation(pg,n)});
 gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
 var W=1,H=1,vis=true,sm=innerWidth<700,T=28,S=0,en=0,vel=0,lastY=scrollY,last=0,Mx=-9,My=-9,tMx=-9,tMy=-9,Vx=0,Vy=0;
-function rs(){var w=hero.clientWidth,h=hero.clientHeight;if(!w||!h)return;W=w;H=h;var k=Math.min(1,Math.sqrt((sm?3.6e5:1.15e6)/(w*h)));cv.width=Math.round(w*k);cv.height=Math.round(h*k);gl.viewport(0,0,cv.width,cv.height);draw()}
+function rs(){var w=hero.clientWidth,h=hero.clientHeight;if(!w||!h)return;W=w;H=h;var k=Math.min(1,Math.sqrt((sm?1.7e5:5.5e5)/(w*h)));cv.width=Math.round(w*k);cv.height=Math.round(h*k);gl.viewport(0,0,cv.width,cv.height);draw()}
 function draw(){gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.uniform2f(U.R,cv.width,cv.height);var sc=cv.height/H;gl.uniform2f(U.M,Mx/H,My/H);gl.uniform2f(U.V,Vx/H*3,Vy/H*3);gl.uniform1f(U.T,T);gl.uniform1f(U.S,S);gl.uniform1f(U.E,en);gl.drawArrays(gl.TRIANGLES,0,3)}
 cv.style.opacity=0;cv.style.transition='opacity 2.4s ease .6s';
 if('ResizeObserver'in window)new ResizeObserver(rs).observe(hero);else addEventListener('resize',rs);
@@ -891,7 +904,7 @@ addEventListener('scroll',function(){var y=scrollY;vel+=Math.abs(y-lastY);lastY=
 hero.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=hero.getBoundingClientRect();tMx=e.clientX-r.left;tMy=H-(e.clientY-r.top);if(Mx<-5){Mx=tMx;My=tMy}},{passive:true});
 hero.addEventListener('pointerleave',function(){tMx=tMy=-9999});
 new IntersectionObserver(function(e){vis=e[0].isIntersecting;last=0}).observe(hero);
-(function f(ts){requestAnimationFrame(f);if(!vis||document.hidden)return;var dt=last?Math.min(.05,(ts-last)/1000):.016;last=ts;
+(function f(ts){requestAnimationFrame(f);if(!vis||document.hidden)return;if(en<.04&&tMx<-5000&&last&&ts-last<30)return;var dt=last?Math.min(.05,(ts-last)/1000):.016;last=ts;
 var tg=Math.min(1.5,vel/36);vel=0;en+=(tg-en)*(tg>en?.25:.03);S+=(Math.min(1,scrollY/(H*.95))-S)*.08;
 T+=dt*(1+en*3+S*.8);var px=Mx,py=My;if(tMx>-5000){Mx+=(tMx-Mx)*.08;My+=(tMy-My)*.08}else{Mx+=(-9999-Mx)*.02}
 Vx+=((Mx-px)-Vx)*.2;Vy+=((My-py)-Vy)*.2;draw()})(0);
@@ -1014,7 +1027,7 @@ function go(){if(!ready||!vis)return;var p=v.play();if(p&&p.catch)p.catch(functi
 v.addEventListener('error',function(){console.warn('video.mp4 yüklenemedi / oynatılamadı',v.error);v.parentNode.style.display='none'});
 function init(){v.muted=true;v.src=v.dataset.src;v.preload='auto';v.load();ready=true;go()}
 if('IntersectionObserver' in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis)go();else if(ready)v.pause()},{threshold:.15}).observe(v)}else{vis=true}
-if(document.readyState==='complete')setTimeout(init,300);else window.addEventListener('load',function(){setTimeout(init,300)});
+if(document.readyState==='complete')setTimeout(init,3200);else window.addEventListener('load',function(){setTimeout(init,3200)});
 })();
 </script>
 <script>
@@ -1078,8 +1091,8 @@ T(function(){var cur=null;function off(c){if(!c)return;c.classList.remove('sp-on
 d.addEventListener('pointermove',function(e){var c=e.target.closest&&e.target.closest('.stg>.card,.stg>.n');if(c!==cur){off(cur);cur=c}if(!c||!c.parentNode.classList.contains('in'))return;var sp=c.querySelector(':scope>.spot');if(!sp){sp=d.createElement('i');sp.className='spot';sp.setAttribute('aria-hidden','true');c.appendChild(sp)}var r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');c.classList.add('sp-on');if(e.pointerType==='mouse'&&!rm){c.style.transition='transform .12s ease-out';c.style.transitionDelay='0s';c.style.transform='perspective(900px) translateY(-4px) rotateX('+(-(y/r.height-.5)*7).toFixed(2)+'deg) rotateY('+((x/r.width-.5)*9).toFixed(2)+'deg)'}},{passive:true});
 ['pointerout','pointerup','pointercancel'].forEach(function(t){d.addEventListener(t,function(e){if(cur&&(t!=='pointerout'||!cur.contains(e.relatedTarget))){off(cur);cur=null}},{passive:true})})});
 /* galeri: ortadaki one cikar, yanlar geri cekilir */
-T(function(){var g=d.getElementById('gal');if(!g)return;var tk=0;function dep(){tk=0;var r=g.getBoundingClientRect(),c=r.left+r.width/2;[].forEach.call(g.children,function(b){var q=b.getBoundingClientRect(),k=Math.min(1,Math.abs(q.left+q.width/2-c)/(r.width*.62));b.style.setProperty('--s',(1-.09*k).toFixed(3));b.style.setProperty('--o',(1-.5*k).toFixed(3))})}
-function req(){if(!tk)tk=requestAnimationFrame(dep)}g.addEventListener('scroll',req,{passive:true});addEventListener('resize',req);addEventListener('load',req);g.addEventListener('load',req,true);req();
+T(function(){var g=d.getElementById('gal');if(!g)return;var tk=0;function dep(){tk=0;var r=g.getBoundingClientRect();if(r.bottom<-200||r.top>innerHeight+200)return;var c=r.left+r.width/2,kids=[].slice.call(g.children),qs=kids.map(function(b){return b.getBoundingClientRect()});kids.forEach(function(b,i){var q=qs[i],dx=q.left+q.width/2-c,k=Math.min(1,Math.abs(dx)/(r.width*.62));b.style.setProperty('--s',(1-.09*k).toFixed(3));b.style.setProperty('--o',(1-.5*k).toFixed(3));if(!rm){var o=Math.max(-1,Math.min(1,dx/(r.width*.6)));b.style.setProperty('--r',(-o*30).toFixed(1)+'deg')}})}
+function req(){if(!tk)tk=requestAnimationFrame(dep)}if('IntersectionObserver'in window)new IntersectionObserver(function(es){if(es[0].isIntersecting)req()}).observe(g);g.addEventListener('scroll',req,{passive:true});addEventListener('resize',req);addEventListener('load',req);g.addEventListener('load',req,true);req();
 /* fotograf kucuk resimden buyuyerek acilsin */
 var lb=d.getElementById('lb'),li=lb&&lb.querySelector('img');if(!lb||!li||rm)return;g.addEventListener('click',function(e){var b=e.target.closest('button'),im=b&&b.querySelector('img');if(!im)return;var tr=im.getBoundingClientRect();lb.classList.add('flip');function run(){var lr=li.getBoundingClientRect();if(!lr.width||!tr.width)return;var s=Math.max(tr.width/lr.width,tr.height/lr.height),ix=Math.max(0,(lr.width-tr.width/s)/2),iy=Math.max(0,(lr.height-tr.height/s)/2),dx=tr.left+tr.width/2-(lr.left+lr.width/2),dy=tr.top+tr.height/2-(lr.top+lr.height/2);li.animate([{transform:'translate('+dx+'px,'+dy+'px) scale('+s+')',clipPath:'inset('+iy+'px '+ix+'px round '+(24/s)+'px)'},{transform:'none',clipPath:'inset(0px round 14px)'}],{duration:620,easing:'cubic-bezier(.2,.8,.2,1)'})}
 requestAnimationFrame(function(){if(li.complete&&li.naturalWidth)run();else li.addEventListener('load',run,{once:true})})},true)});
@@ -1102,21 +1115,31 @@ var S=[].slice.call(d.querySelectorAll('main>section')),H=d.querySelector('.hero
 var TH={hero:['#2f7bff','#0a4fc4'],hakkimizda:['#6a4bff','#2f7bff'],duyurular:['#f2b705','#ff6b3d'],galeri:['#00c2ff','#2f7bff'],faaliyetler:['#d6249f','#6a4bff'],iletisim:['#2f7bff','#f2b705']};
 function theme(id){var t=TH[id]||TH.hero;fx.style.setProperty('--c1',t[0]);fx.style.setProperty('--c2',t[1]);[].forEach.call(dn.children,function(a){a.classList.toggle('on',a.dataset.k===id)})}
 /* kaydirdikca bolumler one cikar, onceki geriye yatar */
-function fr(){tk=0;var vh=innerHeight,k=sm?.55:1,id='hero';
-S.forEach(function(s){var r=s.getBoundingClientRect(),e=ez(cl((vh-r.top)/(vh*.6))),x=cl((vh*.55-r.bottom)/(vh*.55));
-if(!rm){s.style.transform='perspective(1600px) translate3d(0,'+((1-e)*50*k).toFixed(1)+'px,'+(-x*120*k).toFixed(1)+'px) rotateX('+(((1-e)*14+x*7)*k).toFixed(2)+'deg) scale('+(.94+.06*e-.04*x).toFixed(3)+')';s.style.opacity=((.35+.65*e)*(1-.5*x)).toFixed(3)}
-if(r.top<vh*.5&&r.bottom>vh*.5)id=s.id});
-if(H&&!rm){var r=H.getBoundingClientRect(),x=cl(-r.top/(r.height*.9));H.style.transform='perspective(1600px) translate3d(0,0,'+(-x*140*k).toFixed(1)+'px) rotateX('+(x*8*k).toFixed(2)+'deg) scale('+(1-.05*x).toFixed(3)+')';H.style.opacity=(1-.55*x).toFixed(3)}
+var VD=d.querySelector('.vd'),ST=d.querySelector('.stats .wrap>div'),vy=0;
+function fr(){tk=0;var vh=innerHeight,k=sm?.55:1,id='hero',n=S.length,R=[],i,r,s,e,x,off;
+/* 1) tum olcumler (okuma) */
+for(i=0;i<n;i++)R.push(S[i].getBoundingClientRect());
+var HR=H?H.getBoundingClientRect():null;
+/* 2) tum yazmalar */
+for(i=0;i<n;i++){s=S[i];r=R[i];
+if(r.top<vh*.5&&r.bottom>vh*.5)id=s.id;
+if(rm)continue;
+off=s._o?!(r.bottom>-300&&r.top<vh+300):(r.bottom<-500||r.top>vh+500);
+if(off){if(!s._o){s._o=1;s.style.transform='';s.style.opacity=''}continue}
+s._o=0;e=ez(cl((vh-r.top)/(vh*.6)));x=cl((vh*.55-r.bottom)/(vh*.55));
+s.style.transform='perspective(1600px) translate3d(0,'+((1-e)*50*k).toFixed(1)+'px,'+(-x*120*k).toFixed(1)+'px) rotateX('+(((1-e)*14+x*7)*k).toFixed(2)+'deg) scale('+(.94+.06*e-.04*x).toFixed(3)+')';s.style.opacity=((.35+.65*e)*(1-.5*x)).toFixed(3)}
+if(HR&&!rm){x=cl(-HR.top/(HR.height*.9));H.style.transform='perspective(1600px) translate3d(0,0,'+(-x*140*k).toFixed(1)+'px) rotateX('+(x*8*k).toFixed(2)+'deg) scale('+(1-.05*x).toFixed(3)+')';H.style.opacity=(1-.55*x).toFixed(3)}
+/* 3) video: istatistik karti ile Hakkimizda bolumunun tam ortasinda kalsin */
+if(VD&&ST&&S[0]&&!rm){var ab=S[0].getBoundingClientRect(),sb=ST.getBoundingClientRect().bottom,vr=VD.getBoundingClientRect();
+vy=(sb+ab.top)/2-(vr.top-vy+vr.height/2);VD.style.transform='translate3d(0,'+vy.toFixed(1)+'px,0)'}
 if(id!==act){act=id;theme(id)}}
 function rq(){if(!tk)tk=requestAnimationFrame(fr)}
 addEventListener('scroll',rq,{passive:true});addEventListener('resize',function(){sm=innerWidth<860;rq()});addEventListener('load',rq);rq();
-/* galeri: yanlar icerden doner (coverflow) */
-T(function(){var g=d.getElementById('gal');if(!g||rm)return;var q=0;function rot(){q=0;var r=g.getBoundingClientRect(),c=r.left+r.width/2;[].forEach.call(g.children,function(b){var p=b.getBoundingClientRect(),o=Math.max(-1,Math.min(1,(p.left+p.width/2-c)/(r.width*.6)));b.style.setProperty('--r',(-o*30).toFixed(1)+'deg')})}
-function rr(){if(!q)q=requestAnimationFrame(rot)}g.addEventListener('scroll',rr,{passive:true});addEventListener('resize',rr);addEventListener('load',rr);rr()});
 /* hero logosu fareyle 3D egilir */
 T(function(){var l=d.querySelector('.hero .logo');if(!l||!hv||rm||!H)return;H.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=l.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)/innerWidth,y=(e.clientY-r.top-r.height/2)/innerHeight;l.style.transform='perspective(900px) rotateY('+(x*46).toFixed(1)+'deg) rotateX('+(-y*46).toFixed(1)+'deg)'},{passive:true});H.addEventListener('pointerleave',function(){l.style.transform=''})});
 /* imlec isigi */
-T(function(){if(!hv||rm)return;var c=d.createElement('div');c.id='cur';c.setAttribute('aria-hidden','true');d.body.appendChild(c);var tx=0,ty=0,x=0,y=0,on=0;addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;tx=e.clientX;ty=e.clientY;if(!on){on=1;x=tx;y=ty;c.style.opacity=1}},{passive:true});(function f(){x+=(tx-x)*.12;y+=(ty-y)*.12;c.style.translate=x.toFixed(1)+'px '+y.toFixed(1)+'px';requestAnimationFrame(f)})()});
+T(function(){if(!hv||rm)return;var c=d.createElement('div');c.id='cur';c.setAttribute('aria-hidden','true');d.body.appendChild(c);var tx=0,ty=0,x=0,y=0,on=0;addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;tx=e.clientX;ty=e.clientY;if(!raf)raf=requestAnimationFrame(f);if(!on){on=1;x=tx;y=ty;c.style.opacity=1}},{passive:true});var raf=0;function f(){raf=0;x+=(tx-x)*.12;y+=(ty-y)*.12;c.style.translate=x.toFixed(1)+'px '+y.toFixed(1)+'px';if(Math.abs(tx-x)>.3||Math.abs(ty-y)>.3)raf=requestAnimationFrame(f)}});
 })();
 </script>
+<script>(function(){var h=document.querySelector('.hero');if(!h||!('IntersectionObserver'in window))return;new IntersectionObserver(function(e){document.body.classList.toggle('hoff',!e[0].isIntersecting)}).observe(h)})();</script>
 </body></html>
