@@ -551,6 +551,23 @@ nav.open li:nth-child(1){transition-delay:.06s}nav.open li:nth-child(2){transiti
 .pushb:hover{transform:translateY(-2px)}
 .pushb.ok{background:linear-gradient(135deg,#25d366,#128c7e);box-shadow:0 10px 22px -8px rgba(18,140,126,.7);cursor:default}
 .pushm{margin-top:10px;font-size:14px;line-height:1.55;color:var(--mut);max-width:60ch}
+
+/* premium hareket paketi */
+.hero h1 .w{display:inline-block;opacity:0;transform:translateY(.55em);filter:blur(10px)}
+body.go .hero h1 .w,body.hw .hero h1 .w{animation:wi .95s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.15s + var(--k)*110ms)}
+@keyframes wi{to{opacity:1;transform:none;filter:none}}
+.orb{transition:translate .7s cubic-bezier(.2,.8,.2,1)}
+.hero .wrap{will-change:translate}
+.mag{transition-property:translate,transform,background,box-shadow,color,opacity;transition-duration:.3s;transition-timing-function:cubic-bezier(.2,.8,.2,1)}
+header.sc{box-shadow:0 12px 30px -20px rgba(10,40,120,.5)}
+nav a.act{background:var(--sky);color:var(--blue)}
+.gal button{transform:scale(var(--s,1));opacity:var(--o,1);transition:box-shadow .25s,filter .25s}
+.stg>.n{position:relative}
+.spot{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;z-index:2;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(47,123,255,.17),rgba(242,183,5,.06) 45%,transparent 70%)}
+.sp-on>.spot{opacity:1}
+.lb.flip.show .lbs{animation:none}
+@media(hover:none){.btn:active,.fab:active{transform:scale(.95)}.stg.in>.card:active,.stg.in>.n:active{transform:scale(.97);transition-delay:0s;transition-duration:.15s}.menu:active,nav a:active{transform:scale(.96)}}
+@media(prefers-reduced-motion:reduce){.hero h1 .w{opacity:1;transform:none;filter:none;animation:none!important}.orb,.mag{transition:none}}
 </style>
 </head>
 <body>
@@ -934,6 +951,38 @@ try{await OS.Notifications.requestPermission();if(OS.Notifications.permission){a
 OneSignalDeferred.push(async function(O){try{var base=location.pathname.replace(/[^\/]*$/,'');
 await O.init({appId:APP_ID,serviceWorkerPath:base+'OneSignalSDKWorker.js',serviceWorkerParam:{scope:base}});OS=O;
 if(O.Notifications.permission&&O.User.PushSubscription.optedIn)ok()}catch(e){err=String(e&&e.message||e);console.error('OneSignal',e)}});
+})();
+</script>
+<script>
+(function(){var rm=matchMedia('(prefers-reduced-motion:reduce)').matches,hv=matchMedia('(hover:hover)').matches,d=document,B=d.body;
+function T(f){try{f()}catch(e){console.warn(e)}}
+/* hero: kelime kelime acilis */
+T(function(){var h=d.querySelector('.hero h1');if(!h||rm)return;var t=h.textContent.trim().split(/\s+/);h.setAttribute('aria-label',t.join(' '));h.innerHTML=t.map(function(w,i){return'<span class="w" aria-hidden="true" style="--k:'+i+'">'+w+'</span>'}).join(' ');setTimeout(function(){B.classList.add('hw')},7000)});
+/* hero parallax + header golgesi + menu vurgusu */
+T(function(){var hero=d.querySelector('.hero'),wrap=hero&&hero.querySelector('.wrap'),o1=d.querySelector('.orb.o1'),o2=d.querySelector('.orb.o2'),hd=d.querySelector('header'),px=0,py=0,ox=0,oy=0,tk=0;
+function cl(v){return Math.max(-1,Math.min(1,v))}
+function frame(){tk=0;var y=scrollY;if(hd)hd.classList.toggle('sc',y>12);if(!hero||rm)return;var hh=hero.offsetHeight;if(y<hh){if(wrap)wrap.style.translate='0 '+(y*.14).toFixed(1)+'px';var a=px+ox,b=py+oy+y/hh*.6;if(o1)o1.style.translate=(a*-26).toFixed(1)+'px '+(b*-20).toFixed(1)+'px';if(o2)o2.style.translate=(a*34).toFixed(1)+'px '+(b*26).toFixed(1)+'px'}}
+function req(){if(!tk)tk=requestAnimationFrame(frame)}
+addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
+if(hero&&hv)hero.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;req()});
+addEventListener('deviceorientation',function(e){if(e.gamma==null||rm)return;ox=cl(e.gamma/35)*.5;oy=cl((e.beta-45)/35)*.5;req()},{passive:true});
+req();
+var ls={};d.querySelectorAll('nav a[href^="#"]').forEach(function(a){ls[a.getAttribute('href').slice(1)]=a});
+if('IntersectionObserver'in window)d.querySelectorAll('section[id]').forEach(function(sc){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){for(var k in ls)ls[k].classList.remove('act');if(ls[sc.id])ls[sc.id].classList.add('act')}})},{rootMargin:'-40% 0px -55% 0px'}).observe(sc)})});
+/* miknatisli butonlar (fareli cihaz) */
+T(function(){if(!hv||rm)return;var m=null;d.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var b=e.target.closest&&e.target.closest('.btn,.fab');if(m&&m!==b){m.style.translate='';m=null}if(!b)return;b.classList.add('mag');var r=b.getBoundingClientRect();b.style.translate=((e.clientX-r.left-r.width/2)*.18).toFixed(1)+'px '+((e.clientY-r.top-r.height/2)*.28).toFixed(1)+'px';m=b});d.addEventListener('pointerout',function(e){if(m&&!m.contains(e.relatedTarget)){m.style.translate='';m=null}})});
+/* kartlar: isik takibi (dokunmatikte parmagi izler) + fareyle 3D egilme */
+T(function(){var cur=null;function off(c){if(!c)return;c.classList.remove('sp-on');if(c.style.transform){c.style.transition='transform .5s cubic-bezier(.2,.8,.2,1)';c.style.transitionDelay='0s';c.style.transform='';setTimeout(function(){c.style.transition='';c.style.transitionDelay=''},520)}}
+d.addEventListener('pointermove',function(e){var c=e.target.closest&&e.target.closest('.stg>.card,.stg>.n');if(c!==cur){off(cur);cur=c}if(!c||!c.parentNode.classList.contains('in'))return;var sp=c.querySelector(':scope>.spot');if(!sp){sp=d.createElement('i');sp.className='spot';sp.setAttribute('aria-hidden','true');c.appendChild(sp)}var r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');c.classList.add('sp-on');if(e.pointerType==='mouse'&&!rm){c.style.transition='transform .12s ease-out';c.style.transitionDelay='0s';c.style.transform='perspective(900px) translateY(-4px) rotateX('+(-(y/r.height-.5)*7).toFixed(2)+'deg) rotateY('+((x/r.width-.5)*9).toFixed(2)+'deg)'}},{passive:true});
+['pointerout','pointerup','pointercancel'].forEach(function(t){d.addEventListener(t,function(e){if(cur&&(t!=='pointerout'||!cur.contains(e.relatedTarget))){off(cur);cur=null}},{passive:true})})});
+/* galeri: ortadaki one cikar, yanlar geri cekilir */
+T(function(){var g=d.getElementById('gal');if(!g)return;var tk=0;function dep(){tk=0;var r=g.getBoundingClientRect(),c=r.left+r.width/2;[].forEach.call(g.children,function(b){var q=b.getBoundingClientRect(),k=Math.min(1,Math.abs(q.left+q.width/2-c)/(r.width*.62));b.style.setProperty('--s',(1-.09*k).toFixed(3));b.style.setProperty('--o',(1-.5*k).toFixed(3))})}
+function req(){if(!tk)tk=requestAnimationFrame(dep)}g.addEventListener('scroll',req,{passive:true});addEventListener('resize',req);addEventListener('load',req);g.addEventListener('load',req,true);req();
+/* fotograf kucuk resimden buyuyerek acilsin */
+var lb=d.getElementById('lb'),li=lb&&lb.querySelector('img');if(!lb||!li||rm)return;g.addEventListener('click',function(e){var b=e.target.closest('button'),im=b&&b.querySelector('img');if(!im)return;var tr=im.getBoundingClientRect();lb.classList.add('flip');function run(){var lr=li.getBoundingClientRect();if(!lr.width||!tr.width)return;var s=Math.max(tr.width/lr.width,tr.height/lr.height),ix=Math.max(0,(lr.width-tr.width/s)/2),iy=Math.max(0,(lr.height-tr.height/s)/2),dx=tr.left+tr.width/2-(lr.left+lr.width/2),dy=tr.top+tr.height/2-(lr.top+lr.height/2);li.animate([{transform:'translate('+dx+'px,'+dy+'px) scale('+s+')',clipPath:'inset('+iy+'px '+ix+'px round '+(24/s)+'px)'},{transform:'none',clipPath:'inset(0px round 14px)'}],{duration:620,easing:'cubic-bezier(.2,.8,.2,1)'})}
+requestAnimationFrame(function(){if(li.complete&&li.naturalWidth)run();else li.addEventListener('load',run,{once:true})})},true)});
+/* dokunma titresimi (Android) */
+T(function(){if(!navigator.vibrate)return;d.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.btn,.fab,.stg>.n,.stg>.card,.gal button,#mvf,nav a,.menu'))navigator.vibrate(7)},{passive:true})});
 })();
 </script>
 </body></html>
