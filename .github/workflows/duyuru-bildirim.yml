@@ -46,18 +46,8 @@ jobs:
 
           domain = open('CNAME').read().strip() if os.path.exists('CNAME') else ''
           site = ('https://' + domain) if domain else ''
-          for o in yeni:
-              baslik = str(o.get('baslik', 'Yeni duyuru')).strip()
-              govde = str(o.get('aciklama') or o.get('aciklamasi') or o.get('metin') or o.get('icerik') or o.get('tarih') or '').strip()[:140]
-              body = {
-                  'app_id': os.environ['ONESIGNAL_APP_ID'],
-                  'target_channel': 'push',
-                  'included_segments': ['Subscribed Users'],
-                  'headings': {'en': baslik, 'tr': baslik},
-                  'contents': {'en': govde or 'Yeni duyuru yayında', 'tr': govde or 'Yeni duyuru yayında'},
-              }
-              if site:
-                  body['url'] = site + '/#duyurular'
+
+          def gonder(body):
               req = urllib.request.Request(
                   'https://api.onesignal.com/notifications?c=push',
                   data=json.dumps(body).encode('utf-8'),
@@ -66,7 +56,34 @@ jobs:
                   method='POST')
               try:
                   with urllib.request.urlopen(req) as r:
-                      print('Gönderildi:', baslik, r.status, r.read().decode('utf-8'))
+                      return r.status, json.loads(r.read().decode('utf-8') or '{}')
               except urllib.error.HTTPError as e:
-                  print('HATA:', baslik, e.code, e.read().decode('utf-8'))
+                  return e.code, {'hata': e.read().decode('utf-8')}
+
+          hedefler = ['Subscribed Users', 'Total Subscriptions', 'Active Subscriptions', 'All']
+          for o in yeni:
+              baslik = str(o.get('baslik', 'Yeni duyuru')).strip()
+              govde = str(o.get('aciklama') or o.get('aciklamasi') or o.get('metin') or o.get('icerik') or o.get('tarih') or '').strip()[:140]
+              temel = {
+                  'app_id': os.environ['ONESIGNAL_APP_ID'],
+                  'headings': {'en': baslik, 'tr': baslik},
+                  'contents': {'en': govde or 'Yeni duyuru yayında', 'tr': govde or 'Yeni duyuru yayında'},
+              }
+              if site:
+                  temel['url'] = site + '/#duyurular'
+              basari = False
+              for hedef in hedefler:
+                  for kanal in (True, False):
+                      body = dict(temel)
+                      body['included_segments'] = [hedef]
+                      if kanal:
+                          body['target_channel'] = 'push'
+                      kod, cevap = gonder(body)
+                      print('Deneme:', baslik, '| hedef:', hedef, '| kanal:', kanal, '|', kod, json.dumps(cevap, ensure_ascii=False))
+                      if cevap.get('id'):
+                          basari = True
+                          break
+                  if basari:
+                      break
+              print('SONUC:', baslik, 'GÖNDERİLDİ' if basari else 'HİÇBİR HEDEFE ULAŞMADI')
           PY
